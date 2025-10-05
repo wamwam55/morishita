@@ -1,0 +1,37 @@
+# robots.txt for morishita-tax.jp
+# 森下知幸税理士事務所
+
+# 全てのクローラーに対する設定
+User-agent: *
+Allow: /
+Disallow: /js/
+Disallow: /css/
+Disallow: /theme/
+Disallow: /components/*/*.js
+Disallow: /components/*//*.css
+Disallow: /*.json$
+Disallow: /emailjs-template-sample.txt
+Disallow: /CLAUDE.md
+Disallow: /uploads/temp/
+
+# Googlebot向けの設定
+User-agent: Googlebot
+Allow: /
+Allow: /*.css$
+Allow: /*.js$
+Crawl-delay: 0
+
+# Bingbot向けの設定
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# サイトマップの場所
+Sitemap: https://morishita-tax.jp/sitemap.xml
+
+# 重要なページへのヒント（コメント）
+# メインページ: /
+# 事務所紹介: /#about
+# サービス内容: /#programs
+# 料金体系: /#pricing
+# アクセス・お問い合わせ: /#access
