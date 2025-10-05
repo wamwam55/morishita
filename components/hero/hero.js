@@ -41,7 +41,7 @@
             
             // ビデオソースを設定（ローカルファイル）
             const source = document.createElement('source');
-            source.src = 'videos/hero-video-1.mp4';
+            source.src = 'videos/0921(3).mp4';
             source.type = 'video/mp4';
             
             video.appendChild(source);
@@ -65,20 +65,6 @@
                 // ローカルビデオの再生失敗時のログ
                 console.error('Local video playback failed');
             });
-
-            // ループ再生の確実な実装（黒画面防止）
-            video.addEventListener('ended', function() {
-                video.currentTime = 0;
-                video.play();
-            });
-
-            // 動画の読み込みエラー時の処理
-            video.addEventListener('error', function(e) {
-                console.error('Video error:', e);
-            });
-
-            // プリロードを設定して黒画面を防ぐ
-            video.preload = 'auto';
         }
 
         // リンクのスムーススクロール機能
