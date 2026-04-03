@@ -374,8 +374,8 @@
 /* 代表税理士画像専用スタイル */
 #instructor-image-container .slide-img {
     transition: transform 8s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.8s ease;
-    object-position: center top;
-    filter: brightness(1.02) contrast(1.05);
+    object-position: center 20%;
+    filter: brightness(1.05) contrast(1.08);
 }
 
 .instructor .slide-img {
