@@ -232,12 +232,8 @@
     width: 100%;
     margin-bottom: 3rem;
     min-height: 450px;
-    display: none;
-    align-items: center;
-}
-
-.about-slide.active {
     display: flex;
+    align-items: center;
 }
 
 .slide-content {
@@ -854,66 +850,13 @@
     }
 }
 
-/* スライドナビゲーション */
+/* ナビゲーションとプログレスバーは非表示 */
 .slide-navigation {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    display: none;
 }
 
-.slide-nav-btn {
-    background: none;
-    border: 1px solid rgba(139, 121, 98, 0.3);
-    padding: 0.6rem 1.2rem;
-    border-radius: 30px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
-    color: #8b7962;
-    font-size: 0.85rem;
-}
-
-.slide-nav-btn:hover {
-    background: rgba(139, 121, 98, 0.1);
-    border-color: rgba(139, 121, 98, 0.5);
-}
-
-.slide-nav-btn.active {
-    background: #8b7962;
-    border-color: #8b7962;
-    color: #fff;
-}
-
-.slide-nav-btn .nav-number {
-    font-weight: 600;
-    font-size: 0.75rem;
-}
-
-.slide-nav-btn .nav-title {
-    font-size: 0.8rem;
-    letter-spacing: 0.05em;
-}
-
-/* プログレスバー */
 .slide-progress {
-    width: 100%;
-    height: 2px;
-    background: rgba(139, 121, 98, 0.1);
-    border-radius: 1px;
-    overflow: hidden;
-    margin-bottom: 2rem;
-}
-
-.progress-bar {
-    height: 100%;
-    background: #8b7962;
-    border-radius: 1px;
-    transition: width 0.5s ease;
-    width: 25%;
+    display: none;
 }
 
 /* レスポンシブデザイン */

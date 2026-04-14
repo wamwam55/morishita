@@ -6,115 +6,16 @@
         const aboutSection = document.querySelector('.about-section');
         if (!aboutSection) return;
 
-        // スライドショーの初期化
-        initSlideshow();
-
         // スクロール連動アニメーションの初期化
         initScrollAnimations();
-
+        
         // パララックス効果の初期化
         initParallaxEffect();
-
+        
         // 設定の適用
         if (window.aboutConfig) {
             applyAboutConfig(window.aboutConfig);
         }
-    }
-
-    // スライドショー切り替え
-    function initSlideshow() {
-        const slides = document.querySelectorAll('.about-slide');
-        const navBtns = document.querySelectorAll('.slide-nav-btn');
-        const progressBar = document.getElementById('aboutProgressBar');
-        if (!slides.length || !navBtns.length) return;
-
-        let currentSlide = 1;
-        let autoTimer = null;
-
-        function showSlide(num) {
-            slides.forEach(s => {
-                s.classList.remove('active');
-                // アニメーションをリトリガー
-                const text = s.querySelector('.slide-text');
-                const image = s.querySelector('.slide-image');
-                if (text) { text.classList.remove('in-view'); text.style.animation = ''; }
-                if (image) { image.classList.remove('in-view'); image.style.animation = ''; }
-            });
-            navBtns.forEach(b => b.classList.remove('active'));
-
-            const target = document.querySelector('.about-slide[data-slide="' + num + '"]');
-            const btn = document.querySelector('.slide-nav-btn[data-slide="' + num + '"]');
-            if (target) {
-                target.classList.add('active');
-                // アニメーション再適用
-                setTimeout(() => {
-                    const text = target.querySelector('.slide-text');
-                    const image = target.querySelector('.slide-image');
-                    if (text) {
-                        text.classList.add('in-view');
-                        text.style.animation = 'floatIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
-                        const descriptions = text.querySelectorAll('.slide-description');
-                        descriptions.forEach((desc, i) => {
-                            setTimeout(() => {
-                                desc.style.opacity = '0';
-                                desc.style.transform = 'translateX(-20px)';
-                                desc.style.animation = 'fadeUpRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
-                            }, 100 * (i + 1));
-                        });
-                    }
-                    if (image) {
-                        image.classList.add('in-view');
-                        image.style.animation = 'slideInRotate 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
-                    }
-                }, 50);
-            }
-            if (btn) btn.classList.add('active');
-            if (progressBar) {
-                progressBar.style.width = (num / slides.length * 100) + '%';
-            }
-            currentSlide = num;
-        }
-
-        // ナビボタンのクリック
-        navBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const num = parseInt(btn.dataset.slide);
-                showSlide(num);
-                resetAutoPlay();
-            });
-        });
-
-        // 自動切り替え
-        function startAutoPlay() {
-            autoTimer = setInterval(() => {
-                let next = currentSlide + 1;
-                if (next > slides.length) next = 1;
-                showSlide(next);
-            }, 8000);
-        }
-
-        function resetAutoPlay() {
-            if (autoTimer) clearInterval(autoTimer);
-            startAutoPlay();
-        }
-
-        // 初期表示
-        showSlide(1);
-        startAutoPlay();
-
-        // セクションが見えていないときは自動切り替え停止
-        const sectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    resetAutoPlay();
-                } else {
-                    if (autoTimer) clearInterval(autoTimer);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        const slideshow = document.querySelector('.about-slideshow');
-        if (slideshow) sectionObserver.observe(slideshow);
     }
 
     // スクロール連動アニメーション
