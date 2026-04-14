@@ -140,8 +140,8 @@
             slideObserver.observe(slide);
         });
         
-        // 資格認定セクションのアニメーション監視
-        const certObserver = new IntersectionObserver((entries) => {
+        // パートナーセクションのアニメーション監視
+        const partnerObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('in-view');
@@ -150,14 +150,36 @@
                 }
             });
         }, {
-            threshold: 0.2,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
         });
-        
-        const certContainer = document.querySelector('.certifications-elegant');
-        if (certContainer) {
-            certObserver.observe(certContainer);
-        }
+
+        // パートナーヒーロー
+        const partnerHero = document.querySelector('.partner-hero');
+        if (partnerHero) partnerObserver.observe(partnerHero);
+
+        // 3本柱カード（staggered）
+        const pillarCards = document.querySelectorAll('.pillar-card');
+        const pillarObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const idx = parseInt(entry.target.dataset.pillar) || 1;
+                    setTimeout(() => {
+                        entry.target.classList.add('in-view');
+                    }, (idx - 1) * 200);
+                } else if (entry.boundingClientRect.top > 0) {
+                    entry.target.classList.remove('in-view');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -60px 0px'
+        });
+        pillarCards.forEach(card => pillarObserver.observe(card));
+
+        // CTAセクション
+        const partnerCta = document.querySelector('.partner-cta');
+        if (partnerCta) partnerObserver.observe(partnerCta);
     }
 
     // パララックス効果
