@@ -1755,9 +1755,10 @@
 
 .contact-inquiry-section {
     margin: 4rem auto 2rem;
-    max-width: 1080px;
-    padding: 0 2rem;
+    max-width: 1180px;
+    padding: 3rem 2.5rem;
     opacity: 1;
+    box-sizing: border-box;
 }
 
 .contact-inquiry-section.cis-visible {
@@ -1769,7 +1770,7 @@
 .cis-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    gap: 4rem;
     align-items: start;
 }
 
@@ -1931,6 +1932,10 @@
 
 .inquiry-form-wrapper {
     background: #fff;
+    padding: 2rem 2.25rem;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
 }
 
 .inquiry-form {
