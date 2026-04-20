@@ -1865,25 +1865,35 @@
     font-family: 'Noto Serif JP', serif;
 }
 
-.contact-item-value {
+.contact-inquiry-section .contact-item-value {
     display: inline-block;
     font-size: 1.45rem;
     font-weight: 300;
-    color: #1a1a1a;
+    color: #1a1a1a !important;
+    -webkit-text-fill-color: #1a1a1a !important;
     text-decoration: none;
     letter-spacing: 0.08em;
     transition: color 0.25s ease;
     font-family: 'Noto Serif JP', serif;
 }
 
-.contact-item-value:hover {
-    color: #5D9B9B;
+.contact-inquiry-section .contact-item-value:hover {
+    color: #5D9B9B !important;
+    -webkit-text-fill-color: #5D9B9B !important;
 }
 
-.email-primary {
+.contact-inquiry-section .email-primary {
     font-size: 0.95rem !important;
     letter-spacing: 0.03em !important;
     word-break: break-all;
+}
+
+.contact-inquiry-section .inquiry-subtitle,
+.contact-inquiry-section .contact-item-note,
+.contact-inquiry-section .contact-item-sub,
+.contact-inquiry-section .inquiry-description p {
+    color: #666 !important;
+    -webkit-text-fill-color: #666 !important;
 }
 
 .contact-item-note {
