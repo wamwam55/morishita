@@ -420,89 +420,120 @@
 
         <!-- Contact Section - まずはお気軽にご相談ください -->
         <div class="contact-inquiry-section">
-            <div class="inquiry-header">
-                <h3 class="inquiry-title">まずはお気軽にご相談ください</h3>
-                <p class="inquiry-subtitle">お電話でのご相談・お問い合わせも歓迎しております。お気軽にご連絡ください。</p>
-            </div>
+            <div class="cis-inner">
 
-            <div class="inquiry-info-boxes">
-                <!-- 連絡先情報 -->
-                <div class="inquiry-contact-box">
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <div class="method-label">TEL</div>
-                            <a href="tel:090-5469-4666" class="method-value phone-primary">
-                                090-5469-4666
-                            </a>
+                <!-- 左カラム：ヘッダー＋連絡先 -->
+                <div class="cis-left">
+                    <div class="inquiry-header">
+                        <span class="inquiry-label">CONTACT</span>
+                        <h3 class="inquiry-title">まずはお気軽に<br>ご相談ください</h3>
+                        <div class="inquiry-title-line"></div>
+                        <p class="inquiry-subtitle">お電話でのご相談・お問い合わせも歓迎しております。<br>どうぞお気軽にご連絡ください。</p>
+                    </div>
+
+                    <div class="inquiry-contact-info">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+                            </div>
+                            <div class="contact-item-body">
+                                <div class="contact-item-label">TEL</div>
+                                <a href="tel:090-5469-4666" class="contact-item-value phone-primary">090-5469-4666</a>
+                                <div class="contact-item-note">受付時間 9:00〜17:30<br><span class="contact-item-sub">土日祝日除く（営業時間外もご相談の上、対応）</span></div>
+                            </div>
                         </div>
-                        <div class="contact-method">
-                            <div class="method-label">EMAIL</div>
-                            <a href="mailto:info@morishita-tax.jp" class="method-value email-primary" data-email="info@morishita-tax.jp">
-                                <span>info</span><span>@</span><span>morishita-tax.jp</span>
-                            </a>
+
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <div class="contact-item-body">
+                                <div class="contact-item-label">EMAIL</div>
+                                <a href="mailto:info@morishita-tax.jp" class="contact-item-value email-primary" data-email="info@morishita-tax.jp">
+                                    <span>info</span><span>@</span><span>morishita-tax.jp</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="business-hours">
-                        <p>電話受付時間 9:00〜17:30 / 土日祝日除く</p>
-                        <p class="hours-note">（営業時間外もご相談の上、対応しております）</p>
+
+                    <div class="inquiry-description">
+                        <p>下記フォームに必要事項をご記入の上、送信ボタンを押してください。自動返信メールの後、担当よりご回答いたします。</p>
                     </div>
                 </div>
-            </div>
 
-            <div class="inquiry-description">
-                <p>Webからのお問い合わせは下記のフォームに必要事項をご記入いただきご確認の上、送信ボタンを押してください。</p>
-                <p>自動返信メールをお送りした後、担当よりメールまたは電話でご回答させていただきます。</p>
-            </div>
+                <!-- 右カラム：フォーム -->
+                <div class="cis-right">
+                    <div class="inquiry-form-wrapper">
+                        <form class="inquiry-form" id="inquiry-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="company" class="required">御社名</label>
+                                    <input type="text" id="company" name="company" placeholder="株式会社○○" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name" class="required">お名前</label>
+                                    <input type="text" id="name" name="name" placeholder="山田 太郎" required>
+                                </div>
+                            </div>
 
-            <!-- Contact Form -->
-            <div class="inquiry-form-wrapper">
-                <form class="inquiry-form" id="inquiry-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="company" class="required">御社名</label>
-                            <input type="text" id="company" name="company" placeholder="株式会社○○" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="name" class="required">お名前</label>
-                            <input type="text" id="name" name="name" placeholder="山田 太郎" required>
-                        </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone" class="required">電話番号</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="090-1234-5678" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="required">メールアドレス</label>
+                                    <input type="email" id="email" name="email" placeholder="example@company.com" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="inquiry-type" class="required">お問い合わせ内容</label>
+                                <select id="inquiry-type" name="inquiry-type" required>
+                                    <option value="">選択してください</option>
+                                    <option value="tax-and-labor">税務・労務の総合顧問（ワンストップ対応）</option>
+                                    <option value="tax-consultation">税務・会計のご相談</option>
+                                    <option value="labor-consultation">労務・社会保険に関するご相談</option>
+                                    <option value="inheritance">相続税・事業承継</option>
+                                    <option value="startup">開業・起業サポート</option>
+                                    <option value="other">その他</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="message" class="required">お問い合わせ詳細</label>
+                                <textarea id="message" name="message" rows="6" placeholder="ご相談内容をご記入ください" required></textarea>
+                            </div>
+
+                            <div class="form-submit">
+                                <button type="submit" class="submit-btn">送信する</button>
+                            </div>
+                        </form>
                     </div>
+                </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone" class="required">電話番号</label>
-                            <input type="tel" id="phone" name="phone" placeholder="090-1234-5678" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="required">メールアドレス</label>
-                            <input type="email" id="email" name="email" placeholder="example@company.com" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label for="inquiry-type" class="required">お問い合わせ内容</label>
-                        <select id="inquiry-type" name="inquiry-type" required>
-                            <option value="">選択してください</option>
-                            <option value="tax-and-labor">税務・労務の総合顧問（ワンストップ対応）</option>
-                            <option value="tax-consultation">税務・会計のご相談</option>
-                            <option value="labor-consultation">労務・社会保険に関するご相談</option>
-                            <option value="inheritance">相続税・事業承継</option>
-                            <option value="startup">開業・起業サポート</option>
-                            <option value="other">その他</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label for="message" class="required">お問い合わせ詳細</label>
-                        <textarea id="message" name="message" rows="6" placeholder="ご相談内容をご記入ください" required></textarea>
-                    </div>
-
-                    <div class="form-submit">
-                        <button type="submit" class="submit-btn">送信する</button>
-                    </div>
-                </form>
             </div>
         </div>
+
+        <script>
+        (function() {
+            var section = document.querySelector('.contact-inquiry-section');
+            if (!section) return;
+            if (!('IntersectionObserver' in window)) {
+                section.classList.add('cis-visible');
+                return;
+            }
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('cis-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            observer.observe(section);
+        })();
+        </script>
 
     </div>
 </section>
