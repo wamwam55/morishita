@@ -33,7 +33,7 @@
         {
             "name": "pricing",
             "path": "components/pricing",
-            "enabled": false,
+            "enabled": true,
             "order": 5,
             "description": "料金プランセクション"
         },
