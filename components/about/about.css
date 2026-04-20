@@ -1757,9 +1757,7 @@
     margin: 4rem auto 2rem;
     max-width: 1080px;
     padding: 0 2rem;
-    opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    opacity: 1;
 }
 
 .contact-inquiry-section.cis-visible {
