@@ -287,6 +287,7 @@
                 { text: 'HOME', href: '#hero' },
                 { text: '事務所紹介', href: '#about' },
                 { text: '事業内容', href: '#about-services' },
+                { text: '料金案内', href: '#pricing' },
                 { text: 'お問い合わせ', href: '#contact-flow' },
                 { text: 'ACCESS', href: '#access' }
             ];
