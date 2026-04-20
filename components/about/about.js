@@ -180,6 +180,51 @@
         // CTAセクション
         const partnerCta = document.querySelector('.partner-cta');
         if (partnerCta) partnerObserver.observe(partnerCta);
+
+        // お問い合わせフロー — ヘッダー
+        const flowHeader = document.querySelector('.flow-header');
+        if (flowHeader) {
+            const flowHeaderObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        flowHeaderObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3, rootMargin: '0px 0px -40px 0px' });
+            flowHeaderObserver.observe(flowHeader);
+        }
+
+        // お問い合わせフロー — コネクターライン
+        const connectorLine = document.querySelector('.flow-connector-line');
+        if (connectorLine) {
+            const connectorObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        connectorObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+            connectorObserver.observe(connectorLine);
+        }
+
+        // お問い合わせフロー — ステップカード（stagger）
+        const flowSteps = document.querySelectorAll('.flow-step');
+        if (flowSteps.length) {
+            const flowStepObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const stepIndex = parseInt(entry.target.dataset.step) || 1;
+                        setTimeout(() => {
+                            entry.target.classList.add('in-view');
+                        }, (stepIndex - 1) * 150);
+                        flowStepObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+            flowSteps.forEach(step => flowStepObserver.observe(step));
+        }
     }
 
     // パララックス効果

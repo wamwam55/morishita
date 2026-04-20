@@ -968,492 +968,245 @@
 }
 
 
-/* Contact Flow Section */
+/* =============================================
+   Contact Flow Section — 2026 Premium Design
+   ============================================= */
+
 .contact-flow-section {
-    margin: 4rem auto;
-    padding: 4rem var(--container-padding, 20px);
-    max-width: 1400px;
+    margin: 5rem auto;
+    padding: 5rem var(--container-padding, 40px);
+    max-width: 1200px;
     position: relative;
-    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
-    border-radius: 12px;
+    background: #ffffff;
 }
 
+/* ヘッダー */
 .flow-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 4.5rem;
     opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1s ease forwards;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.flow-title {
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    font-weight: 200;
-    color: #1a1a1a;
-    margin: 0 0 0.5rem;
-    letter-spacing: 0.2em;
+.flow-header.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.flow-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    color: #5D9B9B;
+    font-weight: 400;
+    margin: 0 0 1rem;
     text-transform: uppercase;
     font-family: 'Noto Serif JP', serif;
 }
 
-.flow-subtitle {
-    font-size: clamp(0.8rem, 1vw, 0.95rem);
-    color: #666;
-    font-weight: 300;
+.flow-title {
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+    font-weight: 200;
+    color: #1a1a1a;
+    margin: 0 0 1rem;
     letter-spacing: 0.2em;
+    font-family: 'Noto Serif JP', serif;
+    line-height: 1.4;
+}
+
+.flow-subtitle {
+    font-size: 0.875rem;
+    color: #888;
+    font-weight: 300;
+    letter-spacing: 0.08em;
     margin: 0;
+    font-family: 'Noto Serif JP', serif;
 }
 
-.flow-steps {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-bottom: 4rem;
-}
-
-.flow-step {
-    flex: 1;
-    min-width: 200px;
-    text-align: center;
-    padding: 2rem 1rem;
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 1) 0%,
-        rgba(250, 252, 252, 0.95) 100%);
-    border-radius: 16px;
-    box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.05),
-        0 2px 10px rgba(93, 155, 155, 0.1);
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    opacity: 0;
-    transform: translateY(50px) scale(0.9) rotateX(10deg);
-    animation: luxuryFlowStepIn 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: calc(var(--step) * 0.3s);
+/* トラック（コネクターライン + ステップ包含） */
+.flow-track {
     position: relative;
-    overflow: hidden;
-    transform-style: preserve-3d;
-    perspective: 1000px;
 }
 
-/* グラデーションアニメーション背景 */
-.flow-step::before {
-    content: '';
+/* コネクターライン（デスクトップ） */
+.flow-connector-line {
+    display: none;
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center,
-        rgba(93, 155, 155, 0.1) 0%,
-        transparent 70%);
-    animation: rotateGradient 20s linear infinite;
-    opacity: 0;
-    transition: opacity 0.6s ease;
+    top: 52px;
+    left: calc(12.5% + 8px);
+    right: calc(12.5% + 8px);
+    height: 1px;
+    background: #e8e8e8;
     z-index: 0;
+    overflow: hidden;
 }
 
-/* シマーエフェクト */
-.flow-step::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg,
-        transparent,
-        rgba(255, 255, 255, 0.5),
-        transparent);
-    transition: left 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    z-index: 1;
-    pointer-events: none;
-}
-
-.flow-step[data-step="1"] { --step: 0; }
-.flow-step[data-step="2"] { --step: 1; }
-.flow-step[data-step="3"] { --step: 2; }
-.flow-step[data-step="4"] { --step: 3; }
-
-/* 豪華なエントランスアニメーション */
-@keyframes luxuryFlowStepIn {
-    0% {
-        opacity: 0;
-        transform: translateY(50px) scale(0.9) rotateX(10deg);
-        filter: blur(10px);
-    }
-    50% {
-        filter: blur(5px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1) rotateX(0deg);
-        filter: blur(0);
-    }
-}
-
-@keyframes rotateGradient {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* ホバーアニメーション */
-.flow-step:hover {
-    transform: translateY(-15px) scale(1.05) rotateX(-5deg);
-    box-shadow: 
-        0 20px 60px rgba(93, 155, 155, 0.25),
-        0 10px 30px rgba(0, 0, 0, 0.1),
-        inset 0 0 30px rgba(93, 155, 155, 0.05);
-}
-
-.flow-step:hover::before {
-    opacity: 1;
-}
-
-.flow-step:hover::after {
-    left: 100%;
-}
-
-.step-number {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 2;
-}
-
-/* STEPラベルのアニメーション */
-.step-label {
-    font-size: 0.7rem;
-    color: #5D9B9B;
-    letter-spacing: 0.3em;
-    font-weight: 600;
-    opacity: 0;
-    transform: translateY(-10px);
-    animation: labelFadeIn 0.6s ease forwards;
-    animation-delay: calc(var(--step) * 0.3s + 0.3s);
-}
-
-/* 数字の豪華なアニメーション */
-.step-digit {
-    font-size: 3rem;
-    font-weight: 100;
-    background: linear-gradient(135deg, #5D9B9B 0%, #6DADAD 50%, #4D8B8B 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-    opacity: 0;
-    transform: scale(0) rotate(-180deg);
-    animation: digitReveal 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: calc(var(--step) * 0.3s + 0.4s);
-}
-
-@keyframes labelFadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes digitReveal {
-    to {
-        opacity: 1;
-        transform: scale(1) rotate(0deg);
-    }
-}
-
-/* 数字の光沢エフェクト */
-.step-digit::after {
-    content: attr(data-digit);
+.flow-connector-progress {
     position: absolute;
     top: 0;
     left: 0;
-    background: linear-gradient(135deg, 
-        transparent 30%,
-        rgba(255, 255, 255, 0.5) 50%,
-        transparent 70%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: digitShimmer 3s linear infinite;
+    height: 100%;
+    width: 0%;
+    background: #5D9B9B;
+    transition: width 1.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes digitShimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+/* ステップ群 */
+.flow-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* 個別ステップ */
+.flow-step {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.flow-step.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ステップ内側カード */
+.step-inner {
+    background: #ffffff;
+    border: 1px solid #ebebeb;
+    border-left: 3px solid #5D9B9B;
+    border-radius: 2px;
+    padding: 2rem 1.5rem 1.75rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                border-color 0.3s ease;
+}
+
+.flow-step:hover .step-inner {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 36px rgba(93, 155, 155, 0.1), 0 4px 12px rgba(0, 0, 0, 0.04);
+    border-left-color: #4a8888;
+}
+
+/* ステップ番号 */
+.step-number-wrap {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+}
+
+.step-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    color: #5D9B9B;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+    font-family: 'Noto Serif JP', serif;
+}
+
+.step-digit {
+    font-size: 2.6rem;
+    font-weight: 200;
     color: #5D9B9B;
     line-height: 1;
-    margin-top: 0.2rem;
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: -0.02em;
 }
 
+/* アイコン */
 .step-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 1.5rem;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, 
-        rgba(93, 155, 155, 0.1) 0%,
-        rgba(93, 155, 155, 0.05) 100%);
+    background: rgba(93, 155, 155, 0.07);
     border-radius: 50%;
     color: #5D9B9B;
-    position: relative;
-    z-index: 2;
-    opacity: 0;
-    transform: scale(0) rotate(-90deg);
-    animation: iconReveal 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: calc(var(--step) * 0.3s + 0.5s);
-    box-shadow: 
-        0 4px 20px rgba(93, 155, 155, 0.15),
-        inset 0 0 20px rgba(93, 155, 155, 0.05);
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-/* アイコンのパルスアニメーション */
-.step-icon::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 2px solid rgba(93, 155, 155, 0.3);
-    animation: iconPulse 3s ease-in-out infinite;
-    animation-delay: calc(var(--step) * 0.3s + 1s);
-}
-
-@keyframes iconReveal {
-    to {
-        opacity: 1;
-        transform: scale(1) rotate(0deg);
-    }
-}
-
-@keyframes iconPulse {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.2);
-        opacity: 0;
-    }
+    margin-bottom: 1.25rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+    flex-shrink: 0;
 }
 
 .flow-step:hover .step-icon {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 
-        0 8px 30px rgba(93, 155, 155, 0.25),
-        inset 0 0 30px rgba(93, 155, 155, 0.1);
+    background: rgba(93, 155, 155, 0.13);
+    transform: scale(1.08);
 }
 
+/* タイトル */
 .step-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin: 0 0 1rem;
-    letter-spacing: 0.05em;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: contentSlideUp 0.6s ease forwards;
-    animation-delay: calc(var(--step) * 0.3s + 0.6s);
-    position: relative;
-    z-index: 2;
-}
-
-.step-description {
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.5;
-    margin: 0;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: contentSlideUp 0.6s ease forwards;
-    animation-delay: calc(var(--step) * 0.3s + 0.7s);
-    position: relative;
-    z-index: 2;
-}
-
-@keyframes contentSlideUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ホバー時のテキストエフェクト */
-.flow-step:hover .step-title {
-    color: #5D9B9B;
-    transform: translateY(-2px);
-}
-
-.flow-step:hover .step-description {
-    color: #333;
-}
-
-.flow-arrow {
-    flex: 0 0 auto;
-    color: #5D9B9B;
-    opacity: 0;
-    transform: scale(0) translateX(-20px);
-    animation: arrowReveal 0.5s ease forwards;
-    animation-delay: calc(var(--step) * 0.3s + 0.8s);
-    position: relative;
-}
-
-/* 矢印のグローエフェクト */
-.flow-arrow::after {
-    content: '→';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.5em;
-    animation: arrowGlow 2s ease-in-out infinite;
-    animation-delay: calc(var(--step) * 0.3s + 1s);
-}
-
-@keyframes arrowReveal {
-    to {
-        opacity: 0.5;
-        transform: scale(1) translateX(0);
-    }
-}
-
-@keyframes arrowGlow {
-    0%, 100% {
-        transform: translate(-50%, -50%) translateX(0);
-        text-shadow: 0 0 10px rgba(93, 155, 155, 0.3);
-    }
-    50% {
-        transform: translate(-50%, -50%) translateX(5px);
-        text-shadow: 0 0 20px rgba(93, 155, 155, 0.6);
-    }
-}
-
-.flow-cta {
-    text-align: center;
-    padding: 3rem 2rem;
-    background: linear-gradient(135deg, #5D9B9B10, transparent);
-    border-radius: 12px;
-}
-
-.flow-cta-text {
-    font-size: 1.2rem;
-    color: #333;
-    margin: 0 0 2rem;
-    font-weight: 300;
-    letter-spacing: 0.05em;
-}
-
-.flow-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.flow-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    text-decoration: none;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0 0 0.6rem;
     letter-spacing: 0.05em;
-    transition: all 0.3s ease;
+    font-family: 'Noto Serif JP', serif;
+    line-height: 1.4;
 }
 
-.flow-button-primary {
-    background: linear-gradient(135deg, #5D9B9B, #4A7C7E);
-    color: white;
-    box-shadow: 0 4px 20px rgba(93, 155, 155, 0.3);
+/* 説明文 */
+.step-description {
+    font-size: 0.8rem;
+    color: #888;
+    line-height: 1.75;
+    margin: 0;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    font-family: 'Noto Serif JP', serif;
 }
 
-.flow-button-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 30px rgba(93, 155, 155, 0.4);
-}
+/* =============================================
+   Responsive
+   ============================================= */
 
-.flow-button-secondary {
-    background: white;
-    color: #5D9B9B;
-    border: 2px solid #5D9B9B;
-}
-
-.flow-button-secondary:hover {
-    background: #5D9B9B;
-    color: white;
-    transform: translateY(-2px);
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-    .flow-steps {
-        flex-direction: column;
+@media (min-width: 900px) {
+    .flow-connector-line {
+        display: block;
     }
-    
-    .flow-arrow {
-        transform: rotate(90deg);
-    }
-    
-    .flow-step {
+
+    .flow-connector-line.in-view .flow-connector-progress {
         width: 100%;
-        max-width: 400px;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 899px) {
     .contact-flow-section {
-        padding: 3rem 1rem;
+        padding: 4rem var(--container-padding, 24px);
     }
-    
+
     .flow-steps {
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 540px) {
+    .contact-flow-section {
+        padding: 3rem 1.25rem;
+    }
+
+    .flow-header {
+        margin-bottom: 3rem;
+    }
+
+    .flow-steps {
+        grid-template-columns: 1fr;
         gap: 1rem;
-        flex-direction: row;
     }
-    
-    .flow-step {
-        min-width: unset;
-        width: 100%;
-        max-width: unset;
-        padding: 1.5rem 0.5rem;
+
+    .step-inner {
+        padding: 1.5rem 1.25rem;
     }
-    
-    .flow-arrow {
-        display: none;
-    }
-    
-    .step-title {
-        font-size: 1rem;
-    }
-    
-    .step-description {
-        font-size: 0.85rem;
-    }
-    
-    .step-icon {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .step-number {
-        margin-bottom: 1rem;
-    }
-    
-    .flow-buttons {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .flow-button {
-        justify-content: center;
+
+    .step-digit {
+        font-size: 2.2rem;
     }
 }
 
