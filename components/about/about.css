@@ -1750,187 +1750,144 @@
 
 
 /* ========================================
-   お問い合わせセクション - 2026プレミアムデザイン
+   お問い合わせセクション - まずはお気軽にご相談ください
    ======================================== */
 
 .contact-inquiry-section {
-    margin: 4rem auto 2rem;
-    max-width: 1080px;
-    padding: 0 2rem;
-    opacity: 1;
-}
-
-.contact-inquiry-section.cis-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* 2カラムレイアウト */
-.cis-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
-}
-
-/* ---- 左カラム ---- */
-.cis-left {
-    padding-top: 0.5rem;
-}
-
-.inquiry-label {
-    display: block;
-    font-size: 0.72rem;
-    font-weight: 400;
-    letter-spacing: 0.3em;
-    color: #5D9B9B;
-    margin-bottom: 1rem;
-    font-family: 'Noto Serif JP', serif;
+    margin: 2rem auto 2rem;
+    max-width: 1000px;
+    padding: 2rem 2rem;
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(250, 252, 252, 0.98) 100%);
+    border-radius: 20px;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.05),
+        0 2px 10px rgba(93, 155, 155, 0.1);
 }
 
 .inquiry-header {
-    margin-bottom: 2.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
 }
 
 .inquiry-title {
-    font-size: 1.85rem;
-    font-weight: 200;
+    font-size: 2rem;
+    font-weight: 500;
     color: #1a1a1a;
-    margin: 0 0 1.2rem;
-    letter-spacing: 0.15em;
-    line-height: 1.55;
-    font-family: 'Noto Serif JP', serif;
-}
-
-.inquiry-title-line {
-    width: 40px;
-    height: 1px;
-    background: #5D9B9B;
-    margin-bottom: 1.4rem;
-}
-
-.inquiry-subtitle {
-    font-size: 0.88rem;
-    color: #888;
-    line-height: 1.9;
-    margin: 0;
-    font-weight: 300;
+    margin: 0 0 1rem;
     letter-spacing: 0.05em;
 }
 
-/* 連絡先アイテム */
-.inquiry-contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1.8rem;
-    margin-bottom: 2.5rem;
-    padding-top: 0.5rem;
+.inquiry-subtitle {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
 }
 
-.contact-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
+/* 連絡先情報ボックス */
+.inquiry-info-boxes {
+    margin-bottom: 1.5rem;
 }
 
-.contact-item-icon {
-    flex-shrink: 0;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(93, 155, 155, 0.35);
-    border-radius: 50%;
-    color: #5D9B9B;
-    margin-top: 2px;
+.inquiry-contact-box {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 2px solid #5D9B9B;
 }
 
-.contact-item-icon svg {
-    width: 15px;
-    height: 15px;
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
-.contact-item-body {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+.contact-method {
+    text-align: center;
 }
 
-.contact-item-label {
-    font-size: 0.68rem;
-    font-weight: 400;
-    letter-spacing: 0.25em;
-    color: #5D9B9B;
-    font-family: 'Noto Serif JP', serif;
-}
-
-.contact-inquiry-section .contact-item-value {
+.method-label {
     display: inline-block;
-    font-size: 1.45rem;
-    font-weight: 300;
-    color: #1a1a1a !important;
-    -webkit-text-fill-color: #1a1a1a !important;
+    background: #5D9B9B;
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.8rem;
+}
+
+.method-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
     text-decoration: none;
-    letter-spacing: 0.08em;
-    transition: color 0.25s ease;
-    font-family: 'Noto Serif JP', serif;
+    transition: all 0.3s ease;
 }
 
-.contact-inquiry-section .contact-item-value:hover {
-    color: #5D9B9B !important;
-    -webkit-text-fill-color: #5D9B9B !important;
+.phone-primary, .email-primary {
+    position: relative;
 }
 
-.contact-inquiry-section .email-primary {
-    font-size: 0.95rem !important;
-    letter-spacing: 0.03em !important;
+.phone-primary:hover {
+    color: #5D9B9B;
+    transform: translateY(-2px);
+}
+
+.email-primary {
+    font-size: 1.1rem;
     word-break: break-all;
 }
 
-.contact-inquiry-section .inquiry-subtitle,
-.contact-inquiry-section .contact-item-note,
-.contact-inquiry-section .contact-item-sub,
-.contact-inquiry-section .inquiry-description p {
-    color: #666 !important;
-    -webkit-text-fill-color: #666 !important;
+.email-primary:hover {
+    color: #5D9B9B;
+    transform: translateY(-2px);
 }
 
-.contact-item-note {
-    font-size: 0.78rem;
-    color: #999;
-    line-height: 1.7;
-    margin-top: 0.1rem;
-    font-weight: 300;
-}
-
-.contact-item-sub {
-    font-size: 0.72rem;
-    color: #bbb;
-}
-
-/* フォーム説明 */
-.inquiry-description {
+.business-hours {
+    text-align: center;
     padding-top: 1.5rem;
     border-top: 1px solid #eee;
 }
 
+.business-hours p {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.hours-note {
+    font-size: 0.85rem !important;
+    color: #999 !important;
+}
+
+/* フォーム説明 */
+.inquiry-description {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(93, 155, 155, 0.05);
+    border-radius: 8px;
+}
+
 .inquiry-description p {
-    margin: 0;
-    font-size: 0.83rem;
-    color: #aaa;
-    line-height: 1.9;
-    font-weight: 300;
-    letter-spacing: 0.04em;
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.7;
 }
 
-/* ---- 右カラム：フォーム ---- */
-.cis-right {
-    padding-top: 0;
-}
-
+/* フォームスタイル */
 .inquiry-form-wrapper {
-    background: #fff;
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .inquiry-form {
@@ -1940,145 +1897,130 @@
 .form-row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0 2rem;
-    margin-bottom: 0;
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1.8rem;
 }
 
 .form-group.full-width {
     grid-column: 1 / -1;
+    margin-bottom: 2rem;
 }
 
 .form-group label {
-    font-size: 0.78rem;
-    font-weight: 300;
-    color: #888;
-    margin-bottom: 0.55rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
-    letter-spacing: 0.08em;
-    font-family: 'Noto Serif JP', serif;
 }
 
 .form-group label.required::after {
-    content: '*';
+    content: '必須';
     display: inline-block;
-    color: #5D9B9B;
-    font-size: 1rem;
-    margin-left: 0.3rem;
-    line-height: 1;
+    background: #e74c3c;
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    margin-left: 0.5rem;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-    padding: 0.7rem 0;
-    border: none;
-    border-bottom: 1px solid #ddd;
-    border-radius: 0;
-    font-size: 0.93rem;
-    font-weight: 300;
-    transition: border-color 0.3s ease;
-    font-family: 'Noto Serif JP', serif;
-    background: transparent;
-    color: #1a1a1a;
-    appearance: none;
-    -webkit-appearance: none;
-    outline: none;
-    letter-spacing: 0.04em;
-}
-
-.form-group select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23bbb'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.5rem center;
-    padding-right: 1.5rem;
-    cursor: pointer;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: #ccc;
-    font-weight: 300;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-bottom-color: #5D9B9B;
-    box-shadow: none;
+    outline: none;
+    border-color: #5D9B9B;
+    box-shadow: 0 0 0 3px rgba(93, 155, 155, 0.1);
 }
 
 .form-group textarea {
-    resize: none;
-    min-height: 110px;
-    line-height: 1.8;
+    resize: vertical;
+    min-height: 120px;
 }
 
 /* 送信ボタン */
 .form-submit {
-    margin-top: 0.5rem;
+    text-align: center;
+    margin-top: 2.5rem;
 }
 
 .submit-btn {
-    display: block;
-    width: 100%;
-    background: linear-gradient(90deg, #5D9B9B 0%, #4A8888 100%);
+    background: linear-gradient(135deg, #5D9B9B 0%, #4D8B8B 100%);
     color: white;
     border: none;
-    padding: 1.1rem 2rem;
-    border-radius: 2px;
-    font-size: 0.85rem;
-    font-weight: 300;
-    letter-spacing: 0.3em;
+    padding: 1rem 4rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
     cursor: pointer;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    font-family: 'Noto Serif JP', serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(93, 155, 155, 0.3);
 }
 
 .submit-btn:hover {
-    opacity: 0.85;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(93, 155, 155, 0.4);
 }
 
 .submit-btn:active {
     transform: translateY(0);
-    opacity: 1;
 }
 
-/* レスポンシブ */
-@media (max-width: 900px) {
-    .cis-inner {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
     .contact-inquiry-section {
-        margin: 3rem auto 1.5rem;
-        padding: 0 1.5rem;
+        padding: 1.5rem 1rem;
+        margin: 1.5rem auto 1.5rem;
     }
-}
-
-@media (max-width: 600px) {
+    
     .inquiry-title {
-        font-size: 1.45rem;
+        font-size: 1.5rem;
     }
-
-    .contact-item-value {
+    
+    .contact-methods {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .method-value {
         font-size: 1.2rem;
     }
-
+    
+    .email-primary {
+        font-size: 0.95rem;
+    }
+    
     .form-row {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
-
-    .contact-inquiry-section {
-        padding: 0 1rem;
+    
+    .inquiry-contact-box,
+    .inquiry-form-wrapper {
+        padding: 1.5rem;
+    }
+    
+    .submit-btn {
+        padding: 0.8rem 3rem;
+        font-size: 1rem;
     }
 }
 
