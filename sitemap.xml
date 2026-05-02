@@ -3,93 +3,13 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-    
-    <!-- メインページ -->
+
+    <!-- メインページ（SPA構成のため単一URLのみ） -->
     <url>
         <loc>https://morishita-tax.jp/</loc>
-        <lastmod>2025-01-30</lastmod>
+        <lastmod>2026-05-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
-    
-    <!-- About（事務所紹介） -->
-    <url>
-        <loc>https://morishita-tax.jp/#about</loc>
-        <lastmod>2025-01-30</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <!-- Programs（サービス内容） -->
-    <url>
-        <loc>https://morishita-tax.jp/#programs</loc>
-        <lastmod>2025-01-30</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <!-- Pricing（料金体系） -->
-    <url>
-        <loc>https://morishita-tax.jp/#pricing</loc>
-        <lastmod>2025-01-30</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- Schedule（営業時間） -->
-    <url>
-        <loc>https://morishita-tax.jp/#schedule</loc>
-        <lastmod>2025-01-30</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    
-    <!-- Access（アクセス・お問い合わせ） -->
-    <url>
-        <loc>https://morishita-tax.jp/#access</loc>
-        <lastmod>2025-01-30</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <!-- 大阪市中央区の税理士 -->
-    <url>
-        <loc>https://morishita-tax.jp/osaka-chuo-tax-accountant</loc>
-        <lastmod>2025-01-30</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- 記帳代行サービス -->
-    <url>
-        <loc>https://morishita-tax.jp/bookkeeping-service</loc>
-        <lastmod>2025-01-30</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- 税務相談 -->
-    <url>
-        <loc>https://morishita-tax.jp/tax-consultation</loc>
-        <lastmod>2025-01-30</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- 法人設立支援 -->
-    <url>
-        <loc>https://morishita-tax.jp/company-establishment</loc>
-        <lastmod>2025-01-30</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- 相続税対策 -->
-    <url>
-        <loc>https://morishita-tax.jp/inheritance-tax</loc>
-        <lastmod>2025-01-30</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
+
 </urlset>

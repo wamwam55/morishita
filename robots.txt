@@ -28,10 +28,3 @@ Crawl-delay: 1
 
 # サイトマップの場所
 Sitemap: https://morishita-tax.jp/sitemap.xml
-
-# 重要なページへのヒント（コメント）
-# メインページ: /
-# 事務所紹介: /#about
-# サービス内容: /#programs
-# 料金体系: /#pricing
-# アクセス・お問い合わせ: /#access
