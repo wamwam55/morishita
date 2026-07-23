@@ -276,7 +276,7 @@
                 font-weight: 600;
                 letter-spacing: 0.5px;
             `;
-            officeName.textContent = '森下知幸税理士事務所';
+            officeName.textContent = '森下知幸税理士・社労士事務所';
             
             menuHeader.appendChild(menuText);
             menuHeader.appendChild(officeName);

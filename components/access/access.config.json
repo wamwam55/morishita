@@ -5,7 +5,7 @@
     "studioInfo": {
         "name": {
             "label": "店舗名",
-            "value": "森下知幸税理士事務所",
+            "value": "森下知幸税理士・社労士事務所",
             "type": "text"
         },
         "address": {
@@ -53,7 +53,7 @@
         "lat": 35.6644,
         "lng": 139.7104,
         "zoom": 16,
-        "markerTitle": "森下知幸税理士事務所"
+        "markerTitle": "森下知幸税理士・社労士事務所"
     },
     "form": {
         "subjects": [

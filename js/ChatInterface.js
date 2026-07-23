@@ -6,7 +6,7 @@
             this.isOpen = false;
             this.messages = [];
             this.mockResponses = [
-                'こんにちは！森下知幸税理士事務所へようこそ。どのようなご用件でしょうか？',
+                'こんにちは！森下知幸税理士・社労士事務所へようこそ。どのようなご用件でしょうか？',
                 'ピラティスは心と身体のバランスを整える素晴らしいエクササイズです。',
                 '初心者の方でも安心して始められるプログラムをご用意しています。',
                 '体験レッスンのご予約も承っております。ご希望の日時はございますか？',
@@ -82,7 +82,7 @@
 
             const headerText = document.createElement('div');
             headerText.innerHTML = `
-                <div style="font-weight: 600; font-size: 16px;">森下知幸税理士事務所</div>
+                <div style="font-weight: 600; font-size: 16px;">森下知幸税理士・社労士事務所</div>
                 <div style="font-size: 12px; opacity: 0.9;">オンライン</div>
             `;
 
@@ -200,7 +200,7 @@
             this.addStyles();
 
             // 初期メッセージ
-            this.addMessage('assistant', 'こんにちは！森下知幸税理士事務所へようこそ。どのようなご用件でしょうか？');
+            this.addMessage('assistant', 'こんにちは！森下知幸税理士・社労士事務所へようこそ。どのようなご用件でしょうか？');
         }
 
         addStyles() {

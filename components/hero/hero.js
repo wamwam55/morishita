@@ -16,7 +16,7 @@
             heroTitle.textContent = 'あなたの「成功」を支える税務戦略';
         }
         if (heroSubtitle) {
-            heroSubtitle.textContent = '森下知幸税理士事務所';
+            heroSubtitle.textContent = '森下知幸税理士・社労士事務所';
         }
         if (heroDescription) {
             heroDescription.innerHTML = '経営者の皆様に寄り添い、最適な税務・財務戦略で<br>事業の持続的成長と成功への道筋を共に創ります。';

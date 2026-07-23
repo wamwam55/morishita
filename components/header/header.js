@@ -186,7 +186,7 @@
                     white-space: nowrap;
                     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
                 `;
-                logoText.textContent = '森下知幸税理士事務所';
+                logoText.textContent = '森下知幸税理士・社労士事務所';
                 
                 floatingLogo.appendChild(logoText);
                 document.body.appendChild(floatingLogo);

@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "フッターコンポーネント",
     "company": {
-        "name": "森下知幸税理士事務所",
+        "name": "森下知幸税理士・社労士事務所",
         "description": "心と身体のバランスを整える、あなたの「ゼロ」から始めるピラティススタジオ。"
     },
     "socialLinks": [
@@ -52,7 +52,7 @@
             ]
         }
     ],
-    "copyright": "&copy; {year} 森下知幸税理士事務所. All rights reserved.",
+    "copyright": "&copy; {year} 森下知幸税理士・社労士事務所. All rights reserved.",
     "bottomLinks": [
         { "text": "プライバシーポリシー", "url": "#privacy" },
         { "text": "利用規約", "url": "#terms" },

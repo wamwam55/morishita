@@ -1,5 +1,5 @@
 # robots.txt for morishita-tax.jp
-# 森下知幸税理士事務所
+# 森下知幸税理士・社労士事務所
 
 # 全てのクローラーに対する設定
 User-agent: *
