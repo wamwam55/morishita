@@ -313,6 +313,301 @@
     font-weight: 300;
 }
 
+/* プラン概要カード */
+.plan-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    align-items: stretch;
+    margin-bottom: 3.5rem;
+}
+
+.plan-card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 2.4rem 2.1rem 2.1rem;
+    position: relative;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.plan-card.featured {
+    border: 1.5px solid #5D9B9B;
+    box-shadow: 0 12px 36px rgba(74, 124, 126, 0.18);
+    transform: translateY(-10px);
+}
+
+.plan-card-ribbon {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #5D9B9B, #4A7C7E);
+    color: #fff;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    padding: 6px 20px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.plan-card-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: #1a1a1a;
+    text-align: center;
+    margin: 0 0 0.25rem;
+}
+
+.plan-card-for {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #999;
+    letter-spacing: 0.1em;
+    margin: 0 0 1.5rem;
+}
+
+.plan-card-price {
+    text-align: center;
+    padding: 1.1rem 0 1.35rem;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 1.5rem;
+}
+
+.plan-card-price .num {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2.4rem;
+    color: #4A7C7E;
+}
+
+.plan-card-price .unit {
+    font-size: 0.8rem;
+    color: #999;
+    margin-left: 2px;
+}
+
+.plan-card-price .from {
+    font-size: 0.68rem;
+    color: #bbb;
+    display: block;
+    margin-top: 4px;
+    letter-spacing: 0.1em;
+}
+
+.plan-card-list {
+    list-style: none;
+    margin: 0 0 1.6rem;
+    padding: 0;
+    flex: 1;
+}
+
+.plan-card-list li {
+    font-size: 0.84rem;
+    padding: 0.55rem 0 0.55rem 1.75rem;
+    position: relative;
+    color: #555;
+}
+
+.plan-card-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 4px;
+    color: #5D9B9B;
+    font-weight: 500;
+}
+
+.plan-card-list li.dim {
+    color: #c0c0c0;
+}
+
+.plan-card-list li.dim::before {
+    content: '—';
+    color: #ddd;
+}
+
+.plan-card-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.9rem 0;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    font-family: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.plan-card-btn:hover { opacity: 0.85; }
+
+.plan-card-btn.ghost {
+    border: 1px solid #5D9B9B;
+    color: #4A7C7E;
+    background: #fff;
+}
+
+.plan-card-btn.solid {
+    border: none;
+    background: linear-gradient(135deg, #5D9B9B, #4A7C7E);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(93, 155, 155, 0.35);
+}
+
+/* 社会保険カテゴリカード */
+.sh-cat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+.sh-cat {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 1.75rem 1.25rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    position: relative;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: inherit;
+}
+
+.sh-cat:hover {
+    border-color: #a9cccc;
+}
+
+.sh-cat.active {
+    border-color: #5D9B9B;
+    box-shadow: 0 10px 30px rgba(74, 124, 126, 0.16);
+}
+
+.sh-cat.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1.35rem;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-right: 1px solid #5D9B9B;
+    border-bottom: 1px solid #5D9B9B;
+}
+
+.sh-cat-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 0.9rem;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #f2f8f8, #e4efef);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sh-cat-icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: #4A7C7E;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+.sh-cat-name {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #1a1a1a;
+    margin-bottom: 0.4rem;
+}
+
+.sh-cat-price {
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.1rem;
+    color: #4A7C7E;
+}
+
+.sh-cat-price small {
+    font-size: 0.68rem;
+    color: #aaa;
+}
+
+/* 社会保険 詳細パネル */
+.sh-detail {
+    display: none;
+    background: #fff;
+    border: 1px solid #5D9B9B;
+    border-radius: 10px;
+    padding: 2.25rem 2.75rem;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+}
+
+.sh-detail.active {
+    display: block;
+}
+
+.sh-detail .table-wrapper {
+    box-shadow: none;
+    border: 1px solid #f0f0f0;
+}
+
+.sh-detail-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.sh-detail-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.sh-detail-badges {
+    display: flex;
+    gap: 8px;
+}
+
+.sh-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    padding: 4px 12px;
+    border-radius: 999px;
+}
+
+.sh-badge.tax {
+    background: #eef5f5;
+    color: #4A7C7E;
+}
+
+.sh-badge.note {
+    background: #faf3ea;
+    color: #b08950;
+}
+
+#tab-sharoushi > .table-note {
+    margin-top: 1.5rem;
+}
+
 @media (max-width: 768px) {
     .pricing-section {
         padding: 4rem 0;
@@ -330,5 +625,23 @@
 
     .pricing-table td.range {
         padding-left: 1rem;
+    }
+
+    .plan-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .plan-card.featured {
+        transform: none;
+    }
+
+    .sh-cat-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .sh-detail {
+        padding: 1.5rem 1.25rem;
     }
 }

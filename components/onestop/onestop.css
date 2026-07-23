@@ -1,0 +1,250 @@
+.onestop-section {
+    padding: 6rem 0;
+    background: #fbfaf8;
+}
+
+.onestop-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.onestop-section .section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.onestop-section .section-subtitle {
+    color: #5D9B9B;
+    font-size: 0.8rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin: 0 0 0.9rem;
+}
+
+.onestop-section .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 500;
+    font-size: 2.1rem;
+    letter-spacing: 0.18em;
+    color: #1a1a1a;
+    margin: 0 0 1.1rem;
+}
+
+.onestop-section .section-description {
+    font-size: 0.9rem;
+    line-height: 2;
+    color: #666;
+    font-weight: 300;
+    margin: 0;
+}
+
+.onestop-grid {
+    display: grid;
+    grid-template-columns: 1fr 120px 1fr;
+    align-items: stretch;
+    margin-bottom: 3.25rem;
+}
+
+.license-card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 2.5rem 2.75rem;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+}
+
+.license-tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    color: #5D9B9B;
+    margin: 0 0 0.6rem;
+}
+
+.license-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: #1a1a1a;
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid #e5e5e5;
+    margin: 0 0 1.35rem;
+}
+
+.license-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.license-list li {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    padding: 0.6rem 0 0.6rem 1.6rem;
+    position: relative;
+    border-bottom: 1px dashed #f0eeea;
+    color: #444;
+    font-weight: 300;
+}
+
+.license-list li:last-child {
+    border-bottom: none;
+}
+
+.license-list li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 1.05rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #5D9B9B, #4A7C7E);
+}
+
+.onestop-bridge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+}
+
+.bridge-line {
+    flex: 1;
+    width: 1px;
+}
+
+.bridge-line.top {
+    background: linear-gradient(to bottom, transparent, #cfe0e0);
+}
+
+.bridge-line.btm {
+    background: linear-gradient(to top, transparent, #cfe0e0);
+}
+
+.bridge-mark {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #5D9B9B, #4A7C7E);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2.1rem;
+    box-shadow: 0 8px 24px rgba(74, 124, 126, 0.4);
+}
+
+.onestop-band {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 2.1rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+}
+
+.band-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: #1a1a1a;
+    margin: 0 0 0.5rem;
+}
+
+.band-text {
+    font-size: 0.83rem;
+    line-height: 1.9;
+    color: #666;
+    font-weight: 300;
+    margin: 0;
+}
+
+.band-points {
+    display: flex;
+    gap: 1.75rem;
+}
+
+.band-point {
+    text-align: center;
+    min-width: 100px;
+}
+
+.point-num {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.6rem;
+    color: #4A7C7E;
+}
+
+.point-num small {
+    font-size: 0.75rem;
+    color: #999;
+}
+
+.point-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: #888;
+    margin-top: 2px;
+}
+
+.onestop-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, #5D9B9B, #4A7C7E);
+    color: #fff;
+    font-size: 0.88rem;
+    letter-spacing: 0.2em;
+    padding: 1rem 2.6rem;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(93, 155, 155, 0.35);
+    white-space: nowrap;
+    transition: opacity 0.2s;
+}
+
+.onestop-cta:hover {
+    opacity: 0.85;
+}
+
+@media (max-width: 900px) {
+    .onestop-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .onestop-bridge {
+        flex-direction: row;
+        padding: 0.5rem 0;
+    }
+
+    .bridge-line {
+        height: 1px;
+        width: auto;
+    }
+
+    .bridge-line.top {
+        background: linear-gradient(to right, transparent, #cfe0e0);
+    }
+
+    .bridge-line.btm {
+        background: linear-gradient(to left, transparent, #cfe0e0);
+    }
+
+    .bridge-mark {
+        width: 64px;
+        height: 64px;
+        font-size: 1.6rem;
+    }
+
+    .onestop-band {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+    }
+}

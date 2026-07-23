@@ -38,6 +38,20 @@
             "description": "料金プランセクション"
         },
         {
+            "name": "onestop",
+            "path": "components/onestop",
+            "enabled": true,
+            "order": 5.1,
+            "description": "税務×労務ワンストップ訴求セクション"
+        },
+        {
+            "name": "simulator",
+            "path": "components/simulator",
+            "enabled": true,
+            "order": 5.2,
+            "description": "料金シミュレーターセクション"
+        },
+        {
             "name": "schedule",
             "path": "components/schedule",
             "enabled": true,
