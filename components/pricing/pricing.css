@@ -32,7 +32,7 @@
 }
 
 .pricing-section .section-title {
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     font-weight: 200;
     color: #1a1a1a !important;
     -webkit-text-fill-color: #1a1a1a !important;
@@ -45,6 +45,7 @@
     text-transform: uppercase;
     font-family: 'Noto Serif JP', serif;
     display: block;
+    line-height: 1.4;
 }
 
 .pricing-section .section-description {
@@ -643,5 +644,52 @@
 
     .sh-detail {
         padding: 1.5rem 1.25rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .pricing-section {
+        overflow-x: hidden;
+    }
+
+    .pricing-section .section-title {
+        letter-spacing: 0.06em;
+    }
+
+    .pricing-section .section-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .pricing-section .section-description br {
+        display: none;
+    }
+
+    .pricing-tabs {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .plan-card {
+        padding: 2rem 1.5rem 1.75rem;
+    }
+
+    .plan-card-price .num {
+        font-size: 2rem;
+    }
+
+    .sh-cat {
+        padding: 1.35rem 0.75rem 1.25rem;
+    }
+
+    .sh-cat-name {
+        font-size: 0.8rem;
+    }
+
+    .sh-cat-price {
+        font-size: 1rem;
+    }
+
+    .sh-detail-title {
+        font-size: 1.05rem;
     }
 }

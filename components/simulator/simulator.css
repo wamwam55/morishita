@@ -25,10 +25,11 @@
 .sim-section .section-title {
     font-family: 'Noto Serif JP', serif;
     font-weight: 500;
-    font-size: 2.1rem;
-    letter-spacing: 0.18em;
+    font-size: clamp(1.35rem, 5.4vw, 2.1rem);
+    letter-spacing: 0.1em;
     color: #1a1a1a;
     margin: 0 0 1.1rem;
+    line-height: 1.5;
 }
 
 .sim-section .section-description {
@@ -309,5 +310,63 @@
 
     .sim-right {
         padding: 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .sim-section {
+        padding: 3.5rem 0;
+        overflow-x: hidden;
+    }
+
+    .sim-container {
+        padding: 0 1.25rem;
+    }
+
+    .sim-section .section-title {
+        letter-spacing: 0.04em;
+    }
+
+    .sim-section .section-description {
+        font-size: 0.82rem;
+        line-height: 1.9;
+    }
+
+    .sim-left,
+    .sim-right {
+        padding: 1.75rem 1.35rem;
+    }
+
+    .sim-q {
+        font-size: 1.1rem;
+    }
+
+    .sim-slider-label .val {
+        font-size: 1.2rem;
+    }
+
+    .sim-scale {
+        font-size: 0.55rem;
+    }
+
+    .sim-opts {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sim-select {
+        width: 100%;
+    }
+
+    .sim-r-row .v {
+        font-size: 1.2rem;
+    }
+
+    .sim-r-total .v {
+        font-size: 2.1rem;
+    }
+
+    .sim-toggle-btn {
+        padding: 0.7rem 1.7rem;
     }
 }

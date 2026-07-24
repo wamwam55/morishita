@@ -25,10 +25,11 @@
 .onestop-section .section-title {
     font-family: 'Noto Serif JP', serif;
     font-weight: 500;
-    font-size: 2.1rem;
-    letter-spacing: 0.18em;
+    font-size: clamp(1.35rem, 5.4vw, 2.1rem);
+    letter-spacing: 0.1em;
     color: #1a1a1a;
     margin: 0 0 1.1rem;
+    line-height: 1.5;
 }
 
 .onestop-section .section-description {
@@ -246,5 +247,82 @@
         flex-direction: column;
         text-align: center;
         padding: 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .onestop-section {
+        padding: 3.5rem 0;
+        overflow-x: hidden;
+    }
+
+    .onestop-container {
+        padding: 0 1.25rem;
+    }
+
+    .onestop-section .section-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .onestop-section .section-title {
+        letter-spacing: 0.04em;
+    }
+
+    .onestop-section .section-description {
+        font-size: 0.82rem;
+        line-height: 1.9;
+    }
+
+    .onestop-section .section-description br {
+        display: none;
+    }
+
+    .license-card {
+        padding: 1.75rem 1.5rem;
+    }
+
+    .license-name {
+        font-size: 1.3rem;
+    }
+
+    .onestop-band {
+        padding: 1.75rem 1.35rem;
+        gap: 1.25rem;
+    }
+
+    .band-title {
+        font-size: 1.05rem;
+    }
+
+    .band-text {
+        font-size: 0.8rem;
+    }
+
+    .band-text br {
+        display: none;
+    }
+
+    .band-points {
+        width: 100%;
+        justify-content: space-around;
+        gap: 0.5rem;
+    }
+
+    .band-point {
+        min-width: 0;
+    }
+
+    .point-num {
+        font-size: 1.4rem;
+    }
+
+    .point-label {
+        font-size: 0.62rem;
+    }
+
+    .onestop-cta {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
     }
 }
