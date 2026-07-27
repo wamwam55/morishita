@@ -1,0 +1,383 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - img "Logo" [ref=e4]
+    - generic [ref=e5]: 森下知幸税理士事務所
+  - banner [ref=e7]:
+    - generic [ref=e8]:
+      - generic [ref=e9]:
+        - img "Logo" [ref=e10]
+        - generic [ref=e11]:
+          - generic [ref=e12]: 森下知幸税理士事務所
+          - generic [ref=e13]: Morishita Tax Accounting Office
+      - navigation [ref=e14]:
+        - list [ref=e15]:
+          - listitem [ref=e16]:
+            - link "事務所紹介" [ref=e17] [cursor=pointer]:
+              - /url: "#about"
+          - listitem [ref=e18]:
+            - link "事業内容" [ref=e19] [cursor=pointer]:
+              - /url: "#about-services"
+          - listitem [ref=e20]:
+            - link "料金案内" [ref=e21] [cursor=pointer]:
+              - /url: "#pricing"
+          - listitem [ref=e22]:
+            - link "お問い合わせ" [ref=e23] [cursor=pointer]:
+              - /url: "#contact-flow"
+          - listitem [ref=e24]:
+            - link "ACCESS" [ref=e25] [cursor=pointer]:
+              - /url: "#access"
+      - generic [ref=e26]:
+        - generic [ref=e27]: （平日）受付時間 9:00～18:00
+        - generic [ref=e28]:
+          - generic [ref=e29]: 📞
+          - link "090-5469-4666" [ref=e30] [cursor=pointer]:
+            - /url: tel:090-5469-4666
+  - generic [ref=e34]:
+    - heading "あなたの「成功」を支える税務戦略" [level=1] [ref=e35]
+    - paragraph [ref=e36]: 森下知幸税理士事務所
+    - paragraph [ref=e37]:
+      - text: 経営者の皆様に寄り添い、最適な税務・財務戦略で
+      - text: 事業の持続的成長と成功への道筋を共に創ります。
+  - generic [ref=e42]:
+    - generic [ref=e43]:
+      - heading "About" [level=2] [ref=e44]
+      - paragraph [ref=e45]: 森下知幸税理士事務所について
+    - generic [ref=e46]:
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - generic [ref=e51]: Our Mission
+          - heading "皆様の良きパートナー" [level=3] [ref=e53]
+          - paragraph [ref=e54]: 経営の3大要素「ヒト・モノ・カネ」を、 税務と労務のワンストップ体制で支える
+          - paragraph [ref=e55]: 経営者の皆様が日々直面する課題は、大きく分けて「カネ」「ヒト」「モノ」の3つに集約されます。 当事務所は、税理士の本業を核としながら、社会保険労務士の知見を活かした手続き支援を組み合わせ、 これら経営課題を横断的にサポートいたします。
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - generic [ref=e58]:
+              - img "税務・財務サポート" [ref=e59]
+              - generic [ref=e60]: "01"
+            - generic [ref=e61]:
+              - generic [ref=e62]: カネ（税務・財務）
+              - heading "経営の血液を守る" [level=4] [ref=e63]
+              - paragraph [ref=e64]: 税理士として、当事務所が最も力を注ぐ領域です。 単なる記帳代行や申告書の作成に留まらず、月次決算を通じたキャッシュフローの可視化や、 中長期的な節税戦略を立案します。経営の「現在地」を正確な数字で把握し、 次の一手を見極めるための羅針盤として、財務面から事業の持続的成長を支えます。
+          - generic [ref=e65]:
+            - generic [ref=e66]:
+              - img "社会保険・労務手続きサポート" [ref=e67]
+              - generic [ref=e68]: "02"
+            - generic [ref=e69]:
+              - generic [ref=e70]: ヒト（社会保険・労務手続き）
+              - heading "組織の土台を整える" [level=4] [ref=e71]
+              - paragraph [ref=e72]: 組織を動かすのは「ヒト」ですが、それに伴う社会保険の加入・脱退手続きや各種届出は、 経営者にとって大きな事務負担となります。 当事務所では、税務顧問の枠組みの中で、社会保険の各種手続きまでワンストップで対応いたします。 税理士・社労士の両視点を持つことで、役員報酬の決定から社会保険料への影響までをトータルに管理し、 整合性の取れた確実な事務処理を実現します。
+          - generic [ref=e73]:
+            - generic [ref=e74]:
+              - img "本業集中サポート" [ref=e75]
+              - generic [ref=e76]: "03"
+            - generic [ref=e77]:
+              - generic [ref=e78]: モノ（事業・サービス）
+              - heading "本業への集中環境を作る" [level=4] [ref=e79]
+              - paragraph [ref=e80]: 経営者の貴重な時間は、本来、商品開発やサービス向上といった「モノ（本業）」に費やされるべきです。 バックオフィス業務である「カネ」と「ヒト」の手続きを一括して当事務所にお預けいただくことで、 経営者様が本業に100％集中できる環境を創出します。 事務作業の煩雑さから解放されることこそが、事業発展への近道であると私たちは確信しています。
+      - generic [ref=e82]:
+        - generic [ref=e84]:
+          - img "代表税理士 森下知幸" [ref=e85]
+          - generic [ref=e87]: Representative
+        - generic [ref=e88]:
+          - heading "代表税理士" [level=3] [ref=e89]
+          - heading "森下 知幸" [level=4] [ref=e90]
+          - paragraph [ref=e91]: 公務員として長く社会保険や年金の分野に携わり、「人」を支える制度の裏側を見てきました。 その中で、経営者の方々が労務だけでなく「資金繰りや税務」にも深く悩んでいる現実に触れ、 「お金と人の両面から経営者を直接支えられる存在になりたい」と強く考えるようになりました。
+          - paragraph [ref=e92]: そこで一念発起して一から勉強を始め、税理士資格を取得しました。 自分自身も挑戦する立場だからこそ、不安や苦労を乗り越えて 今まさに努力されている経営者の方々の力になれると確信しています。
+          - paragraph [ref=e93]:
+            - text: 私が大切にしているのは、
+            - strong [ref=e94]: 「挑戦する人のそばで、税務と労務の両輪で共に成長していくこと」
+            - text: です。 労務の現場を知る税理士だからこそできる、数字だけではない血の通ったアドバイスを提供します。
+      - generic [ref=e96]:
+        - generic [ref=e97]:
+          - heading "私たちの理念" [level=3] [ref=e98]
+          - paragraph [ref=e99]: 「信頼と実績で、お客様の事業の成功をサポートする」 これが私たちの基本理念です。
+          - paragraph [ref=e100]: 「税務・会計」と「人事・労務」のプロフェッショナルとして、常に最新の知識を追求し、 会社の「お金」と「組織」の両面から最高品質のサービスを提供することをお約束いたします。
+          - paragraph [ref=e101]: 私たちは、お客様の事業が直面する様々な課題に対して、 実践的で効果的な解決策をご提案し、持続的な成長を支援いたします。
+        - generic [ref=e103]:
+          - img "森下知幸税理士事務所の理念" [ref=e104]
+          - generic [ref=e105]:
+            - generic [ref=e106]: Our Vision
+            - generic [ref=e107]: 最高品質のサービスで、持続的な成長を支援
+      - generic [ref=e109]:
+        - img [ref=e111]
+        - paragraph [ref=e113]:
+          - text: 「税務」を軸に、「社会保険の手続き」まで
+          - text: 一括で任せられる安心感を。
+        - paragraph [ref=e114]:
+          - text: 経営者様の良きパートナーとして、
+          - text: 同じ視線で事業の成功へと伴走いたします。
+        - paragraph [ref=e116]: 初回相談は無料 です
+        - link "無料相談のお問い合わせ" [ref=e117] [cursor=pointer]:
+          - /url: "#contact-flow"
+          - generic [ref=e118]: 無料相談のお問い合わせ
+          - img [ref=e120]
+      - generic [ref=e124]:
+        - generic [ref=e125]:
+          - paragraph [ref=e126]: Fee Structure
+          - heading "サービス料金のご案内" [level=2] [ref=e127]
+          - paragraph [ref=e128]:
+            - text: 売上規模に応じた透明性の高い料金体系で、
+            - text: 経営のパートナーとして確かなサポートを提供いたします。
+        - generic [ref=e129]:
+          - button "個人顧問契約" [ref=e130] [cursor=pointer]
+          - button "法人顧問契約" [ref=e131] [cursor=pointer]
+        - generic [ref=e132]:
+          - table [ref=e134]:
+            - rowgroup [ref=e135]:
+              - row "売上高 月次顧問料 （税抜） 決算料 （税抜） 年間報酬 （税抜）" [ref=e136]:
+                - columnheader "売上高" [ref=e137]
+                - columnheader "月次顧問料 （税抜）" [ref=e138]:
+                  - text: 月次顧問料
+                  - generic [ref=e139]: （税抜）
+                - columnheader "決算料 （税抜）" [ref=e140]:
+                  - text: 決算料
+                  - generic [ref=e141]: （税抜）
+                - columnheader "年間報酬 （税抜）" [ref=e142]:
+                  - text: 年間報酬
+                  - generic [ref=e143]: （税抜）
+            - rowgroup [ref=e144]:
+              - row "〜 1千万円 15,000円/月 50,000円 230,000円" [ref=e145]:
+                - cell "〜 1千万円" [ref=e146]
+                - cell "15,000円/月" [ref=e147]
+                - cell "50,000円" [ref=e148]
+                - cell "230,000円" [ref=e149]
+              - row "1千万円 〜 3千万円 20,000円/月 100,000円 340,000円" [ref=e150]:
+                - cell "1千万円 〜 3千万円" [ref=e151]
+                - cell "20,000円/月" [ref=e152]
+                - cell "100,000円" [ref=e153]
+                - cell "340,000円" [ref=e154]
+              - row "3千万円 〜 5千万円 25,000円/月 100,000円 400,000円" [ref=e155]:
+                - cell "3千万円 〜 5千万円" [ref=e156]
+                - cell "25,000円/月" [ref=e157]
+                - cell "100,000円" [ref=e158]
+                - cell "400,000円" [ref=e159]
+              - row "5千万円 〜 1億円 応相談" [ref=e160]:
+                - cell "5千万円 〜 1億円" [ref=e161]
+                - cell "応相談" [ref=e162]
+          - paragraph [ref=e163]: ※ 1億円以上の規模については、別途お見積りいたします。
+        - generic [ref=e164]:
+          - generic [ref=e165]:
+            - heading "オプション料金" [level=3] [ref=e166]
+            - generic [ref=e167]:
+              - generic [ref=e168]:
+                - generic [ref=e169]: 消費税申告料（原則課税）
+                - generic [ref=e170]: 50,000円
+              - generic [ref=e171]:
+                - generic [ref=e172]: 消費税申告料（簡易課税）
+                - generic [ref=e173]: 20,000円
+              - generic [ref=e174]:
+                - generic [ref=e175]: 記帳代行
+                - generic [ref=e176]: 別途お見積り
+          - generic [ref=e177]:
+            - heading "サービス提供条件" [level=3] [ref=e178]
+            - generic [ref=e179]:
+              - generic [ref=e180]:
+                - generic [ref=e181]: 定期訪問
+                - generic [ref=e182]: 3か月に1度を目安に訪問し、経営状況の確認とアドバイスを行います。
+              - generic [ref=e183]:
+                - generic [ref=e184]: 対応エリア
+                - generic [ref=e185]: 全国対応可能です（オンライン会議システム等の活用を含む）。
+              - generic [ref=e186]:
+                - generic [ref=e187]: その他
+                - generic [ref=e188]: 年末調整・償却資産税申告・税務調査立ち会い等は別途ご相談ください。
+        - paragraph [ref=e189]: ※ 表示価格はすべて税抜き価格です。詳細な条件については契約時に改めてご説明いたします。
+      - generic [ref=e190]:
+        - generic [ref=e191]:
+          - heading "OUR SERVICES" [level=3] [ref=e192]
+          - paragraph [ref=e193]: 提供サービス
+        - generic [ref=e194]:
+          - generic [ref=e195]:
+            - generic [ref=e196]:
+              - img "法人税務顧問" [ref=e197]
+              - generic [ref=e199]: Corporate Tax
+            - generic [ref=e200]:
+              - heading "法人税務顧問" [level=4] [ref=e201]
+              - paragraph [ref=e202]: 月次決算から年次決算まで、法人税・消費税・地方税の申告業務を適切に行います。税務調査の立会いも対応いたします。
+          - generic [ref=e203]:
+            - generic [ref=e204]:
+              - img "個人確定申告" [ref=e205]
+              - generic [ref=e207]: Individual Tax
+            - generic [ref=e208]:
+              - heading "個人確定申告" [level=4] [ref=e209]
+              - paragraph [ref=e210]: 個人事業主の方の確定申告、不動産所得、譲渡所得など、各種所得税の申告をサポート。青色申告の特典を最大限活用します。
+          - generic [ref=e211]:
+            - generic [ref=e212]:
+              - img "記帳代行" [ref=e213]
+              - generic [ref=e215]: Bookkeeping
+            - generic [ref=e216]:
+              - heading "記帳代行" [level=4] [ref=e217]
+              - paragraph [ref=e218]: 領収書・請求書の整理から仕訳入力まで、経理業務を代行いたします。クラウド会計導入支援も行っております。
+          - generic [ref=e219]:
+            - generic [ref=e220]:
+              - img "相続税申告" [ref=e221]
+              - generic [ref=e223]: Inheritance Tax
+            - generic [ref=e224]:
+              - heading "相続税申告" [level=4] [ref=e225]
+              - paragraph [ref=e226]: 相続税の申告から納税まで、スムーズな手続きをサポート。事前の相続対策・節税対策のご相談も承ります。
+          - generic [ref=e227]:
+            - generic [ref=e228]:
+              - img "開業・企業支援" [ref=e229]
+              - generic [ref=e231]: Startup Support
+            - generic [ref=e232]:
+              - heading "開業・起業サポート" [level=4] [ref=e233]
+              - paragraph [ref=e234]: 会社設立・創業融資のサポートから、助成金の活用、従業員雇用の際の社会保険手続きまで、税務・労務の両面で一括支援します。
+          - generic [ref=e235]:
+            - generic [ref=e236]:
+              - img "経営相談" [ref=e237]
+              - generic [ref=e239]: Consulting
+            - generic [ref=e240]:
+              - heading "経営・人事労務相談" [level=4] [ref=e241]
+              - paragraph [ref=e242]: 資金繰り改善などの財務コンサルから、社会保険の手続きや就業規則、人事トラブルのご相談まで幅広く対応します。
+      - generic [ref=e243]:
+        - generic [ref=e244]:
+          - paragraph [ref=e245]: CONTACT FLOW
+          - heading "お問い合わせの流れ" [level=3] [ref=e246]
+          - paragraph [ref=e247]: 初回のご相談から業務開始まで、丁寧にご案内いたします。
+        - generic [ref=e250]:
+          - generic [ref=e252]:
+            - generic [ref=e253]:
+              - generic [ref=e254]: STEP
+              - generic [ref=e255]: "01"
+            - img [ref=e257]
+            - heading "お問い合わせ" [level=4] [ref=e259]
+            - paragraph [ref=e260]:
+              - text: お電話またはメールにて
+              - text: お気軽にご連絡ください
+          - generic [ref=e262]:
+            - generic [ref=e263]:
+              - generic [ref=e264]: STEP
+              - generic [ref=e265]: "02"
+            - img [ref=e267]
+            - heading "ヒアリング" [level=4] [ref=e272]
+            - paragraph [ref=e273]:
+              - text: お客様のご状況や
+              - text: ご要望を詳しくお伺いします
+          - generic [ref=e275]:
+            - generic [ref=e276]:
+              - generic [ref=e277]: STEP
+              - generic [ref=e278]: "03"
+            - img [ref=e280]
+            - heading "ご提案・お見積り" [level=4] [ref=e283]
+            - paragraph [ref=e284]:
+              - text: 最適なサービスプランと
+              - text: 料金をご提示いたします
+          - generic [ref=e286]:
+            - generic [ref=e287]:
+              - generic [ref=e288]: STEP
+              - generic [ref=e289]: "04"
+            - img [ref=e291]
+            - heading "ご契約・業務開始" [level=4] [ref=e294]
+            - paragraph [ref=e295]:
+              - text: ご納得いただけましたら
+              - text: 契約を締結し業務を開始します
+    - generic [ref=e296]:
+      - generic [ref=e297]:
+        - heading "まずはお気軽にご相談ください" [level=3] [ref=e298]
+        - paragraph [ref=e299]: お電話でのご相談・お問い合わせも歓迎しております。お気軽にご連絡ください。
+      - generic [ref=e301]:
+        - generic [ref=e302]:
+          - generic [ref=e303]:
+            - generic [ref=e304]: TEL
+            - link "090-5469-4666" [ref=e305] [cursor=pointer]:
+              - /url: tel:090-5469-4666
+          - generic [ref=e306]:
+            - generic [ref=e307]: EMAIL
+            - link "info@morishita-tax.jp" [ref=e308] [cursor=pointer]:
+              - /url: mailto:info@morishita-tax.jp
+        - generic [ref=e309]:
+          - paragraph [ref=e310]: 電話受付時間 9:00〜17:30 / 土日祝日除く
+          - paragraph [ref=e311]: （営業時間外もご相談の上、対応しております）
+      - generic [ref=e312]:
+        - paragraph [ref=e313]: Webからのお問い合わせは下記のフォームに必要事項をご記入いただきご確認の上、送信ボタンを押してください。
+        - paragraph [ref=e314]: 自動返信メールをお送りした後、担当よりメールまたは電話でご回答させていただきます。
+      - generic [ref=e316]:
+        - generic [ref=e317]:
+          - generic [ref=e318]:
+            - generic [ref=e319]: 御社名 必須
+            - textbox "御社名 必須" [ref=e320]:
+              - /placeholder: 株式会社○○
+          - generic [ref=e321]:
+            - generic [ref=e322]: お名前 必須
+            - textbox "お名前 必須" [ref=e323]:
+              - /placeholder: 山田 太郎
+        - generic [ref=e324]:
+          - generic [ref=e325]:
+            - generic [ref=e326]: 電話番号 必須
+            - textbox "電話番号 必須" [ref=e327]:
+              - /placeholder: 090-1234-5678
+          - generic [ref=e328]:
+            - generic [ref=e329]: メールアドレス 必須
+            - textbox "メールアドレス 必須" [ref=e330]:
+              - /placeholder: example@company.com
+        - generic [ref=e331]:
+          - generic [ref=e332]: お問い合わせ内容 必須
+          - combobox "お問い合わせ内容 必須" [ref=e333]:
+            - option "選択してください" [selected]
+            - option "税務・労務の総合顧問（ワンストップ対応）"
+            - option "税務・会計のご相談"
+            - option "労務・社会保険に関するご相談"
+            - option "相続税・事業承継"
+            - option "開業・起業サポート"
+            - option "その他"
+        - generic [ref=e334]:
+          - generic [ref=e335]: お問い合わせ詳細 必須
+          - textbox "お問い合わせ詳細 必須" [ref=e336]:
+            - /placeholder: ご相談内容をご記入ください
+        - button "送信する" [ref=e338] [cursor=pointer]
+  - generic [ref=e341]:
+    - generic [ref=e342]:
+      - heading "Access" [level=2] [ref=e343]
+      - paragraph [ref=e344]: アクセス・お問い合わせ
+    - generic [ref=e345]:
+      - generic [ref=e346]:
+        - img "事務所ビル外観" [ref=e348]
+        - generic [ref=e349]:
+          - generic [ref=e350]:
+            - heading "Location" [level=3] [ref=e351]
+            - generic [ref=e352]:
+              - generic [ref=e353]: 〒540-0039
+              - generic [ref=e354]: 大阪府大阪市中央区東高麗橋4-3 TKGビル 6F
+          - generic [ref=e355]:
+            - heading "Access" [level=3] [ref=e356]
+            - generic [ref=e357]:
+              - generic [ref=e358]:
+                - img [ref=e360]
+                - generic [ref=e363]:
+                  - strong [ref=e364]: 地下鉄堺筋線・京阪本線「北浜」駅より徒歩5分
+                  - paragraph [ref=e365]:
+                    - text: 3番出口より東へ進み、
+                    - text: 東高麗橋交差点を北へ
+              - generic [ref=e366]:
+                - img [ref=e368]
+                - generic [ref=e370]:
+                  - strong [ref=e371]: 地下鉄谷町線「天満橋」駅より徒歩7分
+                  - paragraph [ref=e372]: 1番出口より北西へ徒歩7分
+      - iframe [ref=e375]:
+        
+    - generic [ref=e378]:
+      - generic [ref=e379]:
+        - heading "CONTACT" [level=2] [ref=e380]
+        - paragraph [ref=e381]: お問い合わせ
+      - generic [ref=e382]:
+        - link "森下知幸税理士事務所トップ" [ref=e383] [cursor=pointer]:
+          - /url: "#"
+        - text: › お問い合わせ
+      - generic [ref=e384]:
+        - paragraph [ref=e385]: お電話でのご相談・お問い合わせも承っております。お気軽にご連絡ください。
+        - generic [ref=e386]:
+          - generic [ref=e387]:
+            - heading "大阪事務所" [level=3] [ref=e388]
+            - generic [ref=e389]:
+              - generic [ref=e390]: TEL
+              - link "090-5469-4666" [ref=e391] [cursor=pointer]:
+                - /url: tel:090-5469-4666
+          - generic [ref=e392]:
+            - heading "メールでのお問い合わせ" [level=3] [ref=e393]
+            - generic [ref=e394]:
+              - generic [ref=e395]: MAIL
+              - link "info@morishita-tax.jp" [ref=e396] [cursor=pointer]:
+                - /url: mailto:info@morishita-tax.jp
+        - paragraph [ref=e397]: 電話受付時間 9:00〜17:30 / 土日祝日除く（営業時間外もご相談の上、承っております）
+  - contentinfo [ref=e399]:
+    - paragraph [ref=e402]: © 2026 森下知幸税理士事務所. All rights reserved.
+  - generic [ref=e404] [cursor=pointer]: Menu

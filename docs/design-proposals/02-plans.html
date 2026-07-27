@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_base.css">
+<style>
+.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; align-items: stretch; }
+.plan {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 38px 34px 34px;
+  position: relative;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+.plan.featured {
+  border: 1.5px solid var(--teal);
+  box-shadow: 0 12px 36px rgba(74,124,126,0.18);
+  transform: translateY(-10px);
+}
+.plan-ribbon {
+  position: absolute;
+  top: -14px; left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+  color: #fff;
+  font-size: 11.5px;
+  letter-spacing: 0.2em;
+  padding: 6px 20px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.plan-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--ink);
+  text-align: center;
+  margin-bottom: 4px;
+}
+.plan-for { text-align: center; font-size: 12px; color: #999; letter-spacing: 0.1em; margin-bottom: 24px; }
+.plan-price { text-align: center; padding: 18px 0 22px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 24px; }
+.plan-price .num { font-family: 'Noto Serif JP', serif; font-size: 40px; color: var(--teal-dark); }
+.plan-price .unit { font-size: 13px; color: #999; margin-left: 2px; }
+.plan-price .from { font-size: 11px; color: #bbb; display: block; margin-top: 4px; letter-spacing: 0.1em; }
+.plan-list { list-style: none; flex: 1; margin-bottom: 26px; }
+.plan-list li {
+  font-size: 13.5px;
+  padding: 9px 0 9px 28px;
+  position: relative;
+  color: #555;
+}
+.plan-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 4px;
+  color: var(--teal);
+  font-weight: 500;
+}
+.plan-list li.dim { color: #c0c0c0; }
+.plan-list li.dim::before { content: '—'; color: #ddd; }
+.plan .cta-ghost, .plan .cta-btn { display: block; text-align: center; padding: 14px 0; }
+.plans-note { text-align: center; font-size: 12px; color: #aaa; margin-top: 30px; letter-spacing: 0.05em; }
+</style>
+</head>
+<body>
+<section class="section">
+  <p class="section-subtitle">Fee Structure</p>
+  <h2 class="section-title">サービス料金のご案内</h2>
+  <p class="section-desc">表で探すより、まず全体像を。あなたに合うプランがひと目で分かります。</p>
+
+  <div class="plans">
+    <div class="plan">
+      <h3 class="plan-name">個人顧問契約</h3>
+      <p class="plan-for">個人事業主・フリーランスの方</p>
+      <div class="plan-price">
+        <span class="num">15,000</span><span class="unit">円/月〜（税抜）</span>
+        <span class="from">売上規模に応じた明朗会計</span>
+      </div>
+      <ul class="plan-list">
+        <li>月次顧問・記帳チェック</li>
+        <li>確定申告・決算料 50,000円〜</li>
+        <li>3か月に1度の定期面談</li>
+        <li class="dim">給与計算・社会保険手続き</li>
+      </ul>
+      <a class="cta-ghost" href="#">料金表をみる</a>
+    </div>
+
+    <div class="plan featured">
+      <div class="plan-ribbon">いちばん選ばれています</div>
+      <h3 class="plan-name">法人顧問契約</h3>
+      <p class="plan-for">法人・これから法人化する方</p>
+      <div class="plan-price">
+        <span class="num">20,000</span><span class="unit">円/月〜（税抜）</span>
+        <span class="from">決算料 100,000円〜</span>
+      </div>
+      <ul class="plan-list">
+        <li>月次顧問・経営アドバイス</li>
+        <li>法人税・消費税申告</li>
+        <li>3か月に1度の定期面談</li>
+        <li>役員報酬・節税シミュレーション</li>
+      </ul>
+      <a class="cta-btn" href="#">無料相談する</a>
+    </div>
+
+    <div class="plan">
+      <h3 class="plan-name">顧問＋労務セット</h3>
+      <p class="plan-for">従業員を雇用している方</p>
+      <div class="plan-price">
+        <span class="num">＋10,000</span><span class="unit">円/月〜（税抜）</span>
+        <span class="from">顧問契約に追加でお得に</span>
+      </div>
+      <ul class="plan-list">
+        <li>給与計算（5人まで10,000円）</li>
+        <li>入退社の保険手続き</li>
+        <li>算定基礎届・年度更新</li>
+        <li>労務のご相談もワンストップ</li>
+      </ul>
+      <a class="cta-ghost" href="#">社会保険料金をみる</a>
+    </div>
+  </div>
+  <p class="plans-note">※ 表示価格はすべて税抜です。売上規模別の詳細は下の料金表をご覧ください。</p>
+</section>
+</body>
+</html>

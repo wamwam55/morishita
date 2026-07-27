@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_base.css">
+<style>
+.sim {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.06);
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  overflow: hidden;
+}
+.sim-left { padding: 44px 48px; }
+.sim-step { font-size: 11px; letter-spacing: 0.25em; color: var(--teal); margin-bottom: 10px; }
+.sim-q { font-family: 'Noto Serif JP', serif; font-size: 19px; font-weight: 500; color: var(--ink); letter-spacing: 0.08em; margin-bottom: 22px; }
+.toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; margin-bottom: 36px; }
+.toggle span { padding: 11px 34px; font-size: 13.5px; letter-spacing: 0.15em; color: #999; }
+.toggle span.on { background: linear-gradient(135deg, var(--teal), var(--teal-dark)); color: #fff; }
+.slider-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px; }
+.slider-label .lab { font-size: 13.5px; color: #666; letter-spacing: 0.1em; }
+.slider-label .val { font-family: 'Noto Serif JP', serif; font-size: 24px; color: var(--teal-dark); }
+.slider { position: relative; height: 6px; background: #ececec; border-radius: 999px; margin: 0 6px 10px; }
+.slider .fill { position: absolute; left: 0; top: 0; bottom: 0; width: 42%; border-radius: 999px; background: linear-gradient(90deg, var(--teal), var(--teal-dark)); }
+.slider .knob {
+  position: absolute; left: 42%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 26px; height: 26px;
+  background: #fff;
+  border: 2px solid var(--teal-dark);
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+}
+.scale { display: flex; justify-content: space-between; font-size: 11px; color: #bbb; margin: 0 6px 34px; }
+.sim-opts { display: flex; gap: 12px; }
+.chip { font-size: 12.5px; padding: 9px 18px; border-radius: 999px; border: 1px solid var(--line); color: #888; }
+.chip.on { border-color: var(--teal); color: var(--teal-dark); background: #eef5f5; }
+.sim-right {
+  background: linear-gradient(160deg, #4A7C7E, #35595c);
+  color: #fff;
+  padding: 44px 42px;
+  display: flex;
+  flex-direction: column;
+}
+.sim-right .r-label { font-size: 11px; letter-spacing: 0.3em; opacity: 0.75; margin-bottom: 18px; }
+.r-row { display: flex; justify-content: space-between; align-items: baseline; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.15); }
+.r-row .k { font-size: 13px; opacity: 0.85; }
+.r-row .v { font-family: 'Noto Serif JP', serif; font-size: 24px; }
+.r-row .v small { font-size: 11px; opacity: 0.7; margin-left: 2px; }
+.r-total { margin-top: 22px; margin-bottom: 26px; }
+.r-total .k { font-size: 12px; letter-spacing: 0.2em; opacity: 0.8; }
+.r-total .v { font-family: 'Noto Serif JP', serif; font-size: 44px; line-height: 1.2; }
+.r-total .v small { font-size: 13px; opacity: 0.75; }
+.sim-right .cta-btn { background: #fff; color: var(--teal-dark); box-shadow: none; text-align: center; }
+.sim-right .note { font-size: 10.5px; opacity: 0.6; margin-top: 14px; line-height: 1.7; }
+</style>
+</head>
+<body>
+<section class="section">
+  <p class="section-subtitle">Fee Simulator</p>
+  <h2 class="section-title">30秒で分かる、料金の目安</h2>
+  <p class="section-desc">売上規模を動かすだけ。あなたの月額・年間費用がその場で分かります。</p>
+
+  <div class="sim">
+    <div class="sim-left">
+      <p class="sim-step">STEP 1</p>
+      <p class="sim-q">事業の形態は？</p>
+      <div class="toggle"><span>個人</span><span class="on">法人</span></div>
+
+      <p class="sim-step">STEP 2</p>
+      <div class="slider-label">
+        <span class="lab">年間の売上高</span>
+        <span class="val">3,000万円</span>
+      </div>
+      <div class="slider"><div class="fill"></div><div class="knob"></div></div>
+      <div class="scale"><span>1千万</span><span>3千万</span><span>5千万</span><span>1億</span><span>2億</span></div>
+
+      <p class="sim-step">STEP 3（任意）</p>
+      <div class="sim-opts">
+        <span class="chip on">✓ 給与計算（4人）</span>
+        <span class="chip">消費税申告</span>
+        <span class="chip">記帳代行</span>
+      </div>
+    </div>
+    <div class="sim-right">
+      <p class="r-label">ESTIMATE</p>
+      <div class="r-row"><span class="k">月次顧問料</span><span class="v">25,000<small>円/月</small></span></div>
+      <div class="r-row"><span class="k">給与計算</span><span class="v">10,000<small>円/月</small></span></div>
+      <div class="r-row"><span class="k">決算料（年1回）</span><span class="v">100,000<small>円</small></span></div>
+      <div class="r-total">
+        <p class="k">年間合計の目安（税抜）</p>
+        <p class="v">520,000<small>円〜</small></p>
+      </div>
+      <a class="cta-btn" href="#">この内容で無料相談する</a>
+      <p class="note">※ あくまで目安です。正式なお見積りは初回相談（無料）にてご提示します。</p>
+    </div>
+  </div>
+</section>
+</body>
+</html>

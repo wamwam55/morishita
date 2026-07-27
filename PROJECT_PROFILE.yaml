@@ -1,0 +1,204 @@
+version: v1.0.0-alpha
+kind: project_profile
+
+project:
+  name: PLACEHOLDER
+  slug: PLACEHOLDER
+  mission: PLACEHOLDER
+  target_users:
+    - PLACEHOLDER
+  success_criteria:
+    - PLACEHOLDER
+  out_of_scope:
+    - PLACEHOLDER
+  repository: PLACEHOLDER
+  environments:
+    - local
+    - preview
+    - production
+
+roles:
+  human:
+    owner: PLACEHOLDER
+    product_owner: PLACEHOLDER
+    decision_maker: PLACEHOLDER
+  ai:
+    claude_code:
+      enabled: true
+      role: Tech Lead
+    codex:
+      enabled: true
+      role: Implementation Worker
+    computer_use:
+      enabled: true
+      role: Browser Operator
+    fable_advisor:
+      enabled: true
+      role: Architecture Advisor
+
+plugins:
+  expo: false
+  nextjs: false
+  react_native: false
+  supabase: false
+  firebase: false
+  stripe: false
+  revenuecat: false
+  agora: false
+  openai: false
+  claude: false
+  vercel: false
+  github: false
+  apple: false
+  saas: false
+  sns: false
+  marketplace: false
+  crm: false
+  admin_dashboard: false
+
+design:
+  required: true
+  user_flow_required: true
+  provider_flow_required: true
+  provider_skip_reason: PLACEHOLDER
+  admin_flow_required: true
+  screen_list: docs/SCREEN_LIST.md
+  ui_master_required: true
+  design_system_required: true
+  design_freeze: .ai/DESIGN_FREEZE.md
+  pixel_parity_required: true
+  pixel_diff_threshold: 0
+  reference_manifest: docs/DESIGN_REFERENCE_MANIFEST.md
+  html_freeze_evidence: .ai/HTML_FREEZE.yaml
+  parity_report: docs/PIXEL_PARITY_REPORT.md
+  parity_evidence: .ai/VISUAL_PARITY.yaml
+
+tech:
+  stack:
+    frontend: PLACEHOLDER
+    backend: PLACEHOLDER
+    database: PLACEHOLDER
+    deploy: PLACEHOLDER
+  spec_freeze: .ai/SPEC_FREEZE.md
+  task_queue: .ai/TASK_QUEUE.md
+  code_before_freeze_allowed: false
+
+automation:
+  concurrent_lanes:
+    enabled: true
+    branch_prefix: codex/lane/
+    isolated_worktrees: true
+    lane_autopilot: true
+    require_clean_ready: true
+    require_merge_preview: true
+    require_post_merge_tests: true
+    auto_push: false
+  autopilot:
+    enabled: true
+    agent: auto
+    idle_after: 5m
+    interval: 1m
+    no_action_cooldown: 6h
+    report: .ai/AUTOPILOT_REPORT.md
+    auto_commit: false
+    auto_push: false
+  browser_automation: true
+  autonomous_completion_before_handoff: true
+  agent_checks_provider_dashboards: true
+  browser_fallback_required: true
+  browser_profile_selection: use_project_default
+  default_browser_profile_id: PLACEHOLDER
+  default_browser_profile:
+    browser: chrome
+    profile_label: PLACEHOLDER
+    account_email: PLACEHOLDER
+  browser_runbooks:
+    - browser/GitHub.md
+    - browser/Vercel.md
+    - browser/Supabase.md
+    - browser/Firebase.md
+    - browser/Stripe.md
+  stop_points:
+    - identity_verification
+    - payment
+    - paid_plan_selection
+    - captcha
+    - two_factor_auth
+    - sms_or_email_verification
+    - terms_acceptance
+    - secret_display
+
+notification:
+  enabled: false
+  fallback: claude_code_only
+  default_provider: webhook
+  providers:
+    webhook:
+      enabled: false
+      url: PLACEHOLDER
+      method: POST
+    line:
+      enabled: false
+      line_id: PLACEHOLDER
+      webhook_url_example: "https://goodn.app/api/external/line/send?lineId=YOUR_LINE_ID&message={message}"
+    email:
+      enabled: false
+      to: PLACEHOLDER
+      from: PLACEHOLDER
+    slack:
+      enabled: false
+      webhook_url: PLACEHOLDER
+      channel: PLACEHOLDER
+    discord:
+      enabled: false
+      webhook_url: PLACEHOLDER
+      channel: PLACEHOLDER
+    teams:
+      enabled: false
+      webhook_url: PLACEHOLDER
+      channel: PLACEHOLDER
+
+approval_required:
+  vision: true
+  design_freeze: true
+  spec_freeze: true
+  payment: true
+  identity_verification: true
+  captcha: true
+  two_factor_auth: true
+  terms_acceptance: true
+  secret_input: true
+  production_deploy: true
+  production_data_delete: true
+  external_publication: true
+
+quality_gates:
+  gate_1_vision_approved:
+    required: true
+    status: pending
+  gate_2_design_approved:
+    required: true
+    status: pending
+  gate_3_freeze_approved:
+    required: true
+    status: pending
+  gate_4_setup_ready:
+    required: true
+    status: pending
+  gate_5_development_complete:
+    required: true
+    status: pending
+  gate_6_review_passed:
+    required: true
+    status: pending
+  gate_7_deploy_ready:
+    required: true
+    status: pending
+  gate_8_operation_ready:
+    required: true
+    status: pending
+
+security:
+  env_example_policy: PLACEHOLDER_ONLY
+  never_log_secrets: true
+  never_commit_secrets: true

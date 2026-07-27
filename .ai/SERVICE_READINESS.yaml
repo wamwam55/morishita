@@ -1,0 +1,8 @@
+version: 1
+status: pending
+inventory_complete: false
+approved_by: PLACEHOLDER
+approved_at: null
+default_browser_profile_verified: false
+no_external_services_reason: ""
+services: []

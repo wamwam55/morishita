@@ -1,0 +1,203 @@
+version: v1.0.0-alpha
+kind: project_state
+
+project:
+  name: PLACEHOLDER
+  human_owner: PLACEHOLDER
+  product_owner: PLACEHOLDER
+  decision_maker: PLACEHOLDER
+
+state:
+  current: NEW
+  previous: null
+  paused_from: null
+  allowed_states:
+    - NEW
+    - VISION
+    - DESIGN
+    - DESIGN_REVIEW
+    - FROZEN
+    - SETUP
+    - DEVELOPMENT
+    - REVIEW
+    - DEPLOY
+    - OPERATE
+    - PAUSED
+    - DONE
+  last_event: null
+  updated_at: PLACEHOLDER
+  updated_by: PLACEHOLDER
+
+roles:
+  human:
+    responsibility: CEO / Product Owner / Decision Maker
+    approval_required_for:
+      - vision
+      - design
+      - design_freeze
+      - spec_freeze
+      - deploy
+      - operation_ready
+      - done
+      - identity_verification
+      - payment
+      - captcha
+      - two_factor_auth
+      - terms_acceptance
+      - secret_input
+  claude_code:
+    responsibility: Tech Lead
+    status: enabled
+  codex:
+    responsibility: Implementation Worker
+    status: enabled
+  computer_use:
+    responsibility: Browser Operator
+    status: enabled
+  fable_advisor:
+    responsibility: Architecture Advisor
+    status: enabled
+
+freeze:
+  design:
+    status: not_started
+    approved_by: null
+    approved_at: null
+    artifact: .ai/DESIGN_FREEZE.md
+  spec:
+    status: not_started
+    approved_by: null
+    approved_at: null
+    artifact: .ai/SPEC_FREEZE.md
+  protected_after_state: FROZEN
+  ai_may_modify_frozen_artifacts: false
+  change_request_required: true
+
+quality_gates:
+  gate_1_vision_approved:
+    name: Vision Approved
+    status: pending
+    required_for_state: DESIGN
+    human_approval_required: true
+    approved_by: null
+    approved_at: null
+    evidence: []
+    notes: null
+  gate_2_design_approved:
+    name: Design Approved
+    status: pending
+    required_for_state: DESIGN_REVIEW
+    human_approval_required: true
+    approved_by: null
+    approved_at: null
+    evidence: []
+    notes: null
+  gate_3_freeze_approved:
+    name: Freeze Approved
+    status: pending
+    required_for_state: SETUP
+    human_approval_required: true
+    approved_by: null
+    approved_at: null
+    evidence: []
+    notes: null
+  gate_4_setup_ready:
+    name: Setup Ready
+    status: pending
+    required_for_state: DEVELOPMENT
+    human_approval_required: conditional
+    approved_by: null
+    approved_at: null
+    evidence: []
+    notes: null
+  gate_5_development_complete:
+    name: Development Complete
+    status: pending
+    required_for_state: REVIEW
+    human_approval_required: conditional
+    approved_by: null
+    approved_at: null
+    evidence: []
+    notes: null
+  gate_6_review_passed:
+    name: Review Passed
+    status: pending
+    required_for_state: DEPLOY
+    human_approval_required: conditional
+    approved_by: null
+    approved_at: null
+    evidence: []
+    notes: null
+  gate_7_deploy_ready:
+    name: Deploy Ready
+    status: pending
+    required_for_state: OPERATE
+    human_approval_required: true
+    approved_by: null
+    approved_at: null
+    evidence: []
+    notes: null
+  gate_8_operation_ready:
+    name: Operation Ready
+    status: pending
+    required_for_state: DONE
+    human_approval_required: true
+    approved_by: null
+    approved_at: null
+    evidence: []
+    notes: null
+
+active_work:
+  active_task: null
+  active_state_owner: PLACEHOLDER
+  task_queue: .ai/TASK_QUEUE.md
+  blocked: false
+  blocker_reason: null
+
+human_handoff:
+  required: false
+  reason: null
+  file: .ai/HUMAN_HANDOFF.md
+  waiting_for: null
+  stop_points:
+    - identity_verification
+    - payment
+    - captcha
+    - two_factor_auth
+    - terms_acceptance
+    - secret_input
+    - production_deploy
+    - production_data_delete
+    - external_publication
+    - legal_or_privacy_decision
+
+security:
+  secret_values_recorded: false
+  env_example_policy: PLACEHOLDER_ONLY
+  never_log_secrets: true
+  last_secret_scan_at: null
+
+events:
+  log:
+    - event: project.created
+      state_from: null
+      state_to: NEW
+      actor: PLACEHOLDER
+      at: PLACEHOLDER
+      notes: Initial project state. No secret values recorded.
+
+files:
+  project_profile: PROJECT_PROFILE.yaml
+  ai_memory: .ai/AI_MEMORY.md
+  task_queue: .ai/TASK_QUEUE.md
+  design_freeze: .ai/DESIGN_FREEZE.md
+  spec_freeze: .ai/SPEC_FREEZE.md
+  human_handoff: .ai/HUMAN_HANDOFF.md
+  ai_workflow: .ai/AI_WORKFLOW.md
+  ai_changelog: .ai/CHANGELOG_AI.md
+
+resume:
+  next_recommended_state: VISION
+  next_recommended_action: Define mission, target user, success criteria, and out of scope.
+  open_questions: []
+  risks: []

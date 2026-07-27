@@ -1,0 +1,6 @@
+version: 1
+required: true
+status: pending
+threshold_changed_pixels: 0
+expected_pages: 0
+comparisons: []

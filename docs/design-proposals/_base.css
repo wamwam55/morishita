@@ -1,0 +1,72 @@
+/* 森下知幸税理士・社労士事務所 デザイン提案 共通スタイル */
+:root {
+  --teal: #5D9B9B;
+  --teal-dark: #4A7C7E;
+  --ink: #1a1a1a;
+  --text: #333;
+  --muted: #999;
+  --line: #e5e5e5;
+  --bg: #fbfaf8;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+.section { padding: 72px 60px; max-width: 1440px; margin: 0 auto; }
+.section-subtitle {
+  text-align: center;
+  color: var(--teal);
+  font-size: 13px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.section-title {
+  text-align: center;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 500;
+  font-size: 34px;
+  letter-spacing: 0.18em;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+.section-desc {
+  text-align: center;
+  font-size: 14.5px;
+  line-height: 2;
+  color: #666;
+  margin-bottom: 48px;
+}
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+.cta-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  padding: 16px 42px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(93, 155, 155, 0.35);
+}
+.cta-ghost {
+  display: inline-block;
+  border: 1px solid var(--teal);
+  color: var(--teal-dark);
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  padding: 15px 42px;
+  border-radius: 999px;
+  text-decoration: none;
+  background: #fff;
+}

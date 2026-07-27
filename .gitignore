@@ -1,0 +1,16 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+build/
+.expo/
+.turbo/
+.cache/
+.aios-runtime/
+*.log
+
+# AIOS portable state must remain trackable across machines.
+!.ai/
+!.ai/**
