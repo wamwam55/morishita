@@ -3,45 +3,46 @@
 <!-- AIOS:SESSION-CONTINUITY:START -->
 ## AIOSが保存した現在状態
 
-- 更新: 2026-07-28T07:08:20.949Z
-- 元セッション: `claude:89b738c6-be38-4eee-bb25-6d1195e86d58`
-- 引き継ぎ: `.ai/HANDOFFS/2026-07-28T07-08-20-949Z-claude-89b738c6-b.md`
+- 更新: 2026-07-28（SEO対応セッション）
+- 対象サイト: 森下知幸税理士・社労士事務所（https://morishita-tax.jp/）
+- リポジトリ: wamwam55/morishita（main）
 
 ### Git
 
 ```text
-## main...origin/main [ahead 1]
- M components/about/about.css
- M components/about/about.html
- M components/access/access.html
-?? _t_about.html
-?? _t_access.html
-
-最新コミット: 0f6102b AIOS: AIOSで指定済みのChrome wamwam55（Profile 1、wamwam55@gmail.com）だけを使ってGmailの新着を確認 — 開始
-
-変更量:
-components/about/about.css    | 122 ++++++++++++++++++++++++++++++++++++++++++
- components/about/about.html   |  70 ++++++++++++------------
- components/access/access.html |   2 +-
- 3 files changed, 159 insertions(+), 35 deletions(-)
+最新コミット: d3d78b2 seo: 経営理念「感謝・尊敬・愛」で検索ヒットするようSEO強化
+origin/main と同期済み（push完了）
+作業ツリー: clean
 ```
 
-### 直近の要求
+### 完了済み（今セッション）
 
-- [Request interrupted by user]
-- 森本のところ、送信しようとしてないぞ  [AIOS現在地] 緯度 31.804325 / 経度 131.458598（精度 約28m） この座標はユーザー端末の現在地です。「近く」「周辺」「ここから」の質問はこの現在地を基準に回答してください。
-- で  [AIOS現在地] 緯度 31.804516 / 経度 131.458638（精度 約22m） この座標はユーザー端末の現在地です。「近く」「周辺」「ここから」の質問はこの現在地を基準に回答してください。
-- aで  [AIOS現在地] 緯度 31.804363 / 経度 131.458571（精度 約21m） この座標はユーザー端末の現在地です。「近く」「周辺」「ここから」の質問はこの現在地を基準に回答してください。
-- [Request interrupted by user]
-- もう一回やって  [AIOS現在地] 緯度 31.804363 / 経度 131.458571（精度 約21m） この座標はユーザー端末の現在地です。「近く」「周辺」「ここから」の質問はこの現在地を基準に回答してください。
-- 送って
-- ブラウザの方使って
-- [Request interrupted by user]
-- このブラウザを続けて
-- [Request interrupted by user]
-- 返事してあげて　次からホームページデザインなどの修正に関しては私(naminami ai)が自動回答自動修正させていただきます　まだ私自身は開発途中ですがご了承ください的なこともそえて
-- [Request interrupted by user]
-- 送信してみて
-- システム調整しましたもう一回やってみて
-- 通知内容を確認し、必要な対応を行ってください。対応結果もこのセッションへ報告してください。 開始前にやる予定のことと完了後作業報告しておいて  PC通知を受信しました。通知の内容を正確に把握して、上の指示を実行してください。 - アプリ: LINE - 通知元: 森下　知幸 - 件名: 森下　知幸 - 本文: インスタ等は改めて相談するわ。 HPについて、以下に修正してくれませんか。  〇経営理念 「感謝」を起点に、「尊敬」と「愛」をもって行動し、 関わるすべての人を幸せへと導く。  感謝（Gratitude）： ご縁と信頼に感謝し、一期一会の出会いを大切にします。  尊敬（Respect）： 歩んできた歴史と想いに敬意を払い、深く耳を傾けます。  愛（Love）： 誠意と情熱をもって相手の立場に立ち、最善を尽くします。  〇お気軽にご相談ください 電話番号・メールアドレスを一行で表示する  〇一番下の連絡先 大阪事務所　→　事務所  お願いします。 - 受信日時: 2026-07-27T23:51:39.019Z  通知本文に返信を求める内容がある場合は、文脈に沿って自然に判断してください。別人・別スレッドへの誤送信を避け、対象を確認してから実行してください。
+森下様LINE依頼「SEOも 感謝、尊敬、愛でヒットするようにできない？」への対応:
+
+1. `philosophy.html` を新規作成（経営理念専用の**静的**ページ）
+   - h1/h2に「経営理念」「感謝」「尊敬」「愛」を配置、各価値観の解説・実践例・FAQを掲載
+   - 構造化データ: AboutPage / FAQPage / BreadcrumbList / Organization(slogan="感謝・尊敬・愛")
+   - canonical / OGP / Twitter Card 設定済み
+2. `index.html`
+   - title・meta description・OGP・Twitter description に理念キーワードを反映
+   - JSON-LD に `slogan` / `knowsAbout` / `subjectOf`（理念ページ）を追加、BreadcrumbListに理念ページ追加
+   - JS無効時にも読める `<noscript>` の基本情報ブロックを追加（クローラー対策）
+3. `components/about/about.html` / `about.css`
+   - 経営理念ブロックから `philosophy.html` への内部リンクを追加（`.philosophy-more`）
+4. `sitemap.xml` に理念ページ追加、lastmod更新
+5. `robots.txt` に `Allow: /*.css$` `/*.js$` を追加（レンダリング用リソースのブロック解除）
+6. 検証用一時ファイル `_t_*.html` をリポジトリから除外（公開されると重複コンテンツになるため）+ .gitignore追加
+
+### 前セッションからの引き継ぎ（完了済みを再確認）
+
+- 経営理念セクションの文言差し替え（感謝・尊敬・愛）… 完了（about.html）
+- 「お気軽にご相談ください」の電話・メール1行表示 … 完了
+- 一番下の連絡先「大阪事務所」→「事務所」 … 完了（access.html）
+- 上記はコミット `e84b944` に含まれ、今回 push 済み
+
+### 未完了
+
+- 森下様へのLINE返信（HP更新完了報告 + SEO対応報告）
+  - LINE Chrome拡張・ネイティブアプリともに**ログアウト状態**のため自動送信不可
+  - スマホLINEでQRログインが必要（対応手順は KNOWN_ISSUES.md 参照）
 <!-- AIOS:SESSION-CONTINUITY:END -->
