@@ -4,6 +4,9 @@
 # 全てのクローラーに対する設定
 User-agent: *
 Allow: /
+# ページのレンダリングに必要なCSS/JSはブロックしない
+Allow: /*.css$
+Allow: /*.js$
 Disallow: /js/
 Disallow: /css/
 Disallow: /theme/

@@ -4,12 +4,20 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-    <!-- メインページ（SPA構成のため単一URLのみ） -->
+    <!-- メインページ -->
     <url>
         <loc>https://morishita-tax.jp/</loc>
-        <lastmod>2026-05-02</lastmod>
+        <lastmod>2026-07-28</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+    </url>
+
+    <!-- 経営理念ページ（感謝・尊敬・愛） -->
+    <url>
+        <loc>https://morishita-tax.jp/philosophy.html</loc>
+        <lastmod>2026-07-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
 
 </urlset>
