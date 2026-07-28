@@ -40,9 +40,21 @@ origin/main と同期済み（push完了）
 - 一番下の連絡先「大阪事務所」→「事務所」 … 完了（access.html）
 - 上記はコミット `e84b944` に含まれ、今回 push 済み
 
+### 検証結果（2026-07-28）
+
+- ローカルHTTPサーバでレンダリング確認: philosophy.html（PC/幅390px）横スクロールなし（scrollWidth=clientWidth=390）
+- JSON-LD 5ブロックすべて `json.loads` でパース成功
+- Aboutセクション → philosophy.html の内部リンク、実ページでクリック遷移まで確認
+- 本番反映確認: https://www.morishita-tax.jp/philosophy.html が200、titleも新しいものに更新済み
+
+### 森下様への連絡（完了）
+
+- 2026-07-28 16:42 JST、ネイティブLINE.appから森下 知幸様へ完了報告を送信済み
+  - 内容: ①経営理念掲載 ②連絡先1行表示 ③「大阪事務所」→「事務所」 ④SEO対応（理念ページURL含む）
+  - 「一語だけの検索（感謝／愛）での上位表示は現実的でない・複合キーワードを狙う・反映に2〜4週間」と正直に説明
+  - 次回以降のデザイン修正は naminami ai が自動対応する旨も記載
+
 ### 未完了
 
-- 森下様へのLINE返信（HP更新完了報告 + SEO対応報告）
-  - LINE Chrome拡張・ネイティブアプリともに**ログアウト状態**のため自動送信不可
-  - スマホLINEでQRログインが必要（対応手順は KNOWN_ISSUES.md 参照）
+- なし（今セッションの依頼はすべて完了）
 <!-- AIOS:SESSION-CONTINUITY:END -->

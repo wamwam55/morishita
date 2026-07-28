@@ -5,21 +5,23 @@
 
 - 更新: 2026-07-28
 
-### 1. LINE自動送信ができない（継続中）
+### 1. LINE自動送信（解決済み：ネイティブLINE.app + CGEvent + OCRゲート）
 
-- **症状**: 森下様への返信をAIから自動送信できない
-- **原因**:
-  - OpenClawブラウザのLINE Chrome拡張（`ophjlpahpchlmihnnnihgmmeilfjmjjc`）が**ログアウト状態**（QRコードログイン画面）
-  - Macのネイティブ LINE.app は起動しているがログイン状態が不明、かつ computer-use MCP が本セッションでは未提供
-  - `openclaw browser open/navigate` は `chrome-extension:` プロトコルを拒否する
-- **判明した回避策**: OpenClawのCDPポートに直接 PUT すれば拡張ページを開ける
-  ```bash
-  curl -s -X PUT "http://127.0.0.1:18800/json/new?chrome-extension://ophjlpahpchlmihnnnihgmmeilfjmjjc/index.html"
-  openclaw browser tabs && openclaw browser focus <id> && openclaw browser snapshot --labels
-  ```
-- **残る前提条件**: スマホのLINEでQRコードを読み取りログインすること。ログイン後は
-  `openclaw browser click`／`type --submit` で送信可能（手順は skill `line-desktop-send`）
-- **注意**: 誤送信防止のため、送信前に必ず snapshot で相手（森下 知幸）を確認する
+- 2026-07-28時点でネイティブ LINE.app は**ログイン済み**。OpenClaw拡張は使わずネイティブアプリで送信できた
+- **確立した手順**（誤送信を防ぐ前提で必須）
+  1. `CGWindowListCopyWindowInfo(kCGWindowListOptionAll)` でLINEメインウィンドウIDを取得（ObjC + clang でビルド。`swift` はCommandLineToolsのmodulemap衝突で不可）
+  2. 画像ビューア等の**別ウィンドウが手前にあると座標クリックが誤爆する**。先に Esc で閉じる
+  3. 相手の選択は**サイドバーの通常リストから**行う（検索結果から開いたトークは選択が確定せず、次の操作で別トークに戻る）
+  4. 本文は**1文字ずつのキー入力を使わない**。長文タイプ中にフォーカスが検索欄や別トークへ飛び、別人の入力欄に本文が入る事故が起きた
+  5. 本文は `osascript` でクリップボードへ入れて Cmd+V（`pbcopy`/`pbpaste` はサンドボックスで無音失敗する）
+  6. **送信直前にヘッダーをOCRして相手名を検証**し、一致した場合のみ Return を送る（Vision.framework の `VNRecognizeTextRequest`, ja-JP）
+- 座標は「スクリーン座標 = ウィンドウ座標 + ウィンドウ原点」。`screencapture -l<id>` の画像はウィンドウ座標なので `sips --cropOffset` はウィンドウ座標で指定する
+
+### 1-b. 事故と復旧の記録（2026-07-28）
+
+- 1文字ずつタイプ方式で、本文の一部が**検索欄**と**「宮崎3人組」グループの入力欄**に入った
+- **送信は一切していない**（Returnを押していないため）。入力欄をクリック→Cmd+A→Cmd+Xで全消去し復旧済み
+- 以後は上記のクリップボード貼り付け＋OCRゲート方式のみを使うこと
 
 ### 2. サイトがSPA（JSでコンポーネントを後読み）
 
@@ -35,7 +37,15 @@
 - 反映には Google のクロール後、通常 数日〜数週間かかる
 - Search Console で `philosophy.html` のURL検査＋インデックス登録リクエストを行うと早い
 
-### 4. リポジトリのリモートURLに個人アクセストークンが埋め込まれている
+### 4. www / 非www の正規化が不一致（未対応・要判断）
+
+- 本番は `https://morishita-tax.jp/` → `https://www.morishita-tax.jp/` へ **307（一時）リダイレクト**
+- 一方 canonical / sitemap.xml / JSON-LD の `@id` はすべて**非www**を指している
+- Googleはリダイレクト先へ正規化するため致命的ではないが、301（恒久）に変更し、
+  canonical・sitemapもホスト表記を実際の配信ホストに揃えるのが望ましい
+- リダイレクトはサーバ／ホスティング側の設定でリポジトリ内には無いため、今回は変更せず記録のみ
+
+### 5. リポジトリのリモートURLに個人アクセストークンが埋め込まれている
 
 - `git remote -v` の URL にトークンが含まれている（値は本ドキュメントには記載しない）
 - 推奨: トークンをローテーションし、`git credential` もしくは SSH 接続へ移行する
