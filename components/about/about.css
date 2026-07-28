@@ -1867,6 +1867,128 @@
     color: #999 !important;
 }
 
+/* 連絡先を一行表示 */
+.contact-methods-inline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem 1rem;
+}
+
+.contact-inline-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.contact-inline-item:hover {
+    transform: translateY(-2px);
+}
+
+.contact-methods-inline .method-label {
+    margin-bottom: 0;
+    padding: 0.25rem 0.8rem;
+    font-size: 0.72rem;
+}
+
+.contact-methods-inline .method-value {
+    display: inline;
+    font-size: 1.25rem;
+}
+
+.contact-methods-inline .email-primary {
+    font-size: 1.1rem;
+    word-break: normal;
+}
+
+.contact-inline-sep {
+    color: #ccc;
+    font-weight: 300;
+}
+
+@media (max-width: 600px) {
+    .contact-methods-inline {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .contact-inline-sep {
+        display: none;
+    }
+    .contact-methods-inline .method-value {
+        font-size: 1.15rem;
+    }
+}
+
+/* 経営理念 */
+.philosophy-lead {
+    font-weight: 500;
+    color: #1a1a1a;
+    font-size: 1.1rem;
+    line-height: 2;
+    margin-bottom: 1.75rem;
+}
+
+.philosophy-values {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.philosophy-value {
+    display: flex;
+    align-items: baseline;
+    gap: 1.1rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px dashed #e6e2da;
+}
+
+.philosophy-value:last-child {
+    border-bottom: none;
+}
+
+.pv-word {
+    flex: 0 0 auto;
+    min-width: 4.2rem;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #4A7C7E;
+    line-height: 1.2;
+}
+
+.pv-word small {
+    display: block;
+    font-family: inherit;
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: #9bb5b5;
+    margin-top: 2px;
+}
+
+.pv-desc {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: #555;
+    font-weight: 300;
+}
+
+@media (max-width: 600px) {
+    .philosophy-value {
+        gap: 0.8rem;
+    }
+    .pv-word {
+        min-width: 3.4rem;
+        font-size: 1.15rem;
+    }
+    .pv-desc {
+        font-size: 0.88rem;
+    }
+}
+
 /* フォーム説明 */
 .inquiry-description {
     margin-bottom: 1.5rem;
