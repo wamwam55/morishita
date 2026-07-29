@@ -129,6 +129,17 @@
     transform: scale(1.1);
 }
 
+/* イラスト素材用 - 写真と違い切り抜かず全体を見せる */
+.program-image--illust {
+    object-fit: contain;
+    padding: 1.75rem;
+    background: linear-gradient(160deg, #f4f9f9 0%, #e8f2f2 100%);
+}
+
+.program-card:hover .program-image--illust {
+    transform: scale(1.05);
+}
+
 /* オーバーレイ */
 .image-overlay {
     position: absolute;
@@ -484,6 +495,12 @@
     .program-image {
         object-fit: cover; /* 画像をカードいっぱいに表示 */
         object-position: center;
+    }
+
+    /* イラストは切り抜かず全体を見せる */
+    .program-image--illust {
+        object-fit: contain;
+        padding: 1.25rem;
     }
 
     .program-type {
