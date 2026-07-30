@@ -13,7 +13,9 @@
         const heroDescription = document.querySelector('.hero-description');
         
         if (heroTitle) {
-            heroTitle.textContent = 'あなたの「成功」を支える税務戦略';
+            // hero.html と同じ内容を保つこと（textContent だと SEO 用の見出し構造が消える）
+            heroTitle.innerHTML = 'みんなの笑顔のために。<br>' +
+                '<span class="hero-title-sub">大阪市淀川区の税理士が、<br>あなたの「成功」を支えます</span>';
         }
         if (heroSubtitle) {
             heroSubtitle.textContent = '森下知幸税理士・社労士事務所';
@@ -41,7 +43,7 @@
             
             // ビデオソースを設定（ローカルファイル）
             const source = document.createElement('source');
-            source.src = 'videos/0921(3).mp4';
+            source.src = 'videos/hero-video-2026-07.mp4';
             source.type = 'video/mp4';
             
             video.appendChild(source);
