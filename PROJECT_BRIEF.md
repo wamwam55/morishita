@@ -7,7 +7,7 @@
 - Product Lead:
 - Design Lead:
 - 作成日:
-- 現在の State: 2026-07-31、前面文言は本番反映済み（c45a4e1）。当方が A2E の Google Veo 3 で作った冒頭動画（ブランチ feature/hero-video-veo-2026-07-31 / 7秒ループ）を、オーナー指示により森下様へ LINE 送付済み（説明1通＋動画1本）。採否は森下様の返答待ちで、本番は videos/0921(3).mp4 のまま。森下様側の Gemini 版が届けばそちらを優先する。同日、動画生成エンジンの最新勢力図を調査（image-to-video 首位は Seedance 2.0、Sora 2 は deprecated、admin 側に15エンジン実装済み）。より高品質版が必要なら Seedance 2.0 を使うが、追加課金のためオーナー指示待ち。
+- 現在の State: 2026-07-31、前面文言は本番反映済み（c45a4e1）。冒頭動画は Veo 3 版（7秒 / ブランチ feature/hero-video-veo-2026-07-31）と Seedance 2.0 版（1080p / 11秒 / ブランチ feature/hero-video-seedance-2026-07-31）の2本を森下様へ LINE 送付済み。04:39 に森下様より修正2点（①冒頭は青空の雲の上から降下してカフェへ ②カフェの店員とお客様の位置を反転）のご指示があり、Seedance 版をベースに反映して再生成中。本番の冒頭動画は videos/0921(3).mp4 のままで main は未変更。森下様側の Gemini 版が届けばそちらを優先する。
 
 ## 目的
 
