@@ -3,21 +3,22 @@
 <!-- AIOS:SESSION-CONTINUITY:START -->
 ## AIOSが保存した現在状態
 
-- 更新: 2026-07-30T19:33:38.623Z
-- 元セッション: `claude:739b1d7b-0b1c-48c1-a594-638e496bb40c`
-- 引き継ぎ: `.ai/HANDOFFS/2026-07-30T19-33-38-623Z-claude-739b1d7b-0.md`
+- 更新: 2026-07-30T20:08:45.579Z
+- 元セッション: `claude:f1afd706-37ce-44da-a6d5-561a03627cd2`
+- 引き継ぎ: `.ai/HANDOFFS/2026-07-30T20-08-45-579Z-claude-f1afd706-3.md`
 
 ### Git
 
 ```text
-## main...origin/main
+## feature/hero-video-seedance-2026-07-31...origin/feature/hero-video-seedance-2026-07-31
 
-最新コミット: 8439e0b docs: オーナー指示により Veo 版の冒頭動画を森下様へ LINE 送付した経緯を記録
+最新コミット: dbc0ea3 feat: 冒頭動画に Seedance 2.0 生成版（1080p/11秒シームレスループ）を追加
 ```
 
 ### 直近の要求
 
-- 送信してあげて
+- ちなみに今一番最高のクオリティに動画生成はなんですか
+- 最高レベルのseedanceでも作ってみましたよって出来上がったら送ってあげて
 <!-- AIOS:SESSION-CONTINUITY:END -->
 
 ## 実装状況（2026-07-28 時点・実測確認済み）
