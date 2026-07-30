@@ -3,21 +3,29 @@
 <!-- AIOS:SESSION-CONTINUITY:START -->
 ## AIOSが保存した現在状態
 
-- 更新: 2026-07-30T19:33:38.623Z
-- 元セッション: `claude:739b1d7b-0b1c-48c1-a594-638e496bb40c`
-- 引き継ぎ: `.ai/HANDOFFS/2026-07-30T19-33-38-623Z-claude-739b1d7b-0.md`
+- 更新: 2026-07-30T20:32:54.723Z
+- 元セッション: `claude:bab32f64-e9d3-4922-80ed-dffb4b28fe63`
+- 引き継ぎ: `.ai/HANDOFFS/2026-07-30T20-32-54-723Z-claude-bab32f64-e.md`
 
 ### Git
 
 ```text
-## main...origin/main
+## main...origin/main [ahead 1]
+ M components/hero/hero.html
+ M components/hero/hero.js
+A  videos/hero-video-seedance-2026-07-31.mp4
 
-最新コミット: 8439e0b docs: オーナー指示により Veo 版の冒頭動画を森下様へ LINE 送付した経緯を記録
+最新コミット: 0e86de5 chore(aios): register parallel lane ai-pc-line-2026-07-30t19-39-35-4
+
+変更量:
+components/hero/hero.html | 2 +-
+ components/hero/hero.js   | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 ```
 
 ### 直近の要求
 
-- 送信してあげて
+- 続けて
 <!-- AIOS:SESSION-CONTINUITY:END -->
 
 ## 実装状況（2026-07-28 時点・実測確認済み）
