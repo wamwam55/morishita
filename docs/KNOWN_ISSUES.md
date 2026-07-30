@@ -118,6 +118,18 @@ main へマージしない**。返答がないまま先方の動画が届いた�
 ループ用のクロスフェードは、末尾1秒を**冒頭に重ねて `fade=t=out:alpha=1`**（フェードアウト）にする。
 `t=in` にすると冒頭が別シーンへ変化するだけでループの継ぎ目は消えない。
 
+### 1-f. 動画生成エンジンは admin 側に実装済み。AIOS で複製しない
+
+`SITE/ADMIN/src/lib/studio/video-engines.ts` に15エンジン（i2v / Veo 3.1 / Kling 3.0 / Kling 2.6 /
+Kling Omni / Seedance 1.5 Pro / **Seedance 2.0** / HappyHorse 1.1 / Wan 2.6 / Wan 2.7 / Wan R2V /
+Sora 2 Pro / Hailuo / Grok Imagine 1.5）が実測コイン単価つきで定義されている。
+morishitax 側で新たに A2E を直叩きする前に、必ずこのファイルの契約を確認すること。
+
+- 既定は `DEFAULT_VIDEO_ENGINE = 'i2v'`（本人維持が最も強い）
+- `Wan 2.7` は `superAdminOnly`。a2e 側で VIP / Max アカウントが必要
+- Seedance 2.0 は `duration <= 4` が 400 になる（5〜12秒）。1080p / 4k は `standard` モデルのみ
+- **Sora 2 は 2026-04-26 に deprecated（API 2026-09-24 停止）**。新規採用しない
+
 ### 9-b. ヘッドレス Chrome は幅 500px 未満のウィンドウを作れない
 
 `--window-size=390,844` を渡しても `document.documentElement.clientWidth` は 500 になる。
