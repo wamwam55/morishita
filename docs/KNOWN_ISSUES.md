@@ -98,6 +98,52 @@ canonical / sitemap / JSON-LD は非wwwを指しており表記が不一致。�
 「森下様の Gemini 版を優先します」と明記しているため、**先方から採用のご返答があるまで
 main へマージしない**。返答がないまま先方の動画が届いた場合は、そちらを優先する。
 
+**2026-07-31 05:36 追記 —— 本項は解決。冒頭動画は本番反映済み。**
+森下様が 5:13 に「直近で送信してもらった動画をホームページの冒頭動画にしてください。
+繰り返し流れるように設定してください。」とご指示。**Seedance 版（修正2点は未反映）**を
+`main` へ反映し、本番へ push 済み（`videos/hero-video-seedance-2026-07-31.mp4`）。
+Veo 版・Kling v5 は不採用でブランチ残置。以降この項は「先方作成待ち」ではない。
+
+### 1-g. 修正2点を反映した Seedance v2 は未送付のまま保留中
+
+森下様の修正2点（①冒頭を青空の雲の上から下降してカフェへ ②カフェの店員と客の位置を逆に）を
+反映した v2 が完成しているが、**5:13 のご指示が「直近で送信した動画（＝修正前）を使う」だった**ため
+本番には入れていない。5:43 の完了報告で「ご希望なら送付して差し替えます」と伝えて返答待ち。
+
+- 保全先: ブランチ `feature/hero-video-seedance-v2-corrections`（`bc3d5b8`）
+  / `videos/hero-video-seedance-v2-corrections-2026-07-31.mp4`
+- LINE 送付用プレビュー（前面文言焼き込み・1280x720・2.8MB）は `/tmp/seedance-v2-preview-for-line.mp4`
+  にあるが、**`/tmp` は消える**。送付時に残っていなければ、保全済みの本体から作り直すこと
+
+### 11. コミットしただけでは本番に出ない —— セッション終了で push 漏れが起きる
+
+2026-07-31 に発生。前セッションは hero の動画差し替えを `88723c7` でコミットしたが
+**push しないまま終了**し、`main...origin/main [ahead 2]` の状態で引き継がれた。
+本番（Vercel）は `origin/main` を見るため、**ローカルの作業ツリーが「正しく」見えていても
+本番は旧内容のまま**という食い違いが生じる。
+
+引き継ぎ時は必ず次を確認すること。
+
+- `git status --short --branch` の `[ahead N]` を見る。0 でなければ本番未反映
+- 本番の実体を `curl` で直接確認する（例: `curl -s <URL>/components/hero/hero.js | grep mp4`）
+- **`hero.js` は実行時に `hero.html` の video を差し替える**ため、`hero.html` だけ見ても
+  実際に再生される動画は分からない（KNOWN_ISSUES 1-d と同根）
+
+### 12. macOS には `timeout` コマンドがない
+
+ヘッドレス Chrome が固まる件（項目 9-b / メモリ）の対策で `timeout 90 chrome …` と書くと
+**exit 127（command not found）**になり、検証したつもりで何も実行されていない状態になる。
+`timeout` は GNU coreutils（`gtimeout`）側。素の macOS では次のように自前で見張る。
+
+```bash
+chrome --headless=new … --screenshot=/tmp/out.png "URL" & CPID=$!
+for i in $(seq 1 60); do [ -s /tmp/out.png ] && break; kill -0 $CPID 2>/dev/null || break; sleep 1; done
+kill -9 $CPID 2>/dev/null
+```
+
+なお **`--dump-dom` は `--screenshot` より確実**で、実際に読み込まれた動画 src を
+文字列で取れる。見た目のフレームから動画を推測するより先に DOM を確認すること。
+
 2026-07-31 03:30 追記: 森下様より「動画はGeminiで作った方がいいっぽい」。
 **制作主体は引き続き森下様側（Gemini/Veo）**。当方は受領後の差し替えのみ担当する。
 受領時の想定仕様は MP4（H.264）／10〜15秒／音声なし／横1920×1080。
