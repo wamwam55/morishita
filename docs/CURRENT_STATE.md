@@ -158,8 +158,47 @@ nami ちゃんに投げていい？**」の連絡。9:11 に当方から「冒�
 
 コード変更なし。本番の冒頭動画は `videos/0921(3).mp4` のまま。
 
+## 2026-07-31 03:35〜03:50 JST — A2E の Google Veo 3 で冒頭動画を1本作成（ブランチ）
+
+オーナー指示「A2eでveo使えるはずやからひとつつくってあげて」に対応。
+
+**A2E の Veo 対応を実測で確認**（公開ドキュメント `api.a2e.ai` には未記載）:
+
+- 開始: `POST https://a2e.ai/api/v1/veoVideo/start`
+- 取得: `GET https://a2e.ai/api/v1/veoVideo/{taskId}` → `data.video_url`
+- 必須: `prompt`。`model` は `veo3` / `veo3_fast`、`aspect_ratio` は `16:9` / `9:16` / `auto`
+- 出力は固定で 8.000秒 / 1280x720 / 24fps / **音声トラック付き**（Veo は音を生成する）
+- 認証は既存の A2E キー（Firestore `globalSettings/*.a2eSettings.apiKey`）。所要 約90〜105秒
+- 同時刻、admin 側でも別 AIOS セッションが `src/lib/studio/video-engines.ts` に
+  同じ `/veoVideo/start` を実装中で、契約が一致していることを確認済み
+
+**生成結果**:
+
+| 版 | 内容 | 判定 |
+|----|------|------|
+| veo-v1 | 雲上→街→カフェ→教室→握手 | 冒頭1.3秒に「雲の上に吊られた作業員」という非現実カット（v4 で却下された系統）→ 不採用 |
+| veo-v2 | 地上目線に限定。街の作業員→カフェ→オフィス→起立して握手＋拍手 | **採用** |
+
+veo-v2 は森下様の修正3点（人に動きを／立ち上がって握手／ダンボールの人物なし）を満たし、
+文字・ロゴ・ドローン機体の映り込みなし。プロンプトは `SITE/ADMIN/.tmp-veo-hero.mjs` に保存。
+
+**仕上げ**: 音声除去 → 末尾1秒を冒頭へクロスフェード（フェードは `t=out`。逆にすると継ぎ目が消えない）
+→ 7.000秒のシームレスループ。1280x720 / H.264 High L3.1 / yuv420p / 24fps / faststart / 1.8MB。
+
+**反映先**: ブランチ `feature/hero-video-veo-2026-07-31`（`3fb3e80`、origin へ push 済み）。
+`videos/hero-video-veo-2026-07-31.mp4` を追加し、`hero.html` と `hero.js` の両方の src を差し替え。
+**main は未変更。本番の冒頭動画は `videos/0921(3).mp4` のまま。**
+
+検証: ローカル HTTP サーバで `/` `hero.html` `hero.js` `動画` すべて 200、
+ヘッドレス Chrome の実スクリーンショットで再生を確認、先頭フレームと末尾フレームの一致も確認。
+
+LINE 送付用に前面文言（「みんなの笑顔のために。／あなたの成功を支えます。」）を焼き込んだ
+確認用動画 `/tmp/veo-preview-for-line.mp4`（7秒・1.7MB）も用意済み。**未送信**。
+
 ### 次にやること
 
-1. 森下様から新しい冒頭動画（Gemini/Veo 生成）が届くのを待つ
-2. 届いたら `videos/` へ追加し、`hero.html` と `hero.js` の**両方**の src を差し替えて本番反映
-3. `feature/hero-video-2026-07`（v5）は保険として残置。不要が確定したら削除する
+1. 森下様へ Veo 版を送るかどうか、オーナーの判断を仰ぐ（送付は外部発信のため自動実行しない）
+2. 送って OK が出たら `feature/hero-video-veo-2026-07-31` を main へマージして本番反映
+3. 森下様側の Gemini/Veo 動画が届いた場合はそちらを優先し、`videos/` へ追加して
+   `hero.html` と `hero.js` の**両方**の src を差し替える
+4. `feature/hero-video-2026-07`（Kling v5）は保険として残置。不要が確定したら削除する

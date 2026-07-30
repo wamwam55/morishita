@@ -100,6 +100,20 @@ canonical / sitemap / JSON-LD は非wwwを指しており表記が不一致。�
 文字入れなしで受け取ること（前面文言は `hero.html` / `hero.js` 側で重ねるため、
 映像に焼き込まれていると二重になる）。
 
+### 1-e. A2E の Veo は公開ドキュメントに載っていない（実測した契約）
+
+`api.a2e.ai` の公開ドキュメントには Kling / Wan / Veo の記載がなく、`docs.a2e.ai` は存在しない。
+実測した契約は以下（2026-07-31 確認）。
+
+- `POST https://a2e.ai/api/v1/veoVideo/start` / `GET https://a2e.ai/api/v1/veoVideo/{taskId}`
+- 必須 `prompt`。`model` は `veo3` / `veo3_fast` のみ、`aspect_ratio` は `16:9` / `9:16` / `auto` のみ
+- **尺は指定できず常に 8.000秒**。1280x720 / 24fps、**音声トラック付きで返る**ので Web 用途では除去する
+- 存在しないエンドポイントは HTML の 404 を返し、実在するものは JSON の 400 を返す。
+  この差でエンドポイントの有無を**課金なしに**判定できる（`userVeo` などは 404、`veoVideo` は 400）
+
+ループ用のクロスフェードは、末尾1秒を**冒頭に重ねて `fade=t=out:alpha=1`**（フェードアウト）にする。
+`t=in` にすると冒頭が別シーンへ変化するだけでループの継ぎ目は消えない。
+
 ### 9-b. ヘッドレス Chrome は幅 500px 未満のウィンドウを作れない
 
 `--window-size=390,844` を渡しても `document.documentElement.clientWidth` は 500 になる。
