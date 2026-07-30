@@ -3,24 +3,16 @@
 <!-- AIOS:SESSION-CONTINUITY:START -->
 ## AIOSが保存した現在状態
 
-- 更新: 2026-07-30T20:32:54.723Z
-- 元セッション: `claude:bab32f64-e9d3-4922-80ed-dffb4b28fe63`
-- 引き継ぎ: `.ai/HANDOFFS/2026-07-30T20-32-54-723Z-claude-bab32f64-e.md`
+- 更新: 2026-07-30T20:49:09.196Z
+- 元セッション: `claude:47f986fe-588e-42f4-959b-1c1801f1915e`
+- 引き継ぎ: `.ai/HANDOFFS/2026-07-30T20-49-09-196Z-claude-47f986fe-5.md`
 
 ### Git
 
 ```text
-## main...origin/main [ahead 1]
- M components/hero/hero.html
- M components/hero/hero.js
-A  videos/hero-video-seedance-2026-07-31.mp4
+## main...origin/main
 
-最新コミット: 0e86de5 chore(aios): register parallel lane ai-pc-line-2026-07-30t19-39-35-4
-
-変更量:
-components/hero/hero.html | 2 +-
- components/hero/hero.js   | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+最新コミット: dc28ef4 docs: Seedance 版の本番反映（push漏れの解消）と、修正版v2の保全・報告経緯を記録
 ```
 
 ### 直近の要求
