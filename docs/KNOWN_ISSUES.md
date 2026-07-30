@@ -111,9 +111,26 @@ Veo 版・Kling v5 は不採用でブランチ残置。以降この項は「先�
 本番には入れていない。5:43 の完了報告で「ご希望なら送付して差し替えます」と伝えて返答待ち。
 
 - 保全先: ブランチ `feature/hero-video-seedance-v2-corrections`（`bc3d5b8`）
-  / `videos/hero-video-seedance-v2-corrections-2026-07-31.mp4`
+  / `videos/hero-video-seedance-v2-corrections-2026-07-31.mp4`（7,473,166 bytes / 1920x1080 / 11.041秒 / 音声なし）
 - LINE 送付用プレビュー（前面文言焼き込み・1280x720・2.8MB）は `/tmp/seedance-v2-preview-for-line.mp4`
   にあるが、**`/tmp` は消える**。送付時に残っていなければ、保全済みの本体から作り直すこと
+
+**プレビュー再生成コマンド（2026-07-31 05:51 に実行して出力を目視検証済み）**:
+`/tmp` が消えていてもこれで作り直せる。フォントは `Hiragino Sans GB.ttc` を使うこと
+（パスに空白があるので `fontfile=` の値はクォートせずそのまま書く。日本語が豆腐にならないことを
+生成後にフレーム抽出して必ず目視すること）。
+
+```bash
+git cat-file blob feature/hero-video-seedance-v2-corrections:videos/hero-video-seedance-v2-corrections-2026-07-31.mp4 > /tmp/_v2_master.mp4
+
+ffmpeg -y -i /tmp/_v2_master.mp4 \
+ -vf "scale=1280:720,drawtext=fontfile=/System/Library/Fonts/Hiragino Sans GB.ttc:text='みんなの笑顔のために。':fontcolor=white:fontsize=64:x=(w-text_w)/2:y=h/2-90:shadowcolor=black@0.6:shadowx=3:shadowy=3,drawtext=fontfile=/System/Library/Fonts/Hiragino Sans GB.ttc:text='あなたの成功を支えます。':fontcolor=white:fontsize=64:x=(w-text_w)/2:y=h/2+10:shadowcolor=black@0.6:shadowx=3:shadowy=3" \
+ -an -c:v libx264 -profile:v high -pix_fmt yuv420p -crf 23 -movflags +faststart /tmp/seedance-v2-preview-for-line.mp4
+```
+
+`ffmpeg` は `/opt/homebrew/bin/ffmpeg`（PATH に無いことがある）。`crf 23` で約5.2MB になる。
+既存の 2.8MB 版はより高い crf で作られているが、LINE 送付には 5MB 台でも問題ない。
+**この焼き込み文言は確認用**で、実サイトでは映像に文字を入れず `hero.html` / `hero.js` 側で重ねる。
 
 ### 11. コミットしただけでは本番に出ない —— セッション終了で push 漏れが起きる
 
