@@ -13,13 +13,18 @@
         const heroDescription = document.querySelector('.hero-description');
         
         if (heroTitle) {
-            heroTitle.textContent = 'あなたの「成功」を支える税務戦略';
+            // hero.html と同じ内容を保つこと（textContent だと見出し構造の span が消える）
+            heroTitle.innerHTML = 'みんなの笑顔のために。<br>' +
+                '<span class="hero-title-sub">あなたの成功を支えます。</span>';
         }
         if (heroSubtitle) {
             heroSubtitle.textContent = '森下知幸税理士・社労士事務所';
         }
         if (heroDescription) {
-            heroDescription.innerHTML = '経営者の皆様に寄り添い、最適な税務・財務戦略で<br>事業の持続的成長と成功への道筋を共に創ります。';
+            // hero.html と同じ内容（h1 から外れた「大阪市淀川区の税理士」をここで保持する）
+            heroDescription.innerHTML = '大阪市淀川区で税理士をお探しの方へ。<br>' +
+                '記帳代行・税務相談・法人設立・相続税対策まで<br>' +
+                '中小企業・個人事業主の経営をトータルサポート。';
         }
         
         // ビデオ背景を動的に作成して確実に読み込む
