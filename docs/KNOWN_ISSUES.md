@@ -155,6 +155,28 @@ end tell'
 （`set value of e to msgText`）。キーストロークと違い、途中で他アプリが前面に来ても取りこぼさない。
 送信直前に `frontmost` が LINE であることを確認してから `key code 36` を送る。
 
+### 1-k. 冒頭動画は v3（3シーン構成）が最新。v2 はもう本命ではない
+
+2026-07-31 15:45 の森下様のご指示で構成そのものが変わった（工事・オフィスを削除し、
+カフェ→教室→握手の3シーンへ）。したがって:
+
+- **本命は `feature/hero-video-seedance-v3-3scenes`（`eee1621`）/
+  `videos/hero-video-seedance-v3-2026-07-31.mp4`（11.000秒 / 1920x1080 / 音声なし / 8,182,284 bytes）**
+- `feature/hero-video-seedance-v2-live` は**採用見込みがない**が、判断が覆る可能性を考えて残置する
+- 森下様から「差し替えて」「アップして」と短文で来たときに **v2 と取り違えない**こと。
+  直前の会話を必ず読み、v3 を指していることを確認してから merge する
+
+確認用プレビュー（前面文言の焼き込み・1280x720・3.6MB）は `/tmp/seedance-v3-preview-for-line.mp4`。
+`/tmp` は消えるので、必要になったら次の手順で作り直す（本日実行して目視検証済み）。
+
+```bash
+git cat-file blob feature/hero-video-seedance-v3-3scenes:videos/hero-video-seedance-v3-2026-07-31.mp4 > /tmp/_v3.mp4
+# 6行の drawtext をファイルに書き、改行を除去して -filter_script:v で渡す（KNOWN_ISSUES 13）
+```
+
+焼き込む文言は森下様が 15:55 に指定した6行（h1 2行＋事務所名＋説明3行）。
+**確認用であって、実サイトでは映像に文字を入れない。**
+
 ### 1-g. 修正2点を反映した Seedance v2 —— 2026-07-31 15:00 に送付済み（本項は解決）
 
 **2026-07-31 15:04 追記 —— v2 は森下様へ送付完了。以下は送付前の記録。**
@@ -201,6 +223,48 @@ ffmpeg -y -i /tmp/_v2_master.mp4 \
 `ffmpeg` は `/opt/homebrew/bin/ffmpeg`（PATH に無いことがある）。`crf 23` で約5.2MB になる。
 既存の 2.8MB 版はより高い crf で作られているが、LINE 送付には 5MB 台でも問題ない。
 **この焼き込み文言は確認用**で、実サイトでは映像に文字を入れず `hero.html` / `hero.js` 側で重ねる。
+
+### 13. ffmpeg の `fontfile=` にシェル変数を使うと drawtext が壊れる
+
+2026-07-31 に発生。`F="/System/Library/Fonts/Hiragino Sans GB.ttc"` として
+`-vf "…drawtext=fontfile=$F:text='…'…"` と書くと、パスをリテラルで書いた場合は成功するのに
+変数展開だと **`Either text, a valid file, a timecode or text source must be provided`** で失敗する。
+パスに空白があるためで、フィルタ文字列の分割位置が変わる。
+
+対策は次のどちらか。
+
+- パスをリテラルで直接書く（1〜2個の drawtext ならこれで足りる）
+- **フィルタグラフをファイルへ書き出して `-filter_script:v <file>` を使う**（今回はこちらを採用）。
+  改行は `tr -d '\n'` で除去してから渡す。ヒアドキュメントで書けるので長い多段 drawtext に強い
+
+生成後は必ずフレームを抽出して**日本語が豆腐になっていないこと**を目視すること。
+
+### 14. LINE 操作中に他セッションが Chrome を前面化して、貼り付け先を奪う
+
+2026-07-31 に発生。LINE の入力欄をクリック → Cmd+V の間に別の AIOS セッションが Chrome を
+前面化し、**本文が Chrome のアドレスバーへ貼り付けられた**（Enter を押していれば検索送信になっていた）。
+
+対策として、本セッションでは次の手順を徹底した。
+
+1. `System Events` で `name of (first process whose frontmost is true)` を取り、
+   **クリック直前とペースト直前の2回** LINE であることを確認する
+2. LINE でなければ何もせず中止する（誤爆した場合は Cmd+A → key code 51 → Esc で消し、**Enter は押さない**）
+3. `perform action "AXRaise" of window 1` を使う。**`whose subrole is "AXStandardWindow"` は
+   LINE 側の状態で `AXDialog` に変わることがあり、`-1719` エラーで落ちる**ので決め打ちしない
+
+なお、人間や他セッションが LINE を操作していると**開いているトークが勝手に変わる**。
+本日は「Keepメモ」「メ〜こと八木」へ切り替わっていた。毎回、左リストから森下様の行を開き直し、
+右ヘッダー名をキャプチャで確認してから入力すること。
+
+### 15. LINE の AX ツリーが空を返すことがある
+
+2026-07-31 に確認。`entire contents of window 1` が **0 件**を返し、KNOWN_ISSUES 1-j の
+「AXTextArea に直接 value を代入する」方法が使えなかった。この場合はクリップボード貼り付けに
+フォールバックする（`osascript -e 'set the clipboard to (read POSIX file "…" as «class utf8»)'`）。
+
+`do shell script "cat …"` でクリップボードへ入れると**改行が CR になる**ので、
+`read POSIX file … as «class utf8»` を使うこと。投入後に
+`get the clipboard as text` を取り出して LF の数を数えると確実に検証できる。
 
 ### 11. コミットしただけでは本番に出ない —— セッション終了で push 漏れが起きる
 
