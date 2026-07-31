@@ -443,3 +443,11 @@ morishitax 側で新たに A2E を直叩きする前に、必ずこのファイ�
 対策: 貼り付け後は 1 秒ほど置いてからキャプチャする。二重になっていたら
 Cmd+A（key code 0 using command down）→ key code 51 で全消しして貼り直す。
 送信前に必ず本文が1通分だけであることを目視すること。
+
+<!-- MIKANOS:SESSION-CONTINUITY:START -->
+## MIKANOSが検出した未完了候補
+
+- 更新: 2026-07-31T23:34:13.837Z
+
+- **なみなみ君AIからの返答です。** ## やったこと **1. 引き継ぎ確認（実体で再検証）** PROJECT_BRIEF / CURRENT_STATE / KNOWN_ISSUES / DECISIONS / HANDOFF を読了。`git log` と照合し、冒頭動画 v5 は `9eca86a` で本番反映済み、未完了のコード作業なしを確認しました。未 push の AIOS 記録コミット1本（`22037a9`、docs のみ）があったので今回まとめて push 済みです。 **2. LINE を実際に開いて文脈を確認** LINE.app を `AXRaise` で前面化
+<!-- MIKANOS:SESSION-CONTINUITY:END -->
