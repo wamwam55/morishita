@@ -3,12 +3,9 @@
 <!-- AIOS:SESSION-CONTINUITY:START -->
 ## AIOSが検出した未完了候補
 
-- 更新: 2026-07-31T18:19:35.642Z
+- 更新: 2026-07-31T18:32:05.016Z
 
-- 原因が特定できたので、修復まで済ませました。 ## 何が起きていたか **引き継ぎ（世代交代）の記録だけが残って、その先のセッションが生まれなかった**状態です。 AIOSは会話が長くなると自動で次世代セッションへ引き継ぎ、`~/.aios/session-lineage.json` に「この세ッションの続きはコレ」という**子への案内**を書きます。ところがこの案内は**新世代のCLIが起動する前に**書かれるため、起動に失敗すると（利用量上限・即時終了など）transcript が一切生まれず、**案内だけが宙に浮きます**。 画面側は「子がいるなら黙って最新世代へ移る」設計なので、存在し
-- API Error: Connection closed mid-response. The response above may be incomplete.
-- API Error: Unable to connect to API (ConnectionRefused)
-- 一時的な通信エラーで落ちました。生成自体は続いているので、リトライ耐性のあるポーラーで待ちます。
+- なし
 <!-- AIOS:SESSION-CONTINUITY:END -->
 
 ## 継続課題
