@@ -1900,13 +1900,21 @@
     color: #999 !important;
 }
 
-/* 連絡先を一行表示 */
+/* 連絡先を一行表示（TEL2件は縦二段、TELとMAILは横並び・上そろえ） */
 .contact-methods-inline {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     gap: 0.75rem 1rem;
+}
+
+/* TEL 2件を縦に二段書きにするまとまり */
+.contact-tel-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
 }
 
 .contact-inline-item {
@@ -1915,6 +1923,11 @@
     gap: 0.6rem;
     text-decoration: none;
     transition: transform 0.3s ease;
+}
+
+/* 1行分の高さを揃えることで、TEL 1件目と MAIL の上端が一致する */
+.contact-methods-inline .contact-inline-item {
+    min-height: 2.15rem;
 }
 
 .contact-inline-item:hover {
@@ -1940,11 +1953,19 @@
 .contact-inline-sep {
     color: #ccc;
     font-weight: 300;
+    /* 区切りは TEL の1段目・MAIL と同じ行に揃える */
+    align-self: flex-start;
+    line-height: 2.15rem;
 }
 
 @media (max-width: 600px) {
     .contact-methods-inline {
         flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    .contact-tel-stack {
+        align-items: center;
         gap: 0.75rem;
     }
     .contact-inline-sep {
