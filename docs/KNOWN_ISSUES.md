@@ -155,6 +155,43 @@ end tell'
 （`set value of e to msgText`）。キーストロークと違い、途中で他アプリが前面に来ても取りこぼさない。
 送信直前に `frontmost` が LINE であることを確認してから `key code 36` を送る。
 
+### 1-l. 冒頭動画の本命は v4。v2 / v3 はもう本命ではない
+
+2026-07-31 16:23 の森下様のご指示（カフェを白基調・右横の白い扉から教室へ／児童は挙手も拍手も
+しない／移行時に先生が2人にならない／最後はそのまま）と、同時に届いた参考動画
+（**登場人物は日本人**）を反映した v4 が最新。
+
+- **本命は `feature/hero-video-seedance-v4-white-door`（`911cdb6`）/
+  `videos/hero-video-seedance-v4-2026-07-31.mp4`（11.000秒 / 1920x1080 / 音声なし / 6,617,057 bytes）**
+- 「アップして」と短文で来たときに **v2 / v3 と取り違えない**こと
+- 承認後の作業: `git checkout main && git merge feature/hero-video-seedance-v4-white-door && git push origin main`
+
+確認用プレビュー（前面文言の焼き込み・1280x720・3.2MB）は `/tmp/v4-preview-for-line.mp4`。
+`/tmp` は消えるので、必要になったら次で作り直す（本日実行して目視検証済み）。
+
+```bash
+git cat-file blob feature/hero-video-seedance-v4-white-door:videos/hero-video-seedance-v4-2026-07-31.mp4 > /tmp/_v4.mp4
+# 6行の drawtext をファイルに書き、改行を除去して -filter_script:v で渡す（KNOWN_ISSUES 13）
+```
+
+**参考動画は `~/Downloads/映像に出るのは日本人にしてください_例えば以下のような人たち (1).mp4`**
+に保存済み（10.010秒 / 1280x720）。今後の作り直しでも人物は日本人にすること。
+
+### 1-m. 生成動画の「人物の分身」は毎回フレーム抽出で確認する
+
+v3 では、教室 → ビジネスシーンへのクロスディゾルブ中に**女性教員が画面の左右に2人**現れており、
+森下様から指摘を受けた（8秒地点）。Seedance はシーン遷移をディゾルブで作るため、
+前シーンの人物が次シーンに重なって「2人いる」ように見えることがある。
+
+対策として v4 のプロンプトへ次を明示した（有効だった）。
+
+> There is exactly one teacher in the classroom. Never show two teachers, never duplicate,
+> mirror or clone any person, and never let a person split into two or fade through another
+> person during the transitions.
+
+**納品前に必ず遷移前後（v4 では 9.0 / 9.3 / 9.6 / 10.0 秒）を抽出して目視すること。**
+シーンの中央付近だけ見ても分身は見つからない。
+
 ### 1-k. 冒頭動画は v3（3シーン構成）が最新。v2 はもう本命ではない
 
 2026-07-31 15:45 の森下様のご指示で構成そのものが変わった（工事・オフィスを削除し、
