@@ -710,6 +710,75 @@ KNOWN_ISSUES 16 にも追記した。**今回は動画の依頼ではないた�
    今回は 3:43 を最後にオーナー様の発言が止まっていたため、競合なく送信できた
 4. 以下は前回時点の記録。
 
+## 2026-08-01 08:35〜08:43 JST — 森下様の修正3件を処理（画像差替・連絡先レイアウトは本番反映、動画はクォータ案内）
+
+**受信**: 08:34 森下様より3件のご依頼。
+
+| # | ご依頼 | 対応 |
+|---|--------|------|
+| 1 | 冒頭動画のバグ修正（カフェ→教室の間、テーブルで談笑する女性のコーヒーが手とテーブルに二つある） | **生成は実施せず**、オーナー指示のクォータ文面で案内（KNOWN_ISSUES 16） |
+| 2 | 提供サービスの説明画像を3点入れ替え | **本番反映済み** |
+| 3 | PC の「まずはお気軽にご相談ください」で TEL2件を縦二段書き、TEL と MAIL を横並び・上そろえ | **本番反映済み** |
+
+**2. 提供サービスの画像入れ替え**（`components/about/about.html`・3者間の巡回入れ替え）
+
+| カード | 変更前 | 変更後 |
+|--------|--------|--------|
+| 相続税申告 | `images/jp/presentation.jpg` | `images/jp/consult-portrait.jpg`（経営・人事労務相談の女性画像） |
+| 経営・人事労務相談 | `images/jp/consult-portrait.jpg` | `images/jp/review-docs.jpg`（記帳代行の画像） |
+| 記帳代行 | `images/jp/review-docs.jpg` | `images/jp/presentation.jpg`（相続税申告の画像） |
+
+3枚とも実画像を目視で確認してから入れ替えた（`consult-portrait.jpg` が白背景のスーツ女性
+ポートレート＝ご指示の「経営・人事労務相談の女性画像」であることを確認）。alt も内容に合わせて付け替え。
+**新規の素材追加はなし**（既存3枚の入れ替えのみ）なので `images/CREDITS.md` の点数は変わらない。
+
+**3. 連絡先レイアウト**（`about.html` + `about.css`）
+
+- TEL 2件を `.contact-tel-stack`（`flex-direction: column`）で囲み、縦二段書きに
+- 親の `.contact-methods-inline` を `align-items: flex-start` にし、
+  `.contact-methods-inline .contact-inline-item { min-height: 2.15rem }` で行の高さを揃えて
+  **TEL 1段目と MAIL の上端を一致**させた
+- 区切りの `/` は `align-self: flex-start` + `line-height: 2.15rem` で1段目の行に揃えた
+- 600px 以下は従来どおり縦一列（`.contact-tel-stack` も中央そろえ）
+
+**検証**（要約を信じず実測）:
+
+- ヘッドレス Chrome で計測: 1440px で TEL1 `top=4439.4` と MAIL `top=4439.4` が一致、
+  **ラベル pill の上端差 0.00px**、TEL2 は TEL1 の下段、MAIL は TEL の右側。
+  横スクロールなし（`scrollWidth = clientWidth = 1440`）
+- 390px は iframe 計測（KNOWN_ISSUES 9-b）で `scrollWidth=390`、3件とも縦積み
+- 実スクリーンショットで PC 表示・サービス6枚の描画を目視確認
+- **本番反映**: `890d62d` を `origin/main` へ push。`https://www.morishita-tax.jp/` 200、
+  配信中の `components/about/about.html` が入れ替え後の3枚を指し、`about.css` に
+  `.contact-tel-stack` が含まれることを curl で確認
+
+**1. 冒頭動画のバグは生成せず案内**
+
+`docs/templates/line-video-quota-reply.md` の趣旨（生成枠を使い切った／8月31日以降なら
+最大3本・Veo3 まで／お急ぎなら追加クレジット購入）を、他2件の完了報告と同じ1通にまとめて送信。
+**A2E での再生成は開始していない**（KNOWN_ISSUES 16 のとおり）。
+
+**LINE 送信（08:43・1通）**: 冒頭に「MIKANOS AIからの返答です」を付した。
+森下様が書かれた「TEL090-5469-466」は桁が1つ足りないため、
+**サイト掲載の 090-5469-4666 として扱った旨と、誤りがあればお知らせいただきたい旨を明記**した。
+
+送信手順の検証: `AXRaise` で LINE を前面化 → 右ヘッダー「森下　知幸」・スレッド最新が 8:34 の
+ご依頼・入力欄が空・**3:46 以降オーナー様の緑吹き出しが増えていないこと**（KNOWN_ISSUES 17）を
+キャプチャで確認。LINE の AX ツリーは 0 件だったため（KNOWN_ISSUES 15）クリップボード貼り付けへ
+フォールバック（`read POSIX file … as «class utf8»`、CR 0 / LF 29 を検証）。
+貼り付け後に `Cmd+↑` で先頭へ戻し**本文が1通分だけ**であることを目視してから `key code 36` で送信。
+送信後、8:43 の緑吹き出し1件と空の入力欄を確認。**誤送信・二重送信なし。**
+
+### 次にやること
+
+1. **森下様からの冒頭動画のバグ修正は保留中**。ご依頼は受領済みだが、オーナー指示により
+   **8月31日以降**または追加クレジット購入後に着手する。着手時は
+   「カフェ→教室の間、テーブルで談笑する女性のコーヒーが手とテーブルに二つある」を
+   ネガティブ指定へ追加して v6 を作る（現行は v5 = `videos/hero-video-seedance-v5-2026-08-01.mp4`）
+2. **森下様からプロ撮影のお写真が届いたら差し替える**（KNOWN_ISSUES 18）。動画ではないので通常対応でよい
+3. LINE 送信前に、オーナー様ご本人が同スレッドで会話中でないかを必ず確認する（KNOWN_ISSUES 17）
+4. 以下は前回時点の記録。
+
 <!-- MIKANOS:SESSION-CONTINUITY:START -->
 ## MIKANOSが保存した現在状態
 
