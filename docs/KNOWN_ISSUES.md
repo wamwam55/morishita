@@ -619,7 +619,7 @@ LINE Desktop では `Cmd+↑` がトークルーム切り替えとして働き�
 <!-- MIKANOS:SESSION-CONTINUITY:START -->
 ## MIKANOSが検出した未完了候補
 
-- 更新: 2026-08-01T05:51:00.338Z
+- 更新: 2026-08-01T06:00:21.564Z
 
-- なし
+- 完了しました。作業報告です。 ## 引き継ぎ確認（実体を再検証） - `PROJECT_BRIEF.md` / `docs/CURRENT_STATE.md` / `docs/KNOWN_ISSUES.md` / `docs/DECISIONS.md` / 引き継ぎファイルを読了 - **要約と実体の食い違いを1件発見・解消**: 前セッションの docs コミット2本（`2e682ed` / `3167618`）が **未 push**（`ahead 2`）でした。差分が docs のみであることを `git show --stat` で確認して push 済み（KNOWN_ISSUES 1
 <!-- MIKANOS:SESSION-CONTINUITY:END -->
