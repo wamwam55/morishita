@@ -46,7 +46,7 @@
             
             // ビデオソースを設定（ローカルファイル）
             const source = document.createElement('source');
-            source.src = 'videos/hero-video-seedance-v5-2026-08-01.mp4';
+            source.src = 'videos/hero-video-seedance-v6-2026-08-01.mp4';
             source.type = 'video/mp4';
             
             video.appendChild(source);
