@@ -9,7 +9,21 @@ lanes:
     worktree: /Users/FISH/DEV/サイト/morishitax.aios-lanes/ai-pc-line-2026-07-30t19-39-35-4
     portBase: 3100
     mainBranch: main
-    status: active
+    status: conflict
     agent: auto
     createdAt: 2026-07-30T19:44:45.461Z
-    updatedAt: 2026-08-02T22:18:30.897Z
+    updatedAt: 2026-08-02T22:26:15.515Z
+    concerns:
+      - |-
+        21234bfe0997f6bf176371d0e0350640ad24fbc3
+        100644 2262ff8c64d0dfbf0b5e5244d2975dacfe64a026 1	docs/CURRENT_STATE.md
+        100644 701c7188b758bda82053a3e59b40fee5daa1f706 2	docs/CURRENT_STATE.md
+        100644 a40e04d0cae19edcd06ba301441d75d7ca0cb89d 3	docs/CURRENT_STATE.md
+        100644 4eb75f1a01d64caefe98c00c48ea43cb375b8a4b 1	docs/KNOWN_ISSUES.md
+        100644 98c92d79e92cae486a6dab63ebdb2949311c23c7 2	docs/KNOWN_ISSUES.md
+        100644 e786568efcf9f6986bde870cf163af2b9e9dd37b 3	docs/KNOWN_ISSUES.md
+
+        Auto-merging docs/CURRENT_STATE.md
+        CONFLICT (content): Merge conflict in docs/CURRENT_STATE.md
+        Auto-merging docs/KNOWN_ISSUES.md
+        CONFLICT (content): Merge conflict in docs/KNOWN_ISSUES.md
