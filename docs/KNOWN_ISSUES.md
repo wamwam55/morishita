@@ -11,6 +11,19 @@
 
 ## 継続課題
 
+### 30. LINE スレッドを遡る手段と、`screencapture` / `cliclick` の落とし穴（2026-08-03）
+
+- **`screencapture` は PATH に無い**。`/usr/sbin/screencapture -x -o /tmp/x.png` とフルパスで呼ぶ
+  （素で `screencapture` と書くと `command not found`＝exit 127 になり、
+  「撮ったつもりで撮れていない」状態になる。KNOWN_ISSUES 12 と同じ事故の型）
+- **`cliclick` 5.1 にはスクロールコマンドが無い**（`sw:` は `Unrecognized action shortcut`）。
+  また `python3` に `Quartz` が入っていないので CGEvent スクロールも書けない
+- **スレッドを遡るときは、メッセージ領域の空白をクリックしてから `key code 116`（Page Up）**、
+  戻るときは `key code 121`（Page Down）。修飾キーは付けないこと。
+  **`Cmd+↑` / `Cmd+↓` はトーク切り替えで下書きが飛ぶ**（KNOWN_ISSUES 23）
+- 送信済みメッセージは LINE では**編集できない**。オーナー様から「〜って追加でいれておいて」と
+  来たときに直前の1通が送信済みなら、**続けて別メッセージとして送る**（DECISIONS 2026-08-03）
+
 ### 29. 同じ LINE 通知が数分後に再配信される —— 送信前に「自分がもう返していないか」を必ず見る（2026-08-01 15:16）
 
 15:00 の森下様「ミカノス　ってカタカナにも反応するようにしてよ」が、**15:12 に返信済みなのに
