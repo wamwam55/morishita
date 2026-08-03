@@ -12,18 +12,41 @@ lanes:
     status: conflict
     agent: auto
     createdAt: 2026-07-30T19:44:45.461Z
-    updatedAt: 2026-08-02T22:26:15.515Z
+    updatedAt: 2026-08-03T08:50:22.774Z
     concerns:
-      - |-
-        21234bfe0997f6bf176371d0e0350640ad24fbc3
+      - >-
+        a54f12a02da856eb342365a32adce2d9b8baa812
+
         100644 2262ff8c64d0dfbf0b5e5244d2975dacfe64a026 1	docs/CURRENT_STATE.md
+
         100644 701c7188b758bda82053a3e59b40fee5daa1f706 2	docs/CURRENT_STATE.md
-        100644 a40e04d0cae19edcd06ba301441d75d7ca0cb89d 3	docs/CURRENT_STATE.md
+
+        100644 9941552ddf8227757ce3431b6d6611e22ab13648 3	docs/CURRENT_STATE.md
+
         100644 4eb75f1a01d64caefe98c00c48ea43cb375b8a4b 1	docs/KNOWN_ISSUES.md
+
         100644 98c92d79e92cae486a6dab63ebdb2949311c23c7 2	docs/KNOWN_ISSUES.md
-        100644 e786568efcf9f6986bde870cf163af2b9e9dd37b 3	docs/KNOWN_ISSUES.md
+
+        100644 71085070d37959bc96082601711a6b89dcc5d667 3	docs/KNOWN_ISSUES.md
+
+        100644 3b1949615d8064c164e0c5564c6e7ff8f1f97a9c
+        1	docs/SESSION_HANDOFFS.md
+
+        100644 26f216f10fc281d4e032d3e47db753c4cfe4cc9a
+        2	docs/SESSION_HANDOFFS.md
+
+        100644 112cbd8d77a6d359e5ed2d6ad8b6327299b332c1
+        3	docs/SESSION_HANDOFFS.md
+
 
         Auto-merging docs/CURRENT_STATE.md
+
         CONFLICT (content): Merge conflict in docs/CURRENT_STATE.md
+
         Auto-merging docs/KNOWN_ISSUES.md
+
         CONFLICT (content): Merge conflict in docs/KNOWN_ISSUES.md
+
+        Auto-merging docs/SESSION_HANDOFFS.md
+
+        CONFLICT (content): Merge conflict in docs/SESSION_HANDOFFS.md
