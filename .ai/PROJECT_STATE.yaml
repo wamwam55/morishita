@@ -8,8 +8,8 @@ project:
   decision_maker: PLACEHOLDER
 
 state:
-  current: NEW
-  previous: null
+  current: REVIEW
+  previous: DEVELOPMENT
   paused_from: null
   allowed_states:
     - NEW
@@ -24,9 +24,9 @@ state:
     - OPERATE
     - PAUSED
     - DONE
-  last_event: null
-  updated_at: PLACEHOLDER
-  updated_by: PLACEHOLDER
+  last_event: cr-001.local-review-passed
+  updated_at: "2026-08-11T01:57:01+09:00"
+  updated_by: Human Owner / Codex
 
 roles:
   human:
@@ -60,14 +60,14 @@ roles:
 
 freeze:
   design:
-    status: not_started
-    approved_by: null
-    approved_at: null
+    status: approved
+    approved_by: Human Owner (chat user)
+    approved_at: "2026-08-11T01:57:01+09:00"
     artifact: .ai/DESIGN_FREEZE.md
   spec:
-    status: not_started
-    approved_by: null
-    approved_at: null
+    status: approved
+    approved_by: Human Owner (chat user)
+    approved_at: "2026-08-11T01:57:01+09:00"
     artifact: .ai/SPEC_FREEZE.md
   protected_after_state: FROZEN
   ai_may_modify_frozen_artifacts: false
@@ -149,7 +149,7 @@ quality_gates:
 
 active_work:
   active_task: null
-  active_state_owner: PLACEHOLDER
+  active_state_owner: Codex
   task_queue: .ai/TASK_QUEUE.md
   blocked: false
   blocker_reason: null
@@ -197,7 +197,7 @@ files:
   ai_changelog: .ai/CHANGELOG_AI.md
 
 resume:
-  next_recommended_state: VISION
-  next_recommended_action: Define mission, target user, success criteria, and out of scope.
+  next_recommended_state: DEPLOY
+  next_recommended_action: Request Human approval immediately before push/deploy.
   open_questions: []
   risks: []

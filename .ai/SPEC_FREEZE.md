@@ -4,22 +4,22 @@ Spec Freeze は Human Owner が承認するまで `pending` です。
 
 ## Status
 
-- status: not_started
-- requested_at:
-- approved_by:
-- approved_at:
+- status: approved
+- requested_at: 2026-08-10
+- approved_by: Human Owner（チャットユーザー）
+- approved_at: 2026-08-11T01:57:01+09:00
 
 ## Freeze Targets
 
-- Functional Requirements:
+- Functional Requirements: CR-001（個人・法人料金表導線、会計3注記）
 - Non-functional Requirements:
 - State:
 - Data:
 - Permission:
 - Error Handling:
 - API:
-- Test:
-- Deploy:
+- Test: 導線のタブ切替、文言照合、PC/モバイル表示、0 changed pixels
+- Deploy: Human承認後に別途実施（自動push/deploy無効）
 
 ## Implementation Rules
 
@@ -31,4 +31,4 @@ Spec Freeze は Human Owner が承認するまで `pending` です。
 
 - Claude Code:
 - Security Reviewer:
-- Human Owner:
+- Human Owner: approved 2026-08-11T01:57:01+09:00

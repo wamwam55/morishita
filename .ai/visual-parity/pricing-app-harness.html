@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CR-001 implementation parity harness</title>
+    <link rel="stylesheet" href="../../theme/global.css">
+    <link rel="stylesheet" href="../../components/pricing/pricing.css">
+</head>
+<body class="light-mode">
+    <main id="pricing-app-root"></main>
+    <script>
+        fetch('../../components/pricing/pricing.html')
+            .then(function(response) { return response.text(); })
+            .then(function(html) {
+                document.getElementById('pricing-app-root').innerHTML = html;
+                var script = document.createElement('script');
+                script.src = '../../components/pricing/pricing.js';
+                document.body.appendChild(script);
+            });
+    </script>
+</body>
+</html>
