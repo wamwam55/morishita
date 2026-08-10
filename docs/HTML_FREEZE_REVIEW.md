@@ -4,10 +4,10 @@
 
 - Status: approved
 - Approved by: Human Owner（チャットユーザー）
-- Approved at: 2026-08-11T01:57:01+09:00
+- Approved at: 2026-08-11T08:50:00+09:00（CR-002更新後Freeze）
 - Source: `design/html/pricing-cr001.html`
-- Scope: 法人顧問契約の料金表導線、会費・消耗品費・減価償却の注記
-- Browser verification: Chrome Profile 1 / PC 1440px / mobile 390px
+- Scope: 法人顧問契約の料金表導線を維持し、「会計処理の目安」を削除
+- Browser verification: Chrome Profile 1 / PC 1440px / mobile 500px・390px
 - Pixel parity: PC 0 changed pixels / mobile 0 changed pixels
 
 Prototype Generator が生成した単一 HTML の人間確認記録。承認まで React 実装へ進まない。

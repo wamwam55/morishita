@@ -7,7 +7,8 @@ Design Freeze は Human Owner が承認するまで `pending` です。
 - status: approved
 - requested_at: 2026-08-10
 - approved_by: Human Owner（チャットユーザー）
-- approved_at: 2026-08-11T01:57:01+09:00
+- approved_at: 2026-08-11T08:50:00+09:00
+- revision: CR-002
 
 ## Freeze Targets
 
@@ -18,7 +19,7 @@ Design Freeze は Human Owner が承認するまで `pending` です。
 - Screen List: トップページ「サービス料金のご案内」
 - UI Master: `design/html/pricing-cr001.html`
 - Design System: `components/pricing/pricing.css`
-- UI Review Checklist: 法人導線、3項目の会計処理の目安、PC/モバイル表示
+- UI Review Checklist: 法人導線、「会計処理の目安」非表示、PC/モバイル表示
 
 ## Decisions
 
@@ -32,7 +33,7 @@ Design Freeze は Human Owner が承認するまで `pending` です。
 
 - Fable Advisor:
 - Claude Code:
-- Human Owner: approved 2026-08-11T01:57:01+09:00
+- Human Owner: CR-002 and updated Freeze approved 2026-08-11T08:50:00+09:00
 
 ## Change Rule
 

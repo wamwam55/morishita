@@ -7,11 +7,12 @@ Spec Freeze は Human Owner が承認するまで `pending` です。
 - status: approved
 - requested_at: 2026-08-10
 - approved_by: Human Owner（チャットユーザー）
-- approved_at: 2026-08-11T01:57:01+09:00
+- approved_at: 2026-08-11T08:50:00+09:00
+- revision: CR-002
 
 ## Freeze Targets
 
-- Functional Requirements: CR-001（個人・法人料金表導線、会計3注記）
+- Functional Requirements: CR-001の個人・法人料金表導線を維持し、CR-002により会計3注記を削除
 - Non-functional Requirements:
 - State:
 - Data:
@@ -31,4 +32,4 @@ Spec Freeze は Human Owner が承認するまで `pending` です。
 
 - Claude Code:
 - Security Reviewer:
-- Human Owner: approved 2026-08-11T01:57:01+09:00
+- Human Owner: CR-002 and updated Freeze approved 2026-08-11T08:50:00+09:00

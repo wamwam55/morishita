@@ -2,7 +2,8 @@ version: 1
 required: true
 status: approved
 approved_by: "Human Owner (chat user)"
-approved_at: "2026-08-11T01:57:01+09:00"
+approved_at: "2026-08-11T08:50:00+09:00"
+revision: "CR-002"
 expected_pages: 1
 pages:
   - id: pricing-cr001
