@@ -8,8 +8,8 @@ project:
   decision_maker: PLACEHOLDER
 
 state:
-  current: REVIEW
-  previous: DEVELOPMENT
+  current: OPERATE
+  previous: DEPLOY
   paused_from: null
   allowed_states:
     - NEW
@@ -24,8 +24,8 @@ state:
     - OPERATE
     - PAUSED
     - DONE
-  last_event: cr-001.local-review-passed
-  updated_at: "2026-08-11T01:57:01+09:00"
+  last_event: cr-001.production-deploy-verified
+  updated_at: "2026-08-11T02:09:06+09:00"
   updated_by: Human Owner / Codex
 
 roles:
@@ -112,31 +112,34 @@ quality_gates:
     notes: null
   gate_5_development_complete:
     name: Development Complete
-    status: pending
+    status: passed
     required_for_state: REVIEW
     human_approval_required: conditional
-    approved_by: null
-    approved_at: null
-    evidence: []
-    notes: null
+    approved_by: Human Owner / Codex
+    approved_at: "2026-08-11T02:03:00+09:00"
+    evidence:
+      - docs/PIXEL_PARITY_REPORT.md
+    notes: CR-001 implementation complete.
   gate_6_review_passed:
     name: Review Passed
-    status: pending
+    status: passed
     required_for_state: DEPLOY
     human_approval_required: conditional
-    approved_by: null
-    approved_at: null
-    evidence: []
-    notes: null
+    approved_by: Human Owner / Codex
+    approved_at: "2026-08-11T02:03:00+09:00"
+    evidence:
+      - .ai/VISUAL_PARITY.yaml
+    notes: Functional checks and zero-pixel parity passed.
   gate_7_deploy_ready:
     name: Deploy Ready
-    status: pending
+    status: passed
     required_for_state: OPERATE
     human_approval_required: true
-    approved_by: null
-    approved_at: null
-    evidence: []
-    notes: null
+    approved_by: Human Owner
+    approved_at: "2026-08-11T02:09:06+09:00"
+    evidence:
+      - docs/DEPLOY_REPORT.md
+    notes: Production publication explicitly approved and verified.
   gate_8_operation_ready:
     name: Operation Ready
     status: pending
@@ -197,7 +200,7 @@ files:
   ai_changelog: .ai/CHANGELOG_AI.md
 
 resume:
-  next_recommended_state: DEPLOY
-  next_recommended_action: Request Human approval immediately before push/deploy.
+  next_recommended_state: OPERATE
+  next_recommended_action: Monitor production; open a Change Request for future frozen changes.
   open_questions: []
   risks: []

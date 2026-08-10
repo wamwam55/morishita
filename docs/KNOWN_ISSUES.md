@@ -1,5 +1,20 @@
 # Known Issues
 
+## 31. サイトは稼働中だが、管理StateとFreeze証跡が未整備
+
+- Status: resolved for CR-001 (2026-08-11)
+
+- 現象: 実際のサイトは実装・本番稼働履歴がある一方、`.ai/PROJECT_STATE.yaml` は `NEW`、
+  Design Freeze / Spec Freeze は `not_started`、HTML Freeze / Visual Parity は `pending`のまま。
+- 影響: AGENTSのルール上、Codexは新規の本実装を開始できない。CR-001は依頼内容と実装箇所が
+  特定済みだが、税務表現とデザイン変更のHuman承認が必要。
+- 対応: `docs/CHANGE_REQUEST.md` の CR-001、Design Freeze、Spec Freeze、HTML Freeze をHuman Ownerが
+  明示承認し、承認者・日時・対象を証跡に残す。承認後に本実装と0-pixel差分検証を行う。
+- 注意: サイトが既存運用中であることを理由に、AIが承認済みとみなしてはならない。
+- 解決: Human OwnerがCR-001と各Freezeを明示承認。証跡記録、固定HTML作成、実装、
+  0-pixel差分検証を完了後、「プッシュデプロイ」の明示承認を受けて本番公開した。
+  Vercel本番の実ファイルと指定Chromeの実画面で反映を確認済み。残課題なし。
+
 <!-- AIOS:SESSION-CONTINUITY:START -->
 ## AIOSが検出した未完了候補
 
@@ -719,7 +734,9 @@ LINE Desktop では `Cmd+↑` がトークルーム切り替えとして働き�
 <!-- MIKANOS:SESSION-CONTINUITY:START -->
 ## MIKANOSが検出した未完了候補
 
-- 更新: 2026-08-02T22:18:30.644Z
+- 更新: 2026-08-10T17:07:33.806Z
 
-- **MIKANOS AIからの返答です。** ## やる予定だったこと → 実施結果 1. 引き継ぎ資料の読了と実体の再検証 → 完了（食い違い1件を解消） 2. LINE で森下様のトークを実際に開いて文脈確認 → 完了 3. 判定して必要な対応 → **送信せず**（重複通知のため） 4. ドキュメント更新 → 完了・push 済み ## 1. 引き継ぎ確認（要約を信じず再検証） - `PROJECT_BRIEF.md` / `docs/CURRENT_STATE.md` / `docs/KNOWN_ISSUES.md` / `docs/DECISIONS.md` / 引き継ぎファイル（`
+- 指定された引き継ぎ文書、Git状態、実ファイルを照合し、最後の未完了作業を特定してそのまま完了まで進めます。まずはFreezeや既存変更を壊さない範囲で、リポジトリの現状を読み取ります。
+- 引き継ぎ上の最後の未完了事項は、料金案内の3点修正ですが、前セッションではDesign/Spec Freeze未承認を理由にChange Requestへ留めています。現在のFreeze証跡、CR内容、実装箇所、未コミット差分を個別に照合し、勝手な仕様変更にならない範囲まで進められるか判断します。
+- 引き継ぎと実体照合を完了しました。 最後の未完了要求はCR-001です。個人料金表への導線は既に実装済みで、残件は次の2点でした。 - 法人顧問契約を法人料金表へ誘導 - 会費・消耗品費・減価償却の説明追加 ただしDesign Freeze・Spec Freeze・HTML Freezeはいずれも未承認で、税務表現と公開デザインを変更するため、Human Approval Onlyの停止点です。コード、LINE、本番環境は変更していません。ブラウザーも使用していません。 正確な状態を以下へ反映しました。 - [PROJECT_BRIEF.md](/Users/FISH/DEV/サイト/mori
 <!-- MIKANOS:SESSION-CONTINUITY:END -->
