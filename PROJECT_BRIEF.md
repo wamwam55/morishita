@@ -1,5 +1,15 @@
 # Project Brief
 
+## 2026-08-11 CR-002承認・ローカル実装完了
+
+- Human Ownerが「CR-002と更新後Freezeを承認」と明示承認。
+- Freeze正本と実装HTML/CSSから「会計処理の目安」ブロックと専用CSSを完全削除した。
+- 対象文言0件、法人料金タブ切替正常、390px横オーバーフローなし。
+- 更新後の正本／実装画像は1440px・500pxとも **0 changed pixels**。
+- 本番push / deployは自動OFFかつ外部公開のHuman Stop Pointのため未実施。
+- 森下様への本番完了報告は、公開・実画面確認後に送信する。
+- 検証ブラウザー: Chrome Profile 1（wamwam55 / wamwam55@gmail.com）。機密情報は記録していない。
+
 ## 基本情報
 
 - Project Name:

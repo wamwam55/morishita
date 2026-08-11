@@ -1,5 +1,24 @@
 # Decisions
 
+## 2026-08-11 — CR-002承認後は完全削除し、公開と完了報告を分離する
+
+- Decision: Human Ownerの明示承認に基づき、Freeze正本と実装から対象HTML・専用CSSを完全削除した。
+- Reason: CR-002で承認された案であり、非表示だけでは不要な税務文言がソースへ残るため。
+- Verification: 指定Chrome Profile 1で機能・390px overflowを確認し、1440px／500pxで0 changed pixels。
+- Publication: 自動push / deploy OFFのため、本番公開は別途明示承認まで実行しない。
+- LINE: 「完了」は本番反映済みと誤認されるため、森下様への最終報告は公開・実画面確認後に送信する。
+
+## 2026-08-11 — 「続けて」はCR-002のFreeze変更承認とは解釈しない
+
+- Decision: セッション継続指示「続けて」は、前セッションの状態を正確に引き継ぐ指示として扱い、
+  CR-002および更新後FreezeのHuman承認には代替しない。
+- Reason: AGENTSのDesign Freeze / Spec Freeze最優先とHuman Approval Onlyにより、Freeze済み内容の
+  変更には対象を特定した明示承認が必要。前セッションの完了報告も「CR-002を承認」という回答を
+  再開条件として提示している。
+- Consequence: 今回は実体とGit状態の再検証、構造化文書の更新まで実施し、HTML/CSS、Freeze正本、
+  Parity証跡、本番環境は変更しない。
+- Reversal: Human Ownerが「CR-002と更新後Freezeを承認」と明示した時点で実装・ローカル検証へ進む。
+
 ## 2026-08-11 — CR-001完了報告は森下様へ1通で送信
 
 - 採用した方針: Human Ownerの「完了報告しとけ」を森下様への送信指示として実行し、

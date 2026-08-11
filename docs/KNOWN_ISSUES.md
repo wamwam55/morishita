@@ -1,5 +1,13 @@
 # Known Issues
 
+## 2026-08-11 — CR-002の実装課題は解決、公開のみ未実施
+
+- Status: resolved locally / publication pending
+- 解決: Human OwnerがCR-002と更新後Freezeを明示承認。正本・実装から対象ブロックと専用CSSを削除。
+- 検証: 対象文言0件、法人料金タブ切替正常、390px横オーバーフローなし、PC/mobileとも0 changed pixels。
+- 残る停止点: 自動push / deployはOFFで、本番公開にはHuman Ownerの明示承認が必要。
+- 注意: 本番公開・実画面確認前に森下様へ「完了」と報告しない。
+
 ## 32. CR-001の完了報告
 
 - Status: resolved (2026-08-11 02:12 JST)
@@ -741,9 +749,7 @@ LINE Desktop では `Cmd+↑` がトークルーム切り替えとして働き�
 <!-- MIKANOS:SESSION-CONTINUITY:START -->
 ## MIKANOSが検出した未完了候補
 
-- 更新: 2026-08-10T17:07:33.806Z
+- 更新: 2026-08-10T23:07:22.149Z
 
-- 指定された引き継ぎ文書、Git状態、実ファイルを照合し、最後の未完了作業を特定してそのまま完了まで進めます。まずはFreezeや既存変更を壊さない範囲で、リポジトリの現状を読み取ります。
-- 引き継ぎ上の最後の未完了事項は、料金案内の3点修正ですが、前セッションではDesign/Spec Freeze未承認を理由にChange Requestへ留めています。現在のFreeze証跡、CR内容、実装箇所、未コミット差分を個別に照合し、勝手な仕様変更にならない範囲まで進められるか判断します。
-- 引き継ぎと実体照合を完了しました。 最後の未完了要求はCR-001です。個人料金表への導線は既に実装済みで、残件は次の2点でした。 - 法人顧問契約を法人料金表へ誘導 - 会費・消耗品費・減価償却の説明追加 ただしDesign Freeze・Spec Freeze・HTML Freezeはいずれも未承認で、税務表現と公開デザインを変更するため、Human Approval Onlyの停止点です。コード、LINE、本番環境は変更していません。ブラウザーも使用していません。 正確な状態を以下へ反映しました。 - [PROJECT_BRIEF.md](/Users/FISH/DEV/サイト/mori
+- 確認したところ、「会計処理の目安」はHuman承認済みのDesign Freeze／Spec Freezeに明記された保護対象でした。プロジェクト規約上、直接削除はできないため、依頼を忘れないよう恒久メモへ記録し、削除用Change Requestを作成します。これはFreeze保護による停止点で、承認後にHTML正本・実装・画素比較を一括更新する必要があります。
 <!-- MIKANOS:SESSION-CONTINUITY:END -->

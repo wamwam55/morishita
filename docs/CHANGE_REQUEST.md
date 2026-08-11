@@ -21,6 +21,27 @@ Freeze 後の変更提案です。
 - Implementation: `components/pricing/pricing.html` / `components/pricing/pricing.css`
 - Publication: not published（push / deploy 未実施）
 
+## CR-002: 「会計処理の目安」の削除
+
+- Status: approved / implemented and verified locally
+- Requested by: 森下 知幸（LINE、2026-08-11 05:28 JSTに確認）
+- Target: `design/html/pricing-cr001-fragment.html`、`design/html/pricing-cr001.css`、`components/pricing/pricing.html`、`components/pricing/pricing.css` の「会計処理の目安」ブロック
+- Reason: ホームページから「会計処理の目安」を削除するよう依頼があったため。
+- User Impact: 料金案内から、会費・消耗品費・減価償却に関する3項目の目安表示がなくなる。
+- Provider Impact: 税務・会計上の目安をホームページ上で案内しなくなる。
+- Admin Impact: 承認済みDesign Freeze／Spec Freezeを再承認し、公開前に削除後の表示を確認する必要がある。
+- Design Impact: 料金表と「オプション料金／サービス提供条件」の間にある案内ブロックがなくなり、ページ全体の縦寸法が短くなる。
+- Spec Impact: CR-001のFreeze Target「会計3注記」とUI Review Checklist「3項目の会計処理の目安」を削除対象へ変更する。
+- Implementation Impact: Standalone HTML正本と実装HTMLから案内ブロックを削除し、正本と実装CSSから専用スタイルを削除する。1440px／500pxの比較画像とParity証跡を再生成する。
+- Risk: Freeze承認なしに変更すると、承認済みHTML正本と実装の0-pixel parityおよび監査証跡が無効になる。
+- Alternatives: ブロックを非表示にしてコードを残す案もあるが、不要な公開文言を残存させるため採用しない。
+- Human Owner Approval: approved（CR-002と更新後Freezeの明示承認）
+- Approved by: Human Owner（チャットユーザー）
+- Approved at: 2026-08-11T08:50:00+09:00
+- Implementation: Standalone HTML正本と実装HTML/CSSから対象ブロック・専用CSSを完全削除
+- Verification: 対象文言0件、法人料金タブ切替正常、390px横オーバーフローなし、1440px／500pxとも0 changed pixels
+- Publication: not published
+
 ## Rule
 
 承認前に Freeze 済み成果物を変更しない。
