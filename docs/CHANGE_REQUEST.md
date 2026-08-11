@@ -4,7 +4,7 @@ Freeze 後の変更提案です。
 
 ## CR-001: サービス料金案内の顧問契約導線・会計注記の修正
 
-- Status: approved / implemented and verified locally
+- Status: approved / implemented / published and verified
 - Target: `components/pricing/pricing.html` の「サービス料金のご案内」セクション
 - Reason: 森下 知幸氏から、個人・法人顧問契約の導線と会計上の注記について修正依頼があったため。
 - User Impact: 個人顧問契約と法人顧問契約の料金導線が分かりやすくなり、会費・消耗品費・減価償却の判断基準を料金案内上で確認できる。
@@ -19,11 +19,11 @@ Freeze 後の変更提案です。
 - Approved by: Human Owner（チャットユーザー）
 - Approved at: 2026-08-11T01:57:01+09:00
 - Implementation: `components/pricing/pricing.html` / `components/pricing/pricing.css`
-- Publication: not published（push / deploy 未実施）
+- Publication: published to production (`d6b87ed`, verified 2026-08-11 02:09 JST)
 
 ## CR-002: 「会計処理の目安」の削除
 
-- Status: approved / implemented and verified locally
+- Status: approved / implemented / published and verified
 - Requested by: 森下 知幸（LINE、2026-08-11 05:28 JSTに確認）
 - Target: `design/html/pricing-cr001-fragment.html`、`design/html/pricing-cr001.css`、`components/pricing/pricing.html`、`components/pricing/pricing.css` の「会計処理の目安」ブロック
 - Reason: ホームページから「会計処理の目安」を削除するよう依頼があったため。
@@ -40,7 +40,7 @@ Freeze 後の変更提案です。
 - Approved at: 2026-08-11T08:50:00+09:00
 - Implementation: Standalone HTML正本と実装HTML/CSSから対象ブロック・専用CSSを完全削除
 - Verification: 対象文言0件、法人料金タブ切替正常、390px横オーバーフローなし、1440px／500pxとも0 changed pixels
-- Publication: not published
+- Publication: published to production (`9633c92`, verified 2026-08-11 09:33 JST)
 
 ## Rule
 

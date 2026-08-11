@@ -1,12 +1,12 @@
 # Known Issues
 
-## 2026-08-11 — CR-002の実装課題は解決、公開のみ未実施
+## 2026-08-11 — CR-002は本番公開・報告まで解決
 
-- Status: resolved locally / publication pending
+- Status: resolved (2026-08-11 09:33 JST)
 - 解決: Human OwnerがCR-002と更新後Freezeを明示承認。正本・実装から対象ブロックと専用CSSを削除。
 - 検証: 対象文言0件、法人料金タブ切替正常、390px横オーバーフローなし、PC/mobileとも0 changed pixels。
-- 残る停止点: 自動push / deployはOFFで、本番公開にはHuman Ownerの明示承認が必要。
-- 注意: 本番公開・実画面確認前に森下様へ「完了」と報告しない。
+- 公開: Human Ownerの「プッシュデプロイして」により`9633c92`を本番反映し、指定Chromeで実画面確認済み。
+- 報告: 森下様へ09:33にLINE完了報告を送信済み。残課題なし。
 
 ## 32. CR-001の完了報告
 

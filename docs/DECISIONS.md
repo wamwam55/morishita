@@ -1,5 +1,12 @@
 # Decisions
 
+## 2026-08-11 — 「プッシュデプロイして」をCR-002本番公開承認として実行
+
+- Decision: Human Ownerの直接指示を外部公開の明示承認として、`main`を`origin/main`へpushした。
+- Verification: Vercel配信HTML、指定Chrome Profile 1の本番DOM、法人料金タブ動作、390px横幅を確認。
+- LINE: 前回の「森下にも完了したら連絡」指示に基づき、本番確認後に森下 知幸様へ1通送信した。
+- Safety: 本番反映前には完了報告せず、宛先・最新文脈・重複なし・送信後吹き出しを確認した。
+
 ## 2026-08-11 — CR-002承認後は完全削除し、公開と完了報告を分離する
 
 - Decision: Human Ownerの明示承認に基づき、Freeze正本と実装から対象HTML・専用CSSを完全削除した。

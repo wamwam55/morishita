@@ -21,6 +21,16 @@ AI メンバーによる作業履歴です。
 ### 2026-08-11
 
 - Actor: Codex
+- Command: プッシュデプロイして
+- State Before: OPERATE（CR-002ローカル実装・検証完了、公開待ち）
+- State After: OPERATE（CR-002本番公開・実画面確認・LINE報告完了）
+- Files Changed: 公開状態・構造化文書
+- Summary: `9633c92`をorigin/mainへpushし、Vercel本番反映を確認。森下様へ完了報告を送信。
+- Tests / Checks: 本番対象表示0件、法人タブactive、390px横オーバーフローなし、LINE送信後吹き出し確認
+- Human Approval Required: なし
+- Next Command: なし
+
+- Actor: Codex
 - Command: CR-002と更新後Freezeを承認
 - State Before: OPERATE（CR-002承認待ち）
 - State After: OPERATE（CR-002ローカル実装・検証完了、公開待ち）

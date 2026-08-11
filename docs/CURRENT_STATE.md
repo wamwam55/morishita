@@ -1,5 +1,20 @@
 # Current State
 
+## 2026-08-11 09:33 JST — CR-002本番公開・実画面確認・LINE完了報告済み
+
+Human Ownerの「プッシュデプロイして」を本番公開の明示承認として実行した。
+
+- 実装・Freeze証跡コミット`fd80aa7`と状態文書コミット`9633c92`を`origin/main`へ反映。
+- `git ls-remote`で`origin/main=9633c9293a8350311f103341eba37712bf1e4319`を確認。
+- Vercel本番`https://www.morishita-tax.jp/`の配信HTMLで「会計処理の目安」がないこと、
+  `data-tab-link="hojin"`が残っていることを確認。
+- 指定Chrome Profile 1（wamwam55 / wamwam55@gmail.com）の本番実画面で、
+  対象見出し・`.accounting-guidance`とも0件、法人料金タブ切替後`#tab-hojin.active`を確認。
+- 390pxでpage `scrollWidth=clientWidth=390`、料金セクション`scrollWidth=clientWidth=360`。
+- ネイティブLINEの「森下 知幸」本人トークで最新文脈と重複なしを確認し、09:33に
+  削除・本番反映・PC/スマートフォン確認済みを送信。緑吹き出しと空の入力欄を確認。
+- CR-002の残作業なし。機密情報は記録していない。
+
 ## 2026-08-11 08:50〜08:54 JST — CR-002承認・ローカル実装・検証完了
 
 Human Ownerから「CR-002と更新後Freezeを承認」の明示承認を受領した。

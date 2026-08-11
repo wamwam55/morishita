@@ -1,5 +1,13 @@
 # Project Brief
 
+## 2026-08-11 09:33 JST CR-002本番公開・完了報告済み
+
+- `main`を`9633c92`まで`origin/main`へpushし、Vercel本番へ反映済み。
+- 本番HTMLと指定Chrome Profile 1で「会計処理の目安」0件、法人料金タブ正常を確認。
+- 390pxでpage `scrollWidth=clientWidth=390`、料金セクションも360pxで横オーバーフローなし。
+- 森下 知幸様へLINEで削除・本番反映・PC/スマートフォン確認済みを09:33に報告。
+- CR-002の残作業はない。機密情報は記録していない。
+
 ## 2026-08-11 CR-002承認・ローカル実装完了
 
 - Human Ownerが「CR-002と更新後Freezeを承認」と明示承認。
