@@ -1,0 +1,13 @@
+# 追記ログ系ドキュメントは「両方採用（union）」でマージする。
+# MIKANOS は本体でもレーンでも毎ターン同じ場所へ追記するため、3-way マージで必ず衝突し、
+# レーンの自動統合が「本体と競合しています」で止まる。union なら両側が残り、記録が消えない。
+# コード・YAML には付けない（構文が壊れる）。
+docs/CURRENT_STATE.md    merge=union
+docs/KNOWN_ISSUES.md     merge=union
+docs/DECISIONS.md        merge=union
+docs/SESSION_HANDOFFS.md merge=union
+docs/PROJECT_STATE.md    merge=union
+docs/TASK_QUEUE.md       merge=union
+PROJECT_BRIEF.md         merge=union
+.ai/EVENT_LOG.jsonl      merge=union
+.ai/CHANGELOG_AI.md      merge=union
