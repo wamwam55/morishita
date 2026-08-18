@@ -1,5 +1,35 @@
 # Known Issues
 
+## 2026-08-11 — CR-002は本番公開・報告まで解決
+
+- Status: resolved (2026-08-11 09:33 JST)
+- 解決: Human OwnerがCR-002と更新後Freezeを明示承認。正本・実装から対象ブロックと専用CSSを削除。
+- 検証: 対象文言0件、法人料金タブ切替正常、390px横オーバーフローなし、PC/mobileとも0 changed pixels。
+- 公開: Human Ownerの「プッシュデプロイして」により`9633c92`を本番反映し、指定Chromeで実画面確認済み。
+- 報告: 森下様へ09:33にLINE完了報告を送信済み。残課題なし。
+
+## 32. CR-001の完了報告
+
+- Status: resolved (2026-08-11 02:12 JST)
+- Human Ownerの明示指示により、森下様へ本番反映済みの完了報告をLINE送信した。
+- 送信前に最新会話を確認し、同内容の完了報告がないことを確認。送信後は緑吹き出しと
+  空の入力欄を確認したため、二重送信・誤送信・下書き残りはない。
+
+## 31. サイトは稼働中だが、管理StateとFreeze証跡が未整備
+
+- Status: resolved for CR-001 (2026-08-11)
+
+- 現象: 実際のサイトは実装・本番稼働履歴がある一方、`.ai/PROJECT_STATE.yaml` は `NEW`、
+  Design Freeze / Spec Freeze は `not_started`、HTML Freeze / Visual Parity は `pending`のまま。
+- 影響: AGENTSのルール上、Codexは新規の本実装を開始できない。CR-001は依頼内容と実装箇所が
+  特定済みだが、税務表現とデザイン変更のHuman承認が必要。
+- 対応: `docs/CHANGE_REQUEST.md` の CR-001、Design Freeze、Spec Freeze、HTML Freeze をHuman Ownerが
+  明示承認し、承認者・日時・対象を証跡に残す。承認後に本実装と0-pixel差分検証を行う。
+- 注意: サイトが既存運用中であることを理由に、AIが承認済みとみなしてはならない。
+- 解決: Human OwnerがCR-001と各Freezeを明示承認。証跡記録、固定HTML作成、実装、
+  0-pixel差分検証を完了後、「プッシュデプロイ」の明示承認を受けて本番公開した。
+  Vercel本番の実ファイルと指定Chromeの実画面で反映を確認済み。残課題なし。
+
 <!-- AIOS:SESSION-CONTINUITY:START -->
 ## AIOSが検出した未完了候補
 
@@ -35,6 +65,63 @@
   **`Cmd+↑` / `Cmd+↓` はトーク切り替えで下書きが飛ぶ**（KNOWN_ISSUES 23）
 - 送信済みメッセージは LINE では**編集できない**。オーナー様から「〜って追加でいれておいて」と
   来たときに直前の1通が送信済みなら、**続けて別メッセージとして送る**（DECISIONS 2026-08-03）
+### 31. 文書の成果物は Word＋PDF の2本立てで送る（2026-08-03）
+
+森下様は「編集できるようにワードで」とご指定だったが、**LINE では docx はスマホでその場で開けない**。
+Word（編集用）と PDF（閲覧用）を両方送ると、その場で内容確認 → 後でPCで編集、の流れになる。
+
+- **PDF 変換の手段**: この Mac には **LibreOffice / pandoc / Microsoft Word は無い**。`Pages.app` を使う
+
+```bash
+osascript -e 'tell application "Pages"
+  set d to open (POSIX file "/path/to.docx" as alias)
+  delay 3
+  export d to POSIX file "/path/to.pdf" as PDF
+  delay 2
+  close d saving no
+end tell'
+```
+
+- **レイアウト検証**: `pdftoppm` が無いので Read ツールでは PDF を開けない。venv に `pymupdf` を入れて
+  ページを PNG 化し、実際に目視する（`fitz.open(...)[i].get_pixmap(dpi=110).save(...)`）
+- **日本語フォント**: `.docx` には **游ゴシック**を指定する（Windows の Word で標準）。
+  この Mac には未インストールでヒラギノに置換されるが、先方の Windows では正しく出る
+- `python-docx` はシステム Python に入れられない（PEP 668）。`python3 -m venv` で venv を作る
+- **LINE のファイルは7日で期限切れ**。送付メッセージに「○月○日までに保存を」と必ず書く
+
+### 30.【重要】LINE の添付パネルではキーボードがほぼ効かない —— 誤ファイル送信の一歩手前まで行った（2026-08-03 07:0x）
+
+📎 で開くファイル選択パネルは **LINE 本体ではなく別プロセス（openAndSavePanelService）** が持っている。
+そのため次の食い違いが起きる。
+
+| 操作 | 結果 |
+|---|---|
+| `osascript` の `keystroke` / `key code`（Cmd+V, Cmd+A, Cmd+Shift+G） | **効かない**（`key code 36`=Return と `key code 53`=Esc だけは効く） |
+| `cliclick` の `t:`（CGEvent タイプ） | **効く**（ASCII のみ。日本語は打てない） |
+| `cliclick kp:return` | **効かない**（KNOWN_ISSUES 4 と同根） |
+| Accessibility API（`entire contents` → `AXTextField`） | **0件を返す**（KNOWN_ISSUES 15 と同根） |
+| マウス（`cliclick c:` / `dc:`） | **効く** |
+
+**実際に起きた事故（未送信・実害ゼロ）**: Cmd+Shift+G が効かず、「移動先」欄に**前回のパス
+（`…/out/presentation-call-line-sms.pdf`）が残ったまま** `key code 36` を押したため、
+**森下様のトークに無関係のプレゼンPDFが選択された状態**になった。
+`開く` は押していない。`key code 53`（Esc）で中止し、スレッドが変化していないことをキャプチャで確認した。
+
+**正しい手順（この順番を守る）**
+
+1. `~/Downloads` に紛らわしいファイル（他社宛の請求書など）が無いか **必ず `ls -lt` で見る**
+2. **ASCII 名の送付専用フォルダ**を作り、送るファイルだけをコピーする（例 `~/Downloads/sendbox`）。
+   フォルダ名を ASCII にするのは、パスを `cliclick t:` で打つため
+3. 📎 をクリック（本環境では画面座標 `400,900`）→ **パネルが開いたことをキャプチャで確認**
+4. `osascript` で `key code 102`（英数）を送り **IME を必ず切る**
+5. `cliclick kd:cmd,shift t:g ku:cmd,shift` で「移動先」シートを開く → **キャプチャで開いたことを確認**
+6. `cliclick t:/Users/FISH/Downloads/sendbox` でパスを打つ → **キャプチャで欄の中身を確認**
+7. `osascript -e 'tell application "System Events" to key code 36'` で移動（**Return だけは System Events**）
+8. **キャプチャでそのフォルダの中身だけが出ていることを確認**してから、目的のファイルを `cliclick dc:` でダブルクリック
+9. 送信後、`~/Downloads/sendbox` を削除する
+
+**LINE は選択した瞬間に送信を開始し、確認も取り消しも無い。**
+5〜8 の各ステップで必ずキャプチャを撮り、「いま何が選択されているか」を見てから次へ進むこと。
 
 ### 29. 同じ LINE 通知が数分後に再配信される —— 送信前に「自分がもう返していないか」を必ず見る（2026-08-01 15:16）
 
@@ -689,4 +776,7 @@ LINE Desktop では `Cmd+↑` がトークルーム切り替えとして働き�
 - 更新: 2026-08-03T08:44:39.701Z
 
 - ## 引き継ぎ確認の結果 要約を信じず実体を再検証しました。 - **本レーンは並列 worktree**（`codex/lane/ai-pc-line-2026-07-30t19-39-35-4`）。本体 `main`（`cdea06f`）には未コミットの docs 3件＋指定された引き継ぎファイルがあり、本レーンには含まれていません。引き継ぎファイルは**本体側を読み取りのみ**で参照し、本体のファイルは一切編集していません。 - **前セッション（`claude:dc18878d`）の未完了はありませんでした。** 8/2 21:18 の森下様のご依頼「freee会計の初心者マニュアル（
+- 更新: 2026-08-10T23:07:22.149Z
+
+- 確認したところ、「会計処理の目安」はHuman承認済みのDesign Freeze／Spec Freezeに明記された保護対象でした。プロジェクト規約上、直接削除はできないため、依頼を忘れないよう恒久メモへ記録し、削除用Change Requestを作成します。これはFreeze保護による停止点で、承認後にHTML正本・実装・画素比較を一括更新する必要があります。
 <!-- MIKANOS:SESSION-CONTINUITY:END -->

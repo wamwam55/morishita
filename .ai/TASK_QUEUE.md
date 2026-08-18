@@ -33,4 +33,11 @@ Spec Freeze 後に Codex へ渡す Task を管理します。
 
 ## Done
 
-- None
+### TASK-002: 「会計処理の目安」の削除
+
+- State: done / published
+- Owner: Codex
+- Related Spec: CR-002（`docs/CHANGE_REQUEST.md`）
+- Result: Standalone HTML正本と実装HTML/CSSから対象ブロック・専用CSSを完全削除
+- Test: 対象文言0件、法人料金タブ切替正常、390px横オーバーフローなし、1440px／500pxとも0 changed pixels
+- Publication: `9633c92`を本番反映し、実画面確認・森下様への完了報告まで完了

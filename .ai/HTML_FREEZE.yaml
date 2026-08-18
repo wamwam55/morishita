@@ -1,7 +1,15 @@
 version: 1
 required: true
-status: pending
-approved_by: null
-approved_at: null
-expected_pages: 0
-pages: []
+status: approved
+approved_by: "Human Owner (chat user)"
+approved_at: "2026-08-11T08:50:00+09:00"
+revision: "CR-002"
+expected_pages: 1
+pages:
+  - id: pricing-cr001
+    title: "サービス料金のご案内"
+    source: design/html/pricing-cr001.html
+    viewport:
+      width: 1440
+      height: 1200
+    status: approved

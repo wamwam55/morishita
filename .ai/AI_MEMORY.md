@@ -14,10 +14,12 @@ AI が中断復帰、スタッフ交代、判断継続で参照する記憶で�
 
 | Date | Decision | Owner | Reason |
 | --- | --- | --- | --- |
+| 2026-08-11 | ホームページから「会計処理の目安」を削除。CR-002承認後、正本・実装・Parityを更新済み | Human Owner / 森下 知幸 | LINE依頼とHuman承認 |
 | PLACEHOLDER | PLACEHOLDER | PLACEHOLDER | PLACEHOLDER |
 
 ## Open Questions
 
+- PLACEHOLDER
 - PLACEHOLDER
 
 ## Risks
@@ -34,10 +36,10 @@ AI が中断復帰、スタッフ交代、判断継続で参照する記憶で�
 
 ## Last Work Log
 
-- Actor:
-- Action:
-- Result:
-- Remaining:
+- Actor: Codex / MIKANOS PC Notification Handler
+- Action: CR-002をpush / deployし、本番実画面確認後に森下様へLINE完了報告
+- Result: `9633c92`本番反映、対象表示0件、法人タブ・390px表示正常、09:33送信済み
+- Remaining: なし
 
 ## Do Not Record
 

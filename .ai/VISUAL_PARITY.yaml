@@ -1,6 +1,26 @@
 version: 1
 required: true
-status: pending
+status: passed
+revision: CR-002
+verified_at: "2026-08-11T08:54:00+09:00"
 threshold_changed_pixels: 0
-expected_pages: 0
-comparisons: []
+expected_pages: 1
+comparisons:
+  - page: pricing-cr001
+    viewport:
+      width: 1440
+      height: 5000
+    frozen_html_screenshot: .ai/visual-parity/pricing-reference-1440.png
+    app_screenshot: .ai/visual-parity/pricing-actual-1440.png
+    diff: .ai/visual-parity/pricing-diff-1440.png
+    changed_pixels: 0
+    result: passed
+  - page: pricing-cr001-mobile
+    viewport:
+      width: 500
+      height: 3000
+    frozen_html_screenshot: .ai/visual-parity/pricing-reference-500.png
+    app_screenshot: .ai/visual-parity/pricing-actual-500.png
+    diff: .ai/visual-parity/pricing-diff-500.png
+    changed_pixels: 0
+    result: passed
