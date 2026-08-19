@@ -1,0 +1,536 @@
+/* ==========================================================================
+   下層ページ共通スタイル
+   philosophy.html のインラインスタイルを正本として抽出し、
+   サービス別ページ（相続・法人設立・お客様の声・所長プロフィール・Q&A）で共有する。
+   クラス接頭辞は philosophy.html との見た目の完全一致を優先して `ph-` を維持する。
+   ========================================================================== */
+
+:root {
+    --ph-accent: #8b7962;
+    --ph-heading: #1a1a1a;
+    --ph-text: #555555;
+}
+
+body.philosophy-page {
+    margin: 0;
+    background: #ffffff;
+    color: var(--ph-text);
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- ヘッダー ---------- */
+.ph-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 24px;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #eee;
+}
+
+.ph-header a { text-decoration: none; }
+
+.ph-brand {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--ph-heading);
+}
+
+.ph-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-size: 0.9rem;
+}
+
+.ph-header-actions a { color: var(--ph-accent); font-weight: 600; }
+
+/* ---------- パンくず・本文枠 ---------- */
+.ph-breadcrumb {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 24px 0;
+    font-size: 0.82rem;
+    color: #999;
+}
+
+.ph-breadcrumb a { color: #999; text-decoration: none; }
+.ph-breadcrumb a:hover { color: var(--ph-accent); }
+
+.ph-main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 24px 80px;
+}
+
+/* ---------- 見出し ---------- */
+.ph-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.28em;
+    color: var(--ph-accent);
+    margin-bottom: 14px;
+}
+
+.ph-main h1 {
+    font-size: clamp(1.6rem, 4.4vw, 2.4rem);
+    line-height: 1.5;
+    color: var(--ph-heading);
+    font-weight: 700;
+    margin: 0 0 28px;
+    letter-spacing: 0.02em;
+}
+
+.ph-lead {
+    font-size: clamp(1.1rem, 2.8vw, 1.45rem);
+    line-height: 2;
+    color: var(--ph-heading);
+    font-weight: 600;
+    padding: 28px 24px;
+    border-top: 2px solid var(--ph-accent);
+    border-bottom: 1px solid #eee;
+    background: linear-gradient(180deg, #fdfcfb 0%, #ffffff 100%);
+    margin: 0 0 48px;
+}
+
+.ph-hero-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 6px;
+    margin: 0 0 48px;
+}
+
+.ph-main h2 {
+    font-size: clamp(1.25rem, 3.2vw, 1.6rem);
+    color: var(--ph-heading);
+    font-weight: 700;
+    margin: 56px 0 20px;
+    padding-left: 16px;
+    border-left: 4px solid var(--ph-accent);
+    line-height: 1.6;
+}
+
+.ph-main h2 .ph-en {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    color: var(--ph-accent);
+    font-weight: 500;
+    margin-top: 6px;
+}
+
+.ph-main h3 {
+    font-size: 1.05rem;
+    color: var(--ph-heading);
+    font-weight: 700;
+    margin: 32px 0 12px;
+}
+
+.ph-main p {
+    font-size: 1rem;
+    margin: 0 0 20px;
+}
+
+.ph-main strong { color: var(--ph-heading); }
+
+.ph-quote {
+    font-size: 1.05rem;
+    color: var(--ph-heading);
+    font-weight: 600;
+    background: #faf9f8;
+    border-radius: 6px;
+    padding: 18px 20px;
+    margin: 0 0 24px;
+}
+
+/* 各セクションに添えるイラスト - 親しみやすさを出すための装飾 */
+.ph-value-illust {
+    float: right;
+    width: clamp(96px, 18vw, 150px);
+    height: auto;
+    margin: 0 0 12px 20px;
+}
+
+@media (max-width: 600px) {
+    .ph-value-illust {
+        float: none;
+        display: block;
+        margin: 0 auto 16px;
+    }
+}
+
+.ph-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    clear: both;
+}
+
+.ph-list li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 12px;
+    font-size: 0.98rem;
+}
+
+.ph-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ph-accent);
+}
+
+/* ---------- FAQ ---------- */
+.ph-faq {
+    border-top: 1px solid #eee;
+    padding-top: 8px;
+    clear: both;
+}
+
+.ph-faq-item {
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+}
+
+.ph-faq-item h3 {
+    margin: 0 0 10px;
+    font-size: 1rem;
+}
+
+.ph-faq-item p { margin: 0; }
+
+/* ---------- CTA ---------- */
+.ph-cta {
+    margin-top: 64px;
+    padding: 40px 28px;
+    background: linear-gradient(135deg, #1f1c18 0%, #3a332b 100%);
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+}
+
+.ph-cta p {
+    color: rgba(255, 255, 255, 0.86);
+    margin: 0 0 10px;
+}
+
+.ph-cta-contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 22px;
+    margin: 20px 0 24px;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.ph-cta-contact a {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.ph-button {
+    display: inline-block;
+    padding: 14px 34px;
+    background: #fff;
+    color: #1f1c18;
+    font-weight: 700;
+    border-radius: 999px;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+}
+
+/* ---------- フッター ---------- */
+.ph-footer {
+    background: #1a1a1a;
+    color: #cccccc;
+    padding: 36px 24px;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.ph-footer a { color: #cccccc; text-decoration: none; }
+.ph-footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 20px;
+    margin-bottom: 18px;
+}
+
+/* ==========================================================================
+   ここから下はサービス別ページで追加した要素
+   ========================================================================== */
+
+/* ---------- カードグリッド（対応メニュー・お悩み一覧） ---------- */
+.ph-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 0 0 32px;
+    clear: both;
+}
+
+.ph-card {
+    border: 1px solid #eee;
+    border-radius: 6px;
+    padding: 22px 20px;
+    background: #fdfcfb;
+}
+
+.ph-card h3 {
+    margin: 0 0 10px;
+    font-size: 1rem;
+    color: var(--ph-heading);
+}
+
+.ph-card p {
+    margin: 0;
+    font-size: 0.93rem;
+    line-height: 1.85;
+}
+
+/* ---------- 手順（ステップ） ---------- */
+.ph-steps {
+    list-style: none;
+    counter-reset: ph-step;
+    padding: 0;
+    margin: 0 0 32px;
+    clear: both;
+}
+
+.ph-steps li {
+    counter-increment: ph-step;
+    position: relative;
+    padding: 0 0 24px 52px;
+    border-left: 1px solid #e8e4de;
+    margin-left: 16px;
+}
+
+.ph-steps li:last-child {
+    border-left-color: transparent;
+    padding-bottom: 0;
+}
+
+.ph-steps li::before {
+    content: counter(ph-step);
+    position: absolute;
+    left: -16px;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--ph-accent);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ph-steps h3 {
+    margin: 4px 0 8px;
+    font-size: 1rem;
+}
+
+.ph-steps p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* ---------- 表（横スクロール対応） ---------- */
+.ph-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 0 24px;
+    clear: both;
+}
+
+.ph-table {
+    width: 100%;
+    min-width: 460px;
+    border-collapse: collapse;
+    font-size: 0.93rem;
+}
+
+.ph-table th,
+.ph-table td {
+    border: 1px solid #eee;
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.ph-table th {
+    background: #faf9f8;
+    color: var(--ph-heading);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* ---------- 注記 ---------- */
+.ph-note {
+    font-size: 0.87rem;
+    color: #888;
+    margin: 0 0 24px;
+    clear: both;
+}
+
+.ph-callout {
+    border: 1px solid #e8e4de;
+    border-left: 4px solid var(--ph-accent);
+    border-radius: 4px;
+    background: #fdfcfb;
+    padding: 18px 20px;
+    margin: 0 0 28px;
+    clear: both;
+}
+
+.ph-callout p:last-child { margin-bottom: 0; }
+
+/* ---------- お客様の声カード ---------- */
+.ph-voice {
+    border: 1px solid #eee;
+    border-radius: 6px;
+    padding: 24px 22px;
+    margin: 0 0 18px;
+    background: #fff;
+    clear: both;
+}
+
+.ph-voice-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.ph-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--ph-accent);
+    border: 1px solid var(--ph-accent);
+    border-radius: 999px;
+    padding: 3px 12px;
+    white-space: nowrap;
+}
+
+.ph-voice-who {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.ph-voice h3 {
+    margin: 0 0 12px;
+    font-size: 1.02rem;
+    line-height: 1.7;
+}
+
+.ph-voice p { margin: 0 0 12px; font-size: 0.95rem; }
+.ph-voice p:last-child { margin-bottom: 0; }
+
+.ph-voice-answer {
+    background: #faf9f8;
+    border-radius: 4px;
+    padding: 16px 18px;
+    margin-top: 4px;
+}
+
+.ph-voice-answer strong { display: block; margin-bottom: 6px; }
+
+/* ---------- 所長プロフィールのヘッダー ---------- */
+.ph-profile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    align-items: flex-start;
+    margin: 0 0 40px;
+}
+
+/* 元画像 images/IMG_4347.JPG は 4032x3024（4:3 横位置）。
+   縦長に切ると人物が切れるため、比率はそのまま 4:3 で表示する。 */
+.ph-profile-photo {
+    width: clamp(200px, 38vw, 320px);
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.ph-profile-body { flex: 1 1 300px; min-width: 0; }
+
+.ph-profile-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ph-heading);
+    margin: 0 0 4px;
+    line-height: 1.4;
+}
+
+.ph-profile-kana {
+    font-size: 0.82rem;
+    letter-spacing: 0.16em;
+    color: var(--ph-accent);
+    margin: 0 0 16px;
+}
+
+/* ---------- 関連ページカード ---------- */
+.ph-related {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 40px 0 0;
+    clear: both;
+}
+
+.ph-related a {
+    display: block;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    padding: 16px 18px;
+    text-decoration: none;
+    color: var(--ph-heading);
+    font-weight: 700;
+    font-size: 0.95rem;
+    background: #fdfcfb;
+}
+
+.ph-related a span {
+    display: block;
+    font-weight: 400;
+    font-size: 0.82rem;
+    color: #999;
+    margin-top: 4px;
+}
+
+@media (max-width: 640px) {
+    .ph-header { padding: 12px 16px; }
+    .ph-brand { font-size: 0.82rem; }
+    .ph-header-actions { font-size: 0.8rem; gap: 12px; }
+    .ph-main, .ph-breadcrumb { padding-left: 18px; padding-right: 18px; }
+    .ph-lead { padding: 22px 18px; }
+    .ph-cta { padding: 32px 20px; }
+    .ph-cta-contact { font-size: 1rem; }
+    .ph-profile { gap: 20px; justify-content: center; }
+    .ph-steps li { padding-left: 44px; }
+}

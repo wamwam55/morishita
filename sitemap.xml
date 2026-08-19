@@ -20,4 +20,44 @@
         <priority>0.8</priority>
     </url>
 
+    <!-- 所長プロフィール -->
+    <url>
+        <loc>https://www.morishita-tax.jp/profile.html</loc>
+        <lastmod>2026-08-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- サービス別ページ：相続税申告・相続対策 -->
+    <url>
+        <loc>https://www.morishita-tax.jp/souzoku.html</loc>
+        <lastmod>2026-08-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- サービス別ページ：法人設立・会社設立支援 -->
+    <url>
+        <loc>https://www.morishita-tax.jp/houjin-setsuritsu.html</loc>
+        <lastmod>2026-08-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- お客様の声・ご相談事例 -->
+    <url>
+        <loc>https://www.morishita-tax.jp/voice.html</loc>
+        <lastmod>2026-08-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- よくあるご質問（Q&amp;A） -->
+    <url>
+        <loc>https://www.morishita-tax.jp/faq.html</loc>
+        <lastmod>2026-08-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
 </urlset>

@@ -1,5 +1,19 @@
 # Project Brief
 
+## 2026-08-20 サービス別ページ4本＋Q&Aページを新設（未公開）
+
+- 森下様LINEご依頼の8番（Q&A）・11番（サービス別ページ）に対応。
+  `faq.html` / `souzoku.html` / `houjin-setsuritsu.html` / `voice.html` / `profile.html` を新設し、
+  共通CSS `theme/subpage.css` を追加。フッターと `sitemap.xml` に導線を追加した。
+- `index.html` と Freeze対象ファイルには一切触れていない。
+- 実測: 390pxで5ページとも横溢れ0、画像リンク切れ0、JSON-LD 11ブロックすべて妥当。
+- 所長プロフィールはご指定の参考インタビュー記事のみを根拠とし、年齢・登録年は断定していない。
+- 「お客様の声」は実在の声が無いため空欄。体験談の創作はしない方針をDECISIONSへ記録。
+- 成果物: `deliverables/2026-08-20/Googleビジネスプロフィール_質問と回答_8件.txt`、
+  `deliverables/2026-08-20/お客様の声アンケート_依頼文とご記入シート.txt`。
+- **本番反映は未実施**（自動プッシュOFF・外部公開のHuman Stop Point）。
+- 機密情報は記録していない。
+
 ## 2026-08-19 SEO/MEO対応（lane p）を本番公開
 
 - Human Ownerの「統合後にmainへpushして本番反映して」により`main`を`3cf2ea1`まで`origin/main`へpush。

@@ -102,6 +102,30 @@
     width: 100%;
 }
 
+/* サービス別ページへの内部リンク
+   旧スタイルの .footer-link は display:none のため、別クラスで定義する */
+.footer-sitemap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 28px;
+    margin-bottom: 28px;
+    padding-bottom: 26px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-sitemap a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.88rem;
+    letter-spacing: 0.04em;
+    transition: color 0.3s ease;
+}
+
+.footer-sitemap a:hover {
+    color: #ffffff;
+}
+
 /* コピーライト */
 .footer-bottom {
     text-align: center;
