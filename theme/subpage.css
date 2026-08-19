@@ -491,6 +491,13 @@ body.philosophy-page {
     font-size: 0.82rem;
     letter-spacing: 0.16em;
     color: var(--ph-accent);
+    margin: 0 0 6px;
+}
+
+.ph-profile-meta {
+    font-size: 0.86rem;
+    letter-spacing: 0.04em;
+    color: var(--ph-text);
     margin: 0 0 16px;
 }
 
