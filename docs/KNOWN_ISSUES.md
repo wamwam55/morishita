@@ -1,5 +1,54 @@
 # Known Issues
 
+## 33.【重要】`google73804c84c6342131.html` を削除してはいけない（2026-08-20）
+
+サイトルートの `google73804c84c6342131.html` は **Google Search Console の所有権確認ファイル**。
+
+- 削除すると `https://www.morishita-tax.jp/` プロパティの所有権確認が失効し、
+  サイトマップの状況確認・URL検査・検索パフォーマンスがすべて見られなくなる
+- ビルド（`dist/`）や不要ファイル整理のときに巻き込まないこと。中身は1行のトークン文字列
+- 登録アカウントは **wamwam55@gmail.com**（Chrome Profile 1）。
+  **森下様ご本人のアカウントには別途プロパティがある可能性がある**ので、
+  「Search Consoleに登録されていない」と即断しない
+
+## 34. `cliclick t:` はコロンを `+` に化かす（2026-08-20）
+
+`cliclick t:https://www.morishita-tax.jp/` と打つと、入力欄には
+**`https+//www.morishita-tax.jp/`** と入った（`:` が `+` になる）。Shift 併用文字が
+キーボードレイアウトどおりに出ないため。
+
+- **URL・パスなど記号を含む文字列は `cliclick t:` で打たない。**
+  `osascript -e 'set the clipboard to "…"'` → `Cmd+V` を使う（`pbcopy` はこの環境では効かない。5 参照）
+- ASCII の単純な語（`sitemap.xml` など）は `t:` でも入るが、打った直後に必ずキャプチャで中身を見る
+- なお `screencapture` / `sips` は **PATH に無い**ことがある。
+  `/usr/sbin/screencapture`、`/usr/bin/sips` とフルパスで呼ぶこと（`command not found` で
+  「撮ったつもり」になるのを防ぐ。12 と同種）
+
+## 35. 外部ディスプレイ（U13ZA）の解像度が 1024x768 に落ちることがある（2026-08-20）
+
+Chrome を操作中、`Finder` の desktop bounds が **1920x1200 → 1024x768** に変わった
+（スクリーンショットの実ピクセルも 3840x2400 → 1024x768 になり、Retina でもなくなった）。
+座標決め打ちのクリックが全部ずれるため、**気づかずに操作を続けると誤クリックになる**。
+
+- 画面操作の前後で `osascript -e 'tell application "Finder" to get bounds of window of desktop'` を
+  取り、**1920x1200 であることを確認してから座標を計算する**
+- 復旧: `open "x-apple.systempreferences:com.apple.Displays-Settings.extension"` で
+  ディスプレイ設定を開き、スケーリングの**いちばん右（スペースを拡大）**を選ぶと 1920x1200 に戻る。
+  この Mac に `displayplacer` は入っていない
+- アクセシビリティのズーム（`Cmd+Option+8`）とは別物。ズーム操作では desktop bounds は変わらない
+
+## 36. LINE 入力欄の全文検証は `key code 115`（Home）で行う（2026-08-20）
+
+貼り付け後に「1通分だけ入っているか」を確かめる方法として、**Home キーが安全で確実**だった。
+
+- `Cmd+↑` は**使ってはいけない**（トークが切り替わり下書きが飛ぶ。23）
+- AX ツリーからの読み取りは **0 バイトを返した**（15 の再発）。値による検証はできなかった
+- `cliclick` にスクロール機能はなく、この Mac の python3 に `Quartz` も入っていない
+- `osascript -e 'tell application "System Events" to key code 115'` を1回送ると
+  入力欄の**先頭までスクロール**する。修飾キーを使わないためトーク切替は起きない。
+  先頭を見て本文の1行目が1つだけであることを確認し、そのまま `key code 36` で送信してよい
+  （LINE はキャレット位置に関係なく全文を送る）
+
 ## 2026-08-11 — CR-002は本番公開・報告まで解決
 
 - Status: resolved (2026-08-11 09:33 JST)
