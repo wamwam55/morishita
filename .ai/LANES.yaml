@@ -50,3 +50,15 @@ lanes:
         Auto-merging docs/SESSION_HANDOFFS.md
 
         CONFLICT (content): Merge conflict in docs/SESSION_HANDOFFS.md
+  - id: p
+    name: 森下のラインをみて処理してあげて 開始のラインも
+    objective: 森下のラインをみて処理してあげて　開始のラインも
+    branch: codex/lane/p
+    worktree: /Users/FISH/DEV/サイト/morishitax.aios-lanes/p
+    portBase: 3120
+    mainBranch: main
+    status: active
+    agent: auto
+    createdAt: 2026-08-19T09:21:05.428Z
+    updatedAt: 2026-08-19T09:21:05.428Z
+    claimedAt: 2026-08-19T09:21:05.428Z
