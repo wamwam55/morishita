@@ -49,11 +49,29 @@ SEOチェックツールの「キーワードが空欄」警告はこの欄な�
 - Freeze対象ファイル（`design/html/pricing-cr001.html`、`components/pricing/*`）は未変更。
   したがって Change Request は不要と判断した。
 
+## 本番反映（2026-08-19 完了）
+
+Human Owner の「統合後にmainへpushして本番反映して」を外部公開の明示承認として実行した。
+
+- 統合はレーン統合ジョブが実施済みで、ローカル `main` は `3cf2ea1`（`04d2fcb` = lane p のマージコミット）。
+- `git push origin main` により `5c9d58c` → `3cf2ea1`。`git ls-remote` で `origin/main=3cf2ea1` を確認。
+- Vercel の自動デプロイ完了までポーリングし、本番 HTML に `meta keywords` が出現した時点で反映を確認。
+- 本番実測（`https://www.morishita-tax.jp/`）:
+  - `index.html` — keywords 27語、canonical / og:url / twitter:url すべて www、
+    `robots` に `max-snippet:-1`、geo あり。**非www の絶対URLは 0 件 / www は 14 件**
+  - `philosophy.html` — keywords 14語、canonical www、**非www 0 件**
+  - `robots.txt` の `Sitemap:` が www、`sitemap.xml` は 200 で `<loc>` 2件とも www・lastmod 2026-08-19
+- 実ブラウザ DOM（headless `--dump-dom` / 127,522 bytes）で回帰なしを確認:
+  mp4 参照は `hero-video-seedance-v6-2026-08-01.mp4` の1件のみ、`data-tab-link="hojin"` 1件、
+  「会計処理の目安」0件（CR-002 の削除は維持）、コンポーネント読み込みエラー 0 件。
+
 ## 未了・要判断
 
-- **本番反映（Vercel）**: 本レーンは push 禁止、MIKANOS の自動プッシュ・デプロイも OFF のため未公開。
-  main への統合後、Human Owner の指示で push すると Vercel が自動配信する。
-- 反映後に Google Search Console から `https://www.morishita-tax.jp/sitemap.xml` の再送信が必要。
+- **Google Search Console でのサイトマップ再送信**（`https://www.morishita-tax.jp/sitemap.xml`）。
+  Google アカウントでの本人操作を伴うため未実施。Human Owner の指示があれば代行する。
+- **森下様への本番反映完了報告（LINE）**: 前セッションで「反映完了後に改めて報告します」と
+  お伝え済みだが、第三者への送信は Human Stop Point のため今回は送信していない。
+  Human Owner の送信指示待ち。
 
 ## LINE 対応
 

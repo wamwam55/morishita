@@ -1,5 +1,20 @@
 # Decisions
 
+## 2026-08-19 — SEO/MEO変更のwww正規化を「実測した307の向き」に合わせて本番公開
+
+- Decision: Human Ownerの「統合後にmainへpushして本番反映して」を外部公開の明示承認として
+  `main`を`origin/main`へpushした（`5c9d58c` → `3cf2ea1`）。
+- Reason: canonicalの向きは推測ではなくホスティング側の実挙動に従う必要があるため、
+  push前に`curl -I`でapex → wwwの307を実測してから公開した。逆向きに寄せると
+  正規URLがリダイレクト元を指し、評価分散が解消しない。
+- Scope judgement: 変更は`<head>`のメタ情報とURL文字列、`robots.txt`、`sitemap.xml`、
+  成果物ファイルのみ。承認済みFreeze対象（`components/pricing/*`・`design/html/pricing-*`）は
+  無変更であることをpush前に`git diff --name-only`で確認したため、Change Requestは不要と判断した。
+- Verification: 本番HTMLで非wwwの絶対URLが0件であること、および実ブラウザDOMで
+  hero動画v6・法人料金タブ・CR-002削除状態に回帰がないことを確認した。
+- Not done: Search Consoleのサイトマップ再送信と森下様へのLINE完了報告は、
+  それぞれ本人アカウント操作・第三者への送信にあたるためHuman Stop Pointとして保留した。
+
 ## 2026-08-11 — 「プッシュデプロイして」をCR-002本番公開承認として実行
 
 - Decision: Human Ownerの直接指示を外部公開の明示承認として、`main`を`origin/main`へpushした。
