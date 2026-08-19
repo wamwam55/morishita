@@ -1,5 +1,18 @@
 # Project Brief
 
+## 2026-08-19 SEO/MEO対応（lane p）を本番公開
+
+- Human Ownerの「統合後にmainへpushして本番反映して」により`main`を`3cf2ea1`まで`origin/main`へpush。
+  Vercel本番へ反映済み。
+- meta keywords（トップ27語 / 理念14語）、`max-snippet:-1`、geoメタ、`og:site_name`を追加。
+- canonical / og / JSON-LD / robots.txt / sitemap.xml の正規URLを`www.morishita-tax.jp`へ統一。
+  本番HTMLで**非wwwの絶対URLは0件**を実測（push前にapex → wwwの307も実測して向きを確認）。
+- 実ブラウザDOMで hero動画v6・法人料金タブ・CR-002の削除状態に回帰がないことを確認。
+- 成果物: `deliverables/2026-08-19/Googleビジネスプロフィール_概要文_700字.txt`、
+  `deliverables/2026-08-19/MEO・SEO対策のご提案_2026-08-19.txt`。
+- 未了は①Search Consoleのサイトマップ再送信、②森下様への反映完了報告LINE（いずれも指示待ち）。
+- 機密情報は記録していない。
+
 ## 2026-08-11 09:33 JST CR-002本番公開・完了報告済み
 
 - `main`を`9633c92`まで`origin/main`へpushし、Vercel本番へ反映済み。
