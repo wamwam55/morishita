@@ -1,5 +1,74 @@
 # Current State
 
+## 2026-08-21 JST — 本番公開の確認とdocsのpush（サイト本体は既に反映済みだった）
+
+Human Ownerの「森下さんのサイトの変更を本番へpushして公開して」を外部公開の明示承認として受領し、
+実行前に実体を検証した。結果、**サイト本体の変更は既に `origin/main` へ反映され、本番も配信済み**
+だった。前セッションの引き継ぎ資料およびCURRENT_STATEの「本番反映は未実施」という記載は
+**この時点で古くなっていた**（KNOWN_ISSUES 11 と同種の要約と実体の食い違い）。
+
+### 実行前に確認した実体
+
+- `git rev-parse HEAD` = `309c094`、`git ls-remote origin main` = `309c094` で**一致**（ahead/behind 0/0）
+- 新規5ページ・`theme/subpage.css`・`sitemap.xml` はいずれも HEAD に含まれていた
+- 未コミットの差分は `docs/` 3ファイルと `.ai/HANDOFFS/` 1ファイルのみで、**公開サイトの表示に影響しない**
+
+### 本番の実測（配信物と作業ツリーの一致を検証）
+
+`index.html` / `philosophy.html` / 新規5ページ / `theme/subpage.css` / `sitemap.xml` /
+`robots.txt` / `components/footer/*` / `components/pricing/pricing.html` / `components/hero/*`
+の**15ファイルすべてで本番配信物とローカルが byte単位で一致**（`diff` 差分なし）。
+
+- `profile.html` は本番も 18,270 bytes でローカルと同一。「1977年生まれ」2件、
+  「社会保険労務士として登録」1件、`birthDate` 1件、「所長・税理士・社会保険労務士」2件を本番HTMLで確認
+- 全7ページのJSON-LD **計16ブロックすべて `json.loads` 成功**。canonical は7ページとも www。
+  **非wwwの絶対URLは全ページ0件**
+- `sitemap.xml` の `<loc>` は7URLで全てwww。`robots.txt` 200
+- Search Console所有権確認用 `google73804c84c6342131.html` は **200を維持**（KNOWN_ISSUES 33）
+- フッターのサイトマップ導線6リンク（faq / souzoku / houjin-setsuritsu / voice / profile /
+  philosophy）が本番の `footer.html` に存在
+
+### 本番実物のレンダリング検証（390px）
+
+本番HTMLを取得し `<base href="https://www.morishita-tax.jp/">` を注入して同一オリジン化し、
+390px幅のiframeに読み込んでヘッドレスChromeで計測（file://とhttps://はクロスオリジンで
+`contentDocument` が読めないため。KNOWN_ISSUES 10 の派生）。
+
+| ページ | scrollWidth / clientWidth | 画像 | 欠損 |
+| --- | --- | --- | --- |
+| faq | 390 / 390 | 0 | 0 |
+| souzoku | 390 / 390 | 2 | 0 |
+| houjin-setsuritsu | 390 / 390 | 2 | 0 |
+| voice | 390 / 390 | 1 | 0 |
+| profile | 390 / 390 | 2 | 0 |
+
+5ページとも**横溢れ0・画像欠損0**。`right > 391` の要素は `souzoku` / `houjin-setsuritsu` /
+`profile` で検出されたが、実体は `TABLE.ph-table` とその子孫で、**親が `overflow-x: auto`**。
+表だけが内部で横スクロールする意図どおりのレスポンシブ表であり、
+ページ自体は横スクロールしない（`scrollWidth = clientWidth = 390`）。**不具合ではない**。
+
+### 実施したpush
+
+`1014614`（`docs/CURRENT_STATE.md` / `docs/KNOWN_ISSUES.md` / `docs/SESSION_HANDOFFS.md` /
+`.ai/HANDOFFS/2026-08-20T13-41-25-530Z-claude-d0c8846b-7.md`）を `309c094..1014614` として
+`origin/main` へpush。`git ls-remote` で `origin/main = 1014614` を確認。作業ツリーはクリーン。
+再デプロイ後も本番10URLすべて200、`profile.html` の内容も維持されていることを再確認した。
+
+### 実行しなかったこと
+
+- **森下様へのLINE報告は送信していない**。今回の指示は本番公開のみで、送信の指示が無かったため。
+  送信が必要ならHuman Ownerの指示を待つ
+- ブラウザーでの目視確認は途中で中止した（下記）
+
+### 作業中に観測したこと
+
+- 登録プロファイル（Chrome / Profile 1 / wamwam55@gmail.com）で本番URLを開こうとしたが、
+  macOSが「アプリケーションメモリが不足しています」の強制終了ダイアログを表示していた
+  （Google Chrome が **14.02 GB** を使用）。強制終了は一切行っていない
+- 稼働中Chromeへのタブ追加はHuman Ownerが中止したため実行していない。
+  本番の正しさはHTTP実測とヘッドレス計測で確認済みのため、検証内容に欠落はない
+- 機密情報は記録していない。remote URLは認証情報を含まない形で扱った
+
 ## 2026-08-20 JST — 森下様の確認回答4件を反映／GBPのQ&A投稿は機能廃止により実行不能と確定
 
 森下様からLINEでいただいた確認事項4件のご回答を反映した。**ローカル実装まで完了、本番反映は未実施**。

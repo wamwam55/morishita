@@ -1,5 +1,62 @@
 # Known Issues
 
+## 38. 引き継ぎ資料の「本番反映は未実施」は当てにならない。pushの前に必ず実体を見る（2026-08-21）
+
+2026-08-21、Human Ownerから「本番へpushして公開して」を受けた時点で、
+`docs/CURRENT_STATE.md` と `.ai/HANDOFFS/` は揃って**「本番反映は未実施」と書いていた**。
+しかし実体は既に `origin/main` へ反映済みで、本番も配信済みだった。
+
+原因は、MIKANOSのターン終了時の自動コミットが**文書を書いた後に走る**こと。
+文書は「まだpushしていない」時点の記述で固まり、その直後のコミット／反映で古くなる。
+
+**pushの前に必ずこの3つを実行する。**
+
+```bash
+git rev-parse HEAD                       # ローカル
+git ls-remote origin main                # リモート（この2つが一致していれば push 済み）
+git rev-list --left-right --count origin/main...main   # 0<TAB>0 なら差分なし
+```
+
+さらに「本番に出ているか」は remote の SHA では確定しない（デプロイの遅延・失敗がある）。
+**配信物とローカルを byte で突き合わせる**のが唯一確実な確認方法。
+
+```bash
+for f in index.html faq.html profile.html theme/subpage.css sitemap.xml; do
+  curl -s "https://www.morishita-tax.jp/$f" -o /tmp/_p.tmp
+  diff -q /tmp/_p.tmp "$f" >/dev/null 2>&1 && echo "$f MATCH" || echo "$f DIFFERS"
+done
+```
+
+「未反映と書いてあるから push する」ではなく、**差分が無ければ「既に公開済み」と報告する**。
+KNOWN_ISSUES 11（未pushの取りこぼし）と対になる、逆方向の食い違いである。
+
+## 37. 本番サイトの390px検証は `<base>` を注入して同一オリジン化する（2026-08-21）
+
+ローカルファイルの検証は「390px幅のiframeに読み込んで内側を測る」で通る（KNOWN_ISSUES 10）。
+しかし**本番URLを直接iframeに入れると測れない**。外側が `file://`、中身が `https://` で
+クロスオリジンになり、`iframe.contentDocument` が `null` になるため。
+
+ヘッドレスChromeの `--window-size` は幅500px未満にできないので、iframeを使わない逃げ道も無い。
+
+**正しい手順**: 本番HTMLを取得し、`<head>` の直後に `<base>` を注入してローカルへ保存する。
+これで相対パスの画像・CSSは本番から読み込まれたまま、外側と同一オリジン（`file://`）になり
+`contentDocument` が読める。
+
+```python
+h = urllib.request.urlopen(url).read().decode("utf-8", "ignore")
+h = re.sub(r'(<head[^>]*>)', r'\1<base href="https://www.morishita-tax.jp/">', h, count=1)
+open("/tmp/_live_x.html", "w").write(h)
+```
+
+起動オプションに `--allow-file-access-from-files` が必要。測定はiframeの `load` 後さらに
+2.5秒待ってから（Webフォントと画像の確定待ち）。結果は `document.title` へ書き出して
+`--dump-dom` から `grep` で拾うのが確実。
+
+**`right > 391` の要素数だけで不具合と判定しないこと。** 本サイトの `souzoku` /
+`houjin-setsuritsu` / `profile` では11〜30件が該当するが、実体は `TABLE.ph-table` と
+その子孫で、親が `overflow-x: auto` の**意図どおりの横スクロール表**である。
+ページの横溢れの有無は `documentElement.scrollWidth === clientWidth` で判定する。
+
 ## 33.【重要】`google73804c84c6342131.html` を削除してはいけない（2026-08-20）
 
 サイトルートの `google73804c84c6342131.html` は **Google Search Console の所有権確認ファイル**。
