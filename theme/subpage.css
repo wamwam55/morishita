@@ -176,6 +176,11 @@ body.philosophy-page {
     clear: both;
 }
 
+/* 添えイラストの横に回り込ませ、見出しの下に空白が生じないようにする */
+.ph-list.ph-list--flow {
+    clear: none;
+}
+
 .ph-list li {
     position: relative;
     padding-left: 22px;

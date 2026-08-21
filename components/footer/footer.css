@@ -105,25 +105,55 @@
 /* サービス別ページへの内部リンク
    旧スタイルの .footer-link は display:none のため、別クラスで定義する */
 .footer-sitemap {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px 28px;
     margin-bottom: 28px;
     padding-bottom: 26px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.footer-sitemap a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    font-size: 0.88rem;
-    letter-spacing: 0.04em;
-    transition: color 0.3s ease;
+.footer-sitemap-title {
+    margin: 0 0 16px;
+    text-align: center;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    color: rgba(255, 255, 255, 0.5);
 }
 
-.footer-sitemap a:hover {
+.footer-sitemap-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+}
+
+.footer-sitemap-list a {
+    display: block;
+    padding: 16px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
     color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.footer-sitemap-list a span {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.footer-sitemap-list a:hover,
+.footer-sitemap-list a:focus-visible {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.35);
 }
 
 /* コピーライト */
