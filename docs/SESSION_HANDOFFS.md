@@ -34,3 +34,5 @@
 - 2026-08-10T23:07:22.227Z: `codex:019fed5c-a088-7550-966e-00ce1f819b2f` → `codex:92547164-fd94-401e-a36e-e2376a1cbdd8`（`.ai/HANDOFFS/2026-08-10T23-07-22-149Z-codex-019fed5c-a.md`）
 - 2026-08-19T13:35:57.096Z: `claude:ee341110-0711-4b74-8020-de4f46e628c3` → `claude:ab52c8a5-973b-427d-86dd-c285e1ecf923`（`.ai/HANDOFFS/2026-08-19T13-35-57-020Z-claude-ee341110-0.md`）
 - 2026-08-20T13:41:25.622Z: `claude:d0c8846b-7e31-4cd7-aecc-c3e87d59e6b7` → `claude:d6b01de7-0ca0-4fe2-98c1-aa595573cd89`（`.ai/HANDOFFS/2026-08-20T13-41-25-530Z-claude-d0c8846b-7.md`）
+- 2026-08-20T17:40:35.435Z: `claude:d6b01de7-0ca0-4fe2-98c1-aa595573cd89` → `claude:f6853f46-f28a-4d6a-af1d-9f603e03f132`（`.ai/HANDOFFS/2026-08-20T17-40-35-330Z-claude-d6b01de7-0.md`）
+- 2026-08-21T00:20:11.603Z: `claude:88caf325-4167-45f9-8dba-81d3ce964213` → `claude:1d8ef4c5-3282-4ad2-8138-23a1661f72c7`（`.ai/HANDOFFS/2026-08-21T00-20-11-531Z-claude-88caf325-4.md`）

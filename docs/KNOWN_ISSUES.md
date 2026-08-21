@@ -1,5 +1,153 @@
 # Known Issues
 
+## 41. `file://` のiframe計測が空振りする真因は `--allow-file-access-from-files` の欠落（2026-08-21）
+
+390px幅の検証は「iframeに入れて内側のdocumentを測る」方式で行う（KNOWN_ISSUES 10）。
+今回**3回連続で空振り**し、途中で「`--screenshot` は `scrollTo()` を無視するらしい」と
+**誤った結論を書きかけた**。実際は原因は1つだけだった。記録として経緯ごと残す。
+
+### 真因: `--allow-file-access-from-files` が無いと `contentDocument` が読めない
+
+`file://` は既定でオリジンが不透明なため、親ページから iframe の中に触れない。
+このとき症状は**2通りに化けて見える**ので、別々の不具合だと誤診しやすい。
+
+| やろうとしたこと | 実際に見える症状 | 誤診しやすい結論 |
+|---|---|---|
+| `--dump-dom` で計測値を取る | 出力が `PENDING` のまま。**エラーも例外も出ない** | 「JSが実行されていない」 |
+| `--screenshot` でページ途中を撮る | 常にページ**最上部**が撮れる | 「スクショは `scrollTo()` を反映しない」 |
+
+後者は、`contentDocument` へのアクセスが例外になって
+**`scrollTo()` の行に到達していなかっただけ**。フラグを付けて再実行したところ、
+`contentWindow.scrollTo()` は `--screenshot` に**正しく反映された**（実測確認済み）。
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu \
+  --allow-file-access-from-files --virtual-time-budget=15000 --window-size=500,1000 \
+  --dump-dom "file://$PWD/_t_x.html" 2>/dev/null | grep -o 'RESULT {.*}'
+```
+
+**教訓**: iframe を触るJSは `try/catch` で囲み、`catch` の中身を `document.title` などへ
+書き出すこと。今回それを入れた瞬間に原因が確定した。無音で失敗する経路を無音のままにしない。
+
+### 計測値は必ずDOMへ書き出す
+
+`--dump-dom` はレンダー後のDOMを吐くだけ。**結果は要素の `textContent` へ書き込む**。
+先頭に `RESULT ` のような固定マーカーを付けて `grep -o 'RESULT {.*}'` で取り出すと確実。
+
+### スクロールが使えない事情があるなら負のオフセットでも撮れる
+
+```html
+<div style="width:390px;height:1000px;overflow:hidden;position:relative">
+  <iframe src="_t_prod.html" style="width:390px;height:8000px;border:0;position:absolute;top:-3820px"></iframe>
+</div>
+```
+
+iframeを content 全高にしておけば `getBoundingClientRect().top` がページ先頭からの絶対位置になり、
+その値からオフセットを決められる。`scrollTo()` 方式（KNOWN_ISSUES / メモリ参照）と結果は同じ。
+
+### 本番の実物を撮るときは `<base>` を注入する
+
+```bash
+curl -s https://www.morishita-tax.jp/PAGE.html \
+  | perl -pe 's|<head>|<head><base href="https://www.morishita-tax.jp/">|' > _t_prod.html
+```
+
+これで相対パスのCSS・画像が本番から解決される。**検証後は `_t_*` を必ず削除する。**
+
+## 40. このMacがメモリ不足になる本当の理由 —— Chromeを疑う前に測る（2026-08-21）
+
+「Chromeが14GB使っている」と報告されたが、**実測するとChromeは6.88 GBで、
+主犯はつけっぱなしのiOS/watchOSシミュレーター29.4 GB（275プロセス）だった。**
+アプリ名を見て犯人を決めず、必ず分類して測ること。
+
+### 測り方（この手順で全体像が出る）
+
+`ps` の RSS はChromeでは共有メモリのせいで実態とずれる（今回 RSS合計1.52 GB に対し
+実フットプリントは6.88 GB）。**Activity Monitorと同じ値は `top` の `mem`（phys_footprint）**。
+
+```bash
+export PATH=/usr/sbin:/sbin:/usr/bin:/bin:$PATH   # sysctl/top はPATHに無いことがある
+top -l 1 -o mem -n 600 -stats pid,mem > /tmp/_top.txt
+ps -Ao pid=,command= > /tmp/_ps.txt     # top はコマンド名を15文字で切るので ps で分類する
+# あとは pid をキーに join して分類ごとに合計する
+sysctl vm.swapusage                      # ← 逼迫の判定はこれが一番早い
+memory_pressure | grep "free percentage"
+```
+
+**「アプリケーションメモリが不足しています」の判定基準はスワップの残量。**
+今回は `used = 17,971 MB / total = 18,432 MB`（残り460 MB）で枯渇していた。
+解消後はmacOSがスワップファイル自体を7,168 MBへ縮小する。
+
+注意: `pgrep -f "Google Chrome"` は、**システムプロンプトに「Google Chrome」を含む
+`claude` プロセスまで拾う**（今回1本混入して集計を誤った）。
+`pgrep -f "/Applications/Google Chrome.app/Contents"` でもまだ混じるので、
+`ps -o command=` の中身を見て `claude` を除外すること。
+
+### 回収してよいもの / いけないもの
+
+| 対象 | 判断 | 理由 |
+|---|---|---|
+| `xcrun simctl shutdown all` | **やってよい** | シミュレーターのデータはディスクに残る。1台100+デーモン常駐。単独で最大30 GB効く |
+| `killall Finder` | **やってよい** | 自動で再起動する。今回 2,498 → 201 MB |
+| `System Events` を kill | **やってよい** | 次のosascriptで自動起動。今回 885 → 13 MB。AppleScript操作を続けるとリークする |
+| `com.apple.appkit.xpc.openAndSavePanelService` を kill | **やってよい**（`kill -9` が必要。TERMでは死なない） | 次にファイルダイアログを開いた時に自動起動。LINEの📎添付作業（KNOWN_ISSUES 30）の副作用で1,256 MBまで肥大していた |
+| ChromeのGPUプロセスを kill | **やってよい** | Chromeが自動で作り直す。タブ・ログインは無傷。4日稼働で1,802 MB → 再作成で604 MB |
+| **WindowServer / loginwindow** | **絶対にkillしない** | ログアウトされ、開いているものが全部消える。Mac再起動でのみ解消 |
+| **`claude` / node（AIOSセッション）** | **触らない** | 生きているセッションを落とすと作業が飛ぶ。最長11日稼働のものがあった。先に `lsof -a -p <pid> -d cwd -Fn` で作業フォルダを見る |
+| Chrome本体の再起動 | **人に確認する** | 下記の通りタブが復元されない設定のため |
+
+**シミュレーターを止める前に必ず確認すること**（他プロジェクトの作業を壊さないため）:
+
+```bash
+pgrep -lf "xcodebuild|swift-frontend|clang"        # ビルド中でないこと
+xcrun simctl list devices booted                    # 何が起動しているか
+ps -Ao etime=,command= | grep SpringBoard           # 何日放置されているか
+for p in $(pgrep -f "npm-global/bin/claude"); do    # 並行セッションがiOS作業でないこと
+  echo "$p $(lsof -a -p $p -d cwd -Fn 2>/dev/null | grep ^n | cut -c2-)"; done
+```
+
+### Chromeを再起動する前に —— このプロファイルはタブを復元しない
+
+```
+Profile 1/Preferences → session.restore_on_startup = 未設定（既定 = 5「新しいタブページ」）
+```
+
+**このまま `Cmd+Q` すると開いていたタブが全部消える。** 再起動でChromeは6.45 → 1.5 GB程度まで
+落ちるが、先に 設定 →「起動時」→「**前回開いていたタブを開く**」へ変えること。
+変えない場合は再起動後に `Cmd+Shift+T` の連打で復元する。
+なお `Local State` の `performance_tuning.high_efficiency_mode` は
+`state=2 / aggressiveness=2`（＝メモリセーバー最大）で**すでに有効**。ここをいじっても改善しない。
+
+### 空ウィンドウが増える原因はMIKANOS自身の起動コマンド
+
+セッション設定の
+`open -g -a "Google Chrome" --args "--profile-directory=Profile 1" <URL>` は、
+**Chromeが起動中でも新しいウィンドウを作る**。URLを開かずに終わると
+`chrome://newtab/` 1枚だけの窓が残る。今回9個溜まっていた（全18窓の半分）。
+
+- 使い終わったウィンドウはセッション終了時に閉じる
+- あるいは既存ウィンドウにタブとして開く:
+  `tell application "Google Chrome" to tell window 1 to make new tab with properties {URL:"…"}`
+- 一括掃除（`chrome://newtab/` 1枚だけの窓を閉じる。逆順に回さないと index がずれる）:
+
+```applescript
+tell application "Google Chrome"
+  set i to (count of windows)
+  repeat while i > 0
+    try
+      if (count of tabs of window i) = 1 and (URL of tab 1 of window i) starts with "chrome://newtab" then close window i
+    end try
+    set i to i - 1
+  end repeat
+end tell
+```
+
+### 掃除の前に必ずタブ一覧をバックアップする
+
+`deliverables/<日付>/Chromeタブ一覧_整理前バックアップ.txt` に落としてから閉じること。
+決済・申込フォームなど**入力途中のタブは閉じない**
+（今回はProxy-Cheapの決済ページとゆうIDの登録ページを残した）。
+
 ## 39. 前セッションの「スレッド再確認＝新着なし」は当てにならない（2026-08-21）
 
 MIKANOS共通ルールの「対応後にもう一度トークを開き直して新着を確認する」を前セッションは
@@ -885,7 +1033,10 @@ LINE Desktop では `Cmd+↑` がトークルーム切り替えとして働き�
 <!-- MIKANOS:SESSION-CONTINUITY:START -->
 ## MIKANOSが検出した未完了候補
 
-- 更新: 2026-08-20T13:41:25.530Z
+- 更新: 2026-08-21T00:20:11.531Z
 
-- なし
+- モバイルでフッターのリンクが**画面外へはみ出して切れています**（これが「移動できない」の実態）。CSSを確認します。
+- 目視では判断できないので、memoryの指針どおり scrollWidth で実測します。
+- 削除した内容がメタ情報や目次に残っていないか確認します。
+- 修正・検証・LINE報告まで完了しました。以下が結果です。 ## 対応内容 **LINE（森下 知幸様）** - 8:54 第一返信（稼働中である旨）— 森下様から9:01「大丈夫🙂 動いてくれました」と受領確認あり - 9:16 完了報告（修正内容の明細） - 2通とも `/api/messages/sent` へ記帳済み。作業後にスレッドを開き直して新着ゼロを確認し、Keepメモへ切り替えて離脱しました **サイト修正（6:10の依頼全項目）** | 依頼 | 対応 | |---|---| | トップ下部から各ページへ移動、経営理念が先頭・Q&Aが末尾 | `components/foo
 <!-- MIKANOS:SESSION-CONTINUITY:END -->
