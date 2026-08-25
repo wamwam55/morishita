@@ -18,11 +18,11 @@
                 '<span class="hero-title-sub">あなたの成功を支えます。</span>';
         }
         if (heroSubtitle) {
-            heroSubtitle.textContent = '森下知幸税理士・社労士事務所';
+            heroSubtitle.textContent = '森下知幸税理士・社労士事務所 | 西中島南方・新大阪エリア';
         }
         if (heroDescription) {
             // hero.html と同じ内容（h1 から外れた「大阪市淀川区の税理士」をここで保持する）
-            heroDescription.innerHTML = '大阪市淀川区で税理士をお探しの方へ。<br>' +
+            heroDescription.innerHTML = '西中島南方駅より徒歩4分。大阪市淀川区で税理士をお探しの方へ。<br>' +
                 '記帳代行・税務相談・法人設立・相続税対策まで<br>' +
                 '中小企業・個人事業主の経営をトータルサポート。';
         }

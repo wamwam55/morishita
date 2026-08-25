@@ -7,9 +7,17 @@
     <!-- メインページ -->
     <url>
         <loc>https://www.morishita-tax.jp/</loc>
-        <lastmod>2026-08-19</lastmod>
+        <lastmod>2026-08-25</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+    </url>
+
+    <!-- エリアページ：西中島南方の税理士 -->
+    <url>
+        <loc>https://www.morishita-tax.jp/nishinakajima-minami-zeirishi.html</loc>
+        <lastmod>2026-08-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
     </url>
 
     <!-- 経営理念ページ（感謝・尊敬・愛） -->

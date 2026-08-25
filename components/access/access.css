@@ -100,7 +100,21 @@
 .access-details {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
+}
+
+.access-note {
+    margin: 1.5rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    font-weight: 300;
+    color: var(--text-color, #666);
+}
+
+.access-note a {
+    color: var(--accent-color, #8b7962);
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 .access-method {
