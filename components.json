@@ -31,18 +31,18 @@
             "description": "プログラム紹介セクション"
         },
         {
-            "name": "pricing",
-            "path": "components/pricing",
-            "enabled": true,
-            "order": 5,
-            "description": "料金プランセクション"
-        },
-        {
             "name": "onestop",
             "path": "components/onestop",
             "enabled": true,
+            "order": 5,
+            "description": "税務×労務ワンストップ訴求セクション（about内で料金表の真上に入るため、料金表より先に読み込む）"
+        },
+        {
+            "name": "pricing",
+            "path": "components/pricing",
+            "enabled": true,
             "order": 5.1,
-            "description": "税務×労務ワンストップ訴求セクション"
+            "description": "料金プランセクション"
         },
         {
             "name": "simulator",
