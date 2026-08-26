@@ -51,16 +51,16 @@ lanes:
 
         CONFLICT (content): Merge conflict in docs/SESSION_HANDOFFS.md
   - id: p
-    name: 森下のラインをみて処理してあげて 開始のラインも
-    objective: 森下のラインをみて処理してあげて　開始のラインも
+    name: おい何してんねん デザインかわってるやんけ
+    objective: おい何してんねん　デザインかわってるやんけ
     branch: codex/lane/p
     worktree: /Users/FISH/DEV/サイト/morishitax.aios-lanes/p
     portBase: 3120
     mainBranch: main
-    status: merged
+    status: active
     agent: auto
     createdAt: 2026-08-19T09:21:05.428Z
-    updatedAt: 2026-08-19T16:48:33.350Z
+    updatedAt: 2026-08-26T06:16:20.510Z
     mergedAt: 2026-08-19T16:48:33.350Z
-    claimedAt: 2026-08-19T09:21:05.428Z
+    claimedAt: 2026-08-26T06:16:20.510Z
     concerns: []
