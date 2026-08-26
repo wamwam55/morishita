@@ -143,7 +143,16 @@
 - Product Lead:
 - Design Lead:
 - 作成日:
-- 現在の State: 2026-08-11 02:12 JST。CR-001とDesign / Spec / HTML FreezeはHuman承認済み。
+- 現在の State: 2026-08-26 15:00 JST。**代表写真の差し替えは実装・4面の表示検証まで完了、
+  本番は未反映（`HEAD = origin/main = 5177a56`、変更4ファイルは作業ツリーに未コミット）。**
+  森下様 14:42 のご依頼「ホームページの代表写真を添付したものに差し替えて」に対し、
+  `images/morishita-daihyo.jpg`（1500×2000・340KB）へ差し替え、
+  `components/about/about.{html,css}` / `profile.html`（4か所）/ `theme/subpage.css` を更新。
+  `IMG_4347` の参照は全ページ **0件**。横溢れ0・画像欠損0・スクショ目視まで確認済み。
+  **未完了は2件**: ①本番へのpush（自動プッシュOFF・Human Ownerの承認待ち）
+  ②森下様への完了報告LINE（14:43 に「反映が終わりましたら改めてご連絡します」と約束済み・
+  反映後に送る）。詳細は `docs/CURRENT_STATE.md` 冒頭と `docs/DECISIONS.md` 2026-08-26 の項。
+  以下は 2026-08-11 02:12 JST 時点の記録。CR-001とDesign / Spec / HTML FreezeはHuman承認済み。
   **CR-001は本番公開・実画面検証まで完了。** 法人顧問契約は「料金表をみる」から法人料金表へ切り替わり、
   会費・消耗品費・減価償却の注記3件を追加。PC / mobileで実ブラウザ確認済み。
   Freeze版と実装版の画像差分は両viewportとも **0 changed pixels**。管理Stateは `OPERATE`。
