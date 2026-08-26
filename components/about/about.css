@@ -380,10 +380,12 @@
     filter: brightness(0.98) contrast(1.1) saturate(0.95);
 }
 
-/* 代表税理士画像専用スタイル */
+/* 代表税理士画像専用スタイル
+   images/morishita-daihyo.jpg は 1500x2000（3:4 縦位置）。横長の枠に cover で
+   入れるため、頭上の余白が残る位置で止める（20% では頭頂が枠に接する）。 */
 #instructor-image-container .slide-img {
     transition: transform 8s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.8s ease;
-    object-position: center 20%;
+    object-position: center 8%;
     filter: brightness(1.05) contrast(1.08);
 }
 
