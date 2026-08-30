@@ -22,10 +22,10 @@ lanes:
     worktree: /Users/FISH/DEV/サイト/morishitax.aios-lanes/p
     portBase: 3120
     mainBranch: main
-    status: active
+    status: merged
     agent: auto
     createdAt: 2026-08-19T09:21:05.428Z
-    updatedAt: 2026-08-26T06:16:20.510Z
-    mergedAt: 2026-08-19T16:48:33.350Z
+    updatedAt: 2026-08-30T20:16:24.880Z
+    mergedAt: 2026-08-30T20:16:24.880Z
     claimedAt: 2026-08-26T06:16:20.510Z
     concerns: []
