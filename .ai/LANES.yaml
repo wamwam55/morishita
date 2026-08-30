@@ -2,19 +2,6 @@ schemaVersion: 1
 projectPath: /Users/FISH/DEV/サイト/morishitax
 mainBranch: main
 lanes:
-  - id: ai-pc-line-2026-07-30t19-39-35-4
-    name: なおmikanosは明日10時までメンテナンスのため本日…
-    objective: なおmikanosは明日10時までメンテナンスのため本日は停止予定です　その間動作保証はされていません　って追加でいれておいて
-    branch: codex/lane/ai-pc-line-2026-07-30t19-39-35-4
-    worktree: /Users/FISH/DEV/サイト/morishitax.aios-lanes/ai-pc-line-2026-07-30t19-39-35-4
-    portBase: 3100
-    mainBranch: main
-    status: merged
-    agent: auto
-    createdAt: 2026-07-30T19:44:45.461Z
-    updatedAt: 2026-08-30T20:16:24.584Z
-    concerns: []
-    mergedAt: 2026-08-30T20:16:24.584Z
   - id: p
     name: おい何してんねん デザインかわってるやんけ
     objective: おい何してんねん　デザインかわってるやんけ
