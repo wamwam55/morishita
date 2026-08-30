@@ -1,18 +1,4 @@
 schemaVersion: 1
 projectPath: /Users/FISH/DEV/サイト/morishitax
 mainBranch: main
-lanes:
-  - id: p
-    name: おい何してんねん デザインかわってるやんけ
-    objective: おい何してんねん　デザインかわってるやんけ
-    branch: codex/lane/p
-    worktree: /Users/FISH/DEV/サイト/morishitax.aios-lanes/p
-    portBase: 3120
-    mainBranch: main
-    status: merged
-    agent: auto
-    createdAt: 2026-08-19T09:21:05.428Z
-    updatedAt: 2026-08-30T20:16:24.880Z
-    mergedAt: 2026-08-30T20:16:24.880Z
-    claimedAt: 2026-08-26T06:16:20.510Z
-    concerns: []
+lanes: []
