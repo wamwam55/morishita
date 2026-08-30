@@ -9,47 +9,12 @@ lanes:
     worktree: /Users/FISH/DEV/サイト/morishitax.aios-lanes/ai-pc-line-2026-07-30t19-39-35-4
     portBase: 3100
     mainBranch: main
-    status: conflict
+    status: merged
     agent: auto
     createdAt: 2026-07-30T19:44:45.461Z
-    updatedAt: 2026-08-03T08:53:37.732Z
-    concerns:
-      - >-
-        513393c12dd392bde42d95fdfc62020fed3aea52
-
-        100644 2262ff8c64d0dfbf0b5e5244d2975dacfe64a026 1	docs/CURRENT_STATE.md
-
-        100644 701c7188b758bda82053a3e59b40fee5daa1f706 2	docs/CURRENT_STATE.md
-
-        100644 f8f086b96f3c5f50c581bb1354917613dc8d30bd 3	docs/CURRENT_STATE.md
-
-        100644 4eb75f1a01d64caefe98c00c48ea43cb375b8a4b 1	docs/KNOWN_ISSUES.md
-
-        100644 98c92d79e92cae486a6dab63ebdb2949311c23c7 2	docs/KNOWN_ISSUES.md
-
-        100644 71085070d37959bc96082601711a6b89dcc5d667 3	docs/KNOWN_ISSUES.md
-
-        100644 3b1949615d8064c164e0c5564c6e7ff8f1f97a9c
-        1	docs/SESSION_HANDOFFS.md
-
-        100644 26f216f10fc281d4e032d3e47db753c4cfe4cc9a
-        2	docs/SESSION_HANDOFFS.md
-
-        100644 112cbd8d77a6d359e5ed2d6ad8b6327299b332c1
-        3	docs/SESSION_HANDOFFS.md
-
-
-        Auto-merging docs/CURRENT_STATE.md
-
-        CONFLICT (content): Merge conflict in docs/CURRENT_STATE.md
-
-        Auto-merging docs/KNOWN_ISSUES.md
-
-        CONFLICT (content): Merge conflict in docs/KNOWN_ISSUES.md
-
-        Auto-merging docs/SESSION_HANDOFFS.md
-
-        CONFLICT (content): Merge conflict in docs/SESSION_HANDOFFS.md
+    updatedAt: 2026-08-30T20:16:24.584Z
+    concerns: []
+    mergedAt: 2026-08-30T20:16:24.584Z
   - id: p
     name: おい何してんねん デザインかわってるやんけ
     objective: おい何してんねん　デザインかわってるやんけ
