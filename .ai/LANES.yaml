@@ -1,24 +1,4 @@
 schemaVersion: 1
 projectPath: /Users/FISH/DEV/サイト/morishitax
 mainBranch: main
-lanes:
-  - id: pc-line-line
-    name: PC通知「LINE · 森下 知幸」からの対応 アプリ:…
-    objective: |-
-      PC通知「LINE · 森下　知幸」からの対応
-      アプリ: LINE
-      送信者: 森下　知幸
-      内容: 着陸した。
-      荷物取りに行かなきゃあかんねん
-      少し遅れる
-    branch: codex/lane/pc-line-line
-    worktree: /Users/FISH/DEV/サイト/morishitax.aios-lanes/pc-line-line
-    portBase: 3100
-    mainBranch: main
-    status: merged
-    agent: auto
-    createdAt: 2026-09-08T06:16:18.862Z
-    updatedAt: 2026-09-08T06:16:25.953Z
-    claimedAt: 2026-09-08T06:16:18.862Z
-    concerns: []
-    mergedAt: 2026-09-08T06:16:25.953Z
+lanes: []
