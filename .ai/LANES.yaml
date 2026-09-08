@@ -15,20 +15,10 @@ lanes:
     worktree: /Users/FISH/DEV/サイト/morishitax.aios-lanes/pc-line-line
     portBase: 3100
     mainBranch: main
-    status: active
+    status: merged
     agent: auto
     createdAt: 2026-09-08T06:16:18.862Z
-    updatedAt: 2026-09-08T06:16:18.862Z
+    updatedAt: 2026-09-08T06:16:25.953Z
     claimedAt: 2026-09-08T06:16:18.862Z
-    concerns:
-      - "main の未コミット変更 12件はこのレーンに含まれていません:
-        .ai/HANDOFFS/2026-08-21T00-33-27-578Z-claude-1d8ef4c5-3.md,
-        .ai/HANDOFFS/2026-08-21T07-19-45-995Z-claude-9f5dc404-f.md,
-        .ai/HANDOFFS/2026-08-21T08-09-18-993Z-claude-4000a68b-f.md,
-        .ai/HANDOFFS/2026-08-25T00-31-37-682Z-claude-f66dd081-f.md,
-        .ai/HANDOFFS/2026-08-25T03-42-26-417Z-claude-771d5426-a.md,
-        .ai/HANDOFFS/2026-08-25T04-15-34-574Z-claude-38bb1bd6-b.md,
-        .ai/HANDOFFS/2026-08-26T05-44-15-942Z-claude-d340fcd8-0.md,
-        .ai/HANDOFFS/2026-08-26T05-55-25-884Z-claude-97c692c2-2.md,
-        .ai/HANDOFFS/2026-08-26T06-04-30-132Z-claude-4fc9ef01-e.md,
-        .ai/HANDOFFS/2026-08-26T06-16-20-245Z-claude-de86d843-0.md"
+    concerns: []
+    mergedAt: 2026-09-08T06:16:25.953Z
