@@ -52,8 +52,8 @@ lanes:
     status: active
     agent: auto
     createdAt: 2026-09-19T20:31:29.825Z
-    updatedAt: 2026-09-19T20:31:29.825Z
-    claimedAt: 2026-09-19T20:31:29.825Z
+    updatedAt: 2026-09-19T21:48:26.400Z
+    claimedAt: 2026-09-19T21:48:26.400Z
     concerns:
       - "main の未コミット変更 21件はこのレーンに含まれていません: docs/CURRENT_STATE.md,
         docs/KNOWN_ISSUES.md, docs/SESSION_HANDOFFS.md,
