@@ -49,10 +49,10 @@ lanes:
     worktree: /Users/FISH/DEV/サイト/morishitax.aios-lanes/pc-line-line-2026-09-19t20-30-49
     portBase: 3100
     mainBranch: main
-    status: active
+    status: closed
     agent: auto
     createdAt: 2026-09-19T20:31:29.825Z
-    updatedAt: 2026-09-19T21:52:26.687Z
+    updatedAt: 2026-09-19T22:39:15.780Z
     claimedAt: 2026-09-19T21:52:26.687Z
     concerns:
       - "main の未コミット変更 21件はこのレーンに含まれていません: docs/CURRENT_STATE.md,
